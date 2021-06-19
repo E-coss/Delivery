@@ -85,7 +85,7 @@
 
                 <x-jet-dropdown-link href="{{ route('profile.show') }}" class="font-semibold dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-gray-200">
                   <span><i class="fas fa-user-cog dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-gray-200 pr-2"></i></span>
-                  {{ __('Profile') }}
+                  {{ __('perfil.Profile') }}
                 </x-jet-dropdown-link>
 
                 @if (Laravel\Jetstream\Jetstream::hasApiFeatures())

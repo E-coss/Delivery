@@ -22,7 +22,7 @@
 
                     <!-- Member Email -->
                     <div class="col-span-6 sm:col-span-4">
-                        <x-jet-label for="email" value="{{ __('Email') }}" />
+                        <x-jet-label for="email" value="{{ __('perfil.Email') }}" />
                         <x-jet-input id="name" type="text" class="mt-1 block w-full" wire:model.defer="addTeamMemberForm.email" />
                         <x-jet-input-error for="email" class="mt-2" />
                     </div>
@@ -170,7 +170,7 @@
             </x-jet-secondary-button>
 
             <x-jet-button class="ml-2" wire:click="updateRole" wire:loading.attr="disabled">
-                {{ __('Save') }}
+                {{ __('perfil.Save') }}
             </x-jet-button>
         </x-slot>
     </x-jet-dialog-modal>

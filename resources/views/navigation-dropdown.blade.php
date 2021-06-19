@@ -115,7 +115,7 @@
                 <!-- Account Management -->
                 <x-responsive-nav-link class="dark:text-gray-200 text-gray-600 hover:text-gray-800 dark:hover:text-gray-200" href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
                     <span><i class="fas fa-user-cog pr-2"></i></span>
-                    {{ __('Profile') }}
+                    {{ __('perfil.Profile') }}
                 </x-responsive-nav-link>
 
                 @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
