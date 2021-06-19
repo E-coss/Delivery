@@ -54,9 +54,25 @@
 
         <!-- Name -->
         <div class="col-span-6 sm:col-span-4">
-            <x-jet-label for="name" value="{{ __('Name') }}" />
+            <x-jet-label for="name" value="{{ __('Nombre') }}" />
             <x-jet-input id="name" type="text" class="mt-1 block w-full" wire:model.defer="state.name" autocomplete="name" />
             <x-jet-input-error for="name" class="mt-2" />
+        </div>
+
+        <!-- Apellido -->
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="apellido" value="{{ __('Apellido') }}" />
+            <x-jet-input id="apellido" type="text" class="mt-1 block w-full" wire:model.defer="state.apellido" autocomplete="apellido" />
+            <x-jet-input-error for="apellido" class="mt-2" />
+        </div>
+
+
+        <div  class="col-span-6 sm:col-span-4">
+            <x-jet-label value="{{ __('Sexo') }}" />
+            <Select class="form-input rounded-md dark:text-gray-300 dark:bg-gray-800 shadow-sm mt-1 w-full" id="sexo" name="sexo" required wire:model.defer="state.sexo">
+                <Option value="M" selected >Masculino</Option>
+                <Option value="F">Femenino</Option>
+            </Select>
         </div>
 
         <!-- Email -->
@@ -65,6 +81,15 @@
             <x-jet-input id="email" type="email" class="mt-1 block w-full" wire:model.defer="state.email" />
             <x-jet-input-error for="email" class="mt-2" />
         </div>
+
+        <!-- direccion -->
+        <div class="col-span-6 sm:col-span-4">
+            <x-jet-label for="direccion" value="{{ __('Direccion') }}" />
+            <x-jet-input id="direccion" type="text" class="mt-1 block w-full" wire:model.defer="state.direccion" />
+            <x-jet-input-error for="direccion" class="mt-2" />
+        </div>
+
+
     </x-slot>
 
     <x-slot name="actions">

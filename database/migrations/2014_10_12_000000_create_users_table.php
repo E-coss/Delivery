@@ -16,6 +16,7 @@ class CreateUsersTable extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name',50);
+            $table->string('apellido',50);
             $table->string('email',60)->unique();
             $table->string('direccion')->nullable();
             $table->string('sexo',1)->nullable();
@@ -24,7 +25,7 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
             $table->text('profile_photo_path')->nullable();
-            $table->enum('estado', ['Activo', 'Inactivo'])->default('Activo');
+            $table->boolean('estado')->default('1');
             $table->timestamps();
         });
     }

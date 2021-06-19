@@ -15,10 +15,10 @@
                     <ul class="md:flex items-center justify-between text-base text-gray-700 pt-4 md:pt-0">
                         <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="#">Shop</a></li>
                         <li><a class="inline-block no-underline hover:text-black hover:underline py-2 px-4" href="#">About</a></li>
-
+                        @auth  
                         <x-dropdown align="right" width="48">
                         <x-slot name="trigger">
-                        
+                     
                 <button class="md:hidden flex py-2 px-4 text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out">
                 {{ Auth::user()->name }}
                             </button>
@@ -90,7 +90,7 @@
                             </form>
                         </x-slot>
                     </x-dropdown>
-
+                    @endauth  
                     </ul>
                 </nav>
             </div>
