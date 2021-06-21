@@ -15,7 +15,7 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                     <x-jet-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                        {{ __('Lgeneral.Dashboard') }}
                     </x-jet-nav-link>
                 </div>
             </div> --}}
@@ -88,12 +88,12 @@
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         <div class="pt-1 pb-1 space-y-1 ">
             <x-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
+                {{ __('Lgeneral.Dashboard') }}
             </x-responsive-nav-link>
         </div>
         <div class="pt-1 pb-1 space-y-1 ">
             <x-responsive-nav-link href="{{ route('users') }}" :active="request()->routeIs('users')">
-                {{ __('users') }}
+                {{ __('Lgeneral.users') }}
             </x-responsive-nav-link>
         </div>
 
@@ -134,7 +134,7 @@
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
                         <span><i class="fas fa-sign-out-alt pr-3"></i></span>
-                        {{ __('Logout') }}
+                        {{ __('Lgeneral.Logout') }}
                     </x-responsive-nav-link>
                 </form>
 
@@ -143,25 +143,25 @@
                     <div class="border-t border-gray-200"></div>
 
                     <div class="block px-4 py-2 text-xs font-bold text-gray-400">
-                        {{ __('Manage Team') }}
+                        {{ __('Lgeneral.Manage Team') }}
                     </div>
 
                     <!-- Team Settings -->
                     <x-responsive-nav-link class="dark:text-gray-200 text-gray-600 hover:text-gray-800 dark:hover:text-gray-200" href="{{ route('teams.show', Auth::user()->currentTeam->id) }}" :active="request()->routeIs('teams.show')">
                         <span><i class="fas fa-users-cog pr-2"></i></span>
-                        {{ __('Team Settings') }}
+                        {{ __('Lgeneral.Team Settings') }}
                     </x-responsive-nav-link>
 
                     <x-responsive-nav-link class="dark:text-gray-200 text-gray-600 hover:text-gray-800 dark:hover:text-gray-200" href="{{ route('teams.create') }}" :active="request()->routeIs('teams.create')">
                         <span><i class="fas fa-plus pr-3"></i></span> 
-                        {{ __('Create New Team') }}
+                        {{ __('Lgeneral.Create New Team') }}
                     </x-responsive-nav-link>
 
                     <div class="border-t border-gray-200"></div>
 
                     <!-- Team Switcher -->
                     <div class="block px-4 py-2 text-xs font-bold text-gray-400">
-                        {{ __('Switch Teams') }}
+                        {{ __('Lgeneral.Switch Teams') }}
                     </div>
 
                     @foreach (Auth::user()->allTeams() as $team)

@@ -118,7 +118,7 @@
                     <x-slot name="content" >
                         <!-- Account Management -->
                         <div class="block px-4 py-2 text-xs font-bold text-gray-400 dark:text-gray-300">
-                            {{ __('Manage Account') }}
+                            {{ __('Lgeneral.Manage Account') }}
                         </div>
 
                         <x-jet-dropdown-link href="{{ route('profile.show') }}" class="font-semibold dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-gray-200">
@@ -138,19 +138,19 @@
                         <!-- Team Management -->
                         @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
                             <div class="block px-4 py-2 text-xs font-bold text-gray-400 dark:text-gray-300">
-                                {{ __('Manage Team') }}
+                                {{ __('Lgeneral.Manage Team') }}
                             </div>
 
                             <!-- Team Settings -->
                             <x-jet-dropdown-link href="{{ route('teams.show', Auth::user()->currentTeam->id) }}" class="font-semibold dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-gray-200">
                               <span><i class="fas fa-users-cog dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-gray-200 pr-2"></i></span>
-                              {{ __('Team Settings') }}
+                              {{ __('Lgeneral.Team Settings') }}
                             </x-jet-dropdown-link>
 
                             @can('create', Laravel\Jetstream\Jetstream::newTeamModel())
                                 <x-jet-dropdown-link href="{{ route('teams.create') }}" class="font-semibold dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-gray-200">
                                   <span><i class="fas fa-plus dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-gray-200  pr-3"></i></span>  
-                                  {{ __('Create New Team') }}
+                                  {{ __('Lgeneral.Create New Team') }}
                                 </x-jet-dropdown-link>
                             @endcan
 
@@ -158,7 +158,7 @@
 
                             <!-- Team Switcher -->
                             <div class="block px-4 py-2 text-xs text-gray-400 font-bold dark:text-gray-300" >
-                                {{ __('Switch Teams') }}
+                                {{ __('Lgeneral.Create New Team') }}
                             </div>
 
                             @foreach (Auth::user()->allTeams() as $team)
@@ -176,7 +176,7 @@
                                                 onclick="event.preventDefault();
                                                             this.closest('form').submit();">
                                <span><i class="fas fa-sign-out-alt pr-3"></i></span>
-                                {{ __('Logout') }}
+                                {{ __('Lgeneral.Logout') }}
                             </x-jet-dropdown-link>
                         </form>
                     </x-slot>
