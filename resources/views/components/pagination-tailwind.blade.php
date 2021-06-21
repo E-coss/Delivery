@@ -24,11 +24,11 @@
     
     <div class="hidden items-center col-span-3 lg:flex">
         <p class="text-sm d-inline-block text-gray-700 dark:text-gray-300 leading-5">
-            {!! __('Showing') !!}
+            {!! __('pagination.Showing') !!}
             <span class="font-medium text-gray-700 dark:text-gray-300">{{ $paginator->firstItem() }}</span>
-            {!! __('to') !!}
+            {!! __('pagination.to') !!}
             <span class="font-medium text-gray-700 dark:text-gray-300">{{ $paginator->lastItem() }}</span>
-            {!! __('of') !!}
+            {!! __('pagination.of') !!}
             <span class="font-medium text-gray-700 dark:text-gray-300">{{ $paginator->total() }}</span>
         </p>
     </div>
@@ -118,7 +118,7 @@
             </li>
             @else
             <li>
-                <a wire:click="gotoPage({{$page}})"  aria-label="{{ __('Go to page :page', ['page' => $page]) }}">
+                <a wire:click="gotoPage({{$page}})"  aria-label="{{ __('pagination.Go to page :page', ['page' => $page]) }}">
                 <button  class="px-3 py-1 rounded-md focus:shadow-outline-purple hover:outline-none hover:shadow-outline-purple" > 
                     
                         {{ $page }}

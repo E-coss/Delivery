@@ -25,8 +25,8 @@
                                         <select wire:model="show"
                                             class="dark:focus:shadow-outline-gray dark:focus:placeholder-gray-600 dark:bg-gray-700 dark:text-gray-200  focus:bg-none  dark:focus:bg-gray-500 focus:border-purple-300 focus:outline-none focus:shadow-outline-purple form-input dark:bg-gray-800 dark:text-gray-200 appearance-none rounded-none border border-gray-500 border-b block pl-8 pr-6 py-2 w-full bg-white text-sm  text-gray-700 focus:bg-none  focus:text-gray-400">
                                             <option>Todos</option>
-                                            <option>Activo</option>
-                                            <option>Inactivo</option>
+                                            <option value="1">Activo</option>
+                                            <option value="0">Inactivo</option>
                                         </select>
                                         <div
                                             class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
@@ -55,7 +55,7 @@
                                         <th class="px-4 py-3">Telefono</th>
                                         <th class="px-4 py-3">Sexo</th>
                                         <th class="px-4 py-3">Rol</th>
-                                        <th class="px-4 py-3">Status</th>
+                                        <th class="px-4 py-3">Estado</th>
                                        
                                     </tr>
                                 </thead>
@@ -98,14 +98,14 @@
                                         </td>
 
                                         <td class="px-4 py-3 text-sm">
-                                          @if($user->estado == "Activo")
+                                          @if($user->estado == 1)
                                           <span class="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">
-                                          {{$user->estado}}
+                                          Activo
                                            </span>
                                            @else
                                           <span class="px-2 py-1 font-semibold leading-tight text-red-700 bg-red-100 rounded-full dark:text-red-100 dark:bg-red-700">
-                                            {{$user->estado}}</span>
-                                          @endif
+                                             Inactivo</span> 
+                                             @endif
                                         </td>
                                     </tr>
                                     @endforeach

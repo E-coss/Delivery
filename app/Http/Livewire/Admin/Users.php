@@ -33,9 +33,9 @@ class Users extends Component
 
     public function render()
     {
-        if(!empty($this->search) && $this->show == "Activo" || $this->show == "Inactivo"){
+        if(!empty($this->search) && $this->show == "1" || $this->show == "0"){
             $users=User::where('name', 'like', '%'.$this->search.'%')->where('estado', $this->show)->paginate($this->showcant);
-        }else if($this->show == "Activo" || $this->show == "Inactivo"){
+        }else if($this->show == "1" || $this->show == "0"){
             $users=User::where('estado', $this->show)->paginate($this->showcant);
         }else if(!empty($this->search)){
             $users=User::where('name', 'like', '%'.$this->search.'%')->paginate($this->showcant);

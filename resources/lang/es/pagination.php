@@ -14,4 +14,8 @@ return [
 
     'previous' => '&laquo; Anterior',
     'next'     => 'Siguiente &raquo;',
+    'Showing'  => 'Mostrando',
+    'to'       => 'a',
+    'of'       => 'de',
+    'Go to page' => 'Ir a la página',
 ];
