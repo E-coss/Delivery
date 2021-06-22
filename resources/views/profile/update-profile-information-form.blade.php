@@ -88,7 +88,7 @@
             <x-jet-input id="direccion" type="text" class="mt-1 block w-full" wire:model.defer="state.direccion" />
             <x-jet-input-error for="direccion" class="mt-2" />
         </div>
-
+        @livewire('telefonos')
 
     </x-slot>
 
