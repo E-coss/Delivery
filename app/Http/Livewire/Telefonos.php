@@ -4,19 +4,24 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\Detalle_telefonos;
+use Illuminate\Support\Facades\Auth;
 
 class Telefonos extends Component
 {
 
-    public $telefono = null;
+    public $telefono;
+
+    public function select($numero){
+        $this->telefono = $numero['numero'];
+    }
 
     public function mount(){
-        $this->telefono = null;
+        $this->telefono;
     }
 
     public function render()
     {
-        $telefonos=Detalle_telefonos::where('name', 'like', '%'.$this->search.'%')->where('estado', $this->show)->paginate($this->showcant);
-        return view('livewire.telefonos');
+        $telefonos=Detalle_telefonos::Where('entidad_id',Auth::User()->id)->get();
+        return view('livewire.telefonos',compact('telefonos'));
     }
 }
