@@ -1,16 +1,35 @@
 
         <div class="col-span-6 sm:col-span-4">
-            <x-jet-label for="telefono" value="{{ __('Telefono') }}" />
-            <x-jet-input id="telefono" type="text" class="mt-1 block w-full" wire:model.defer="telefono" autocomplete="telefono" />
-            <x-jet-input-error for="telefono" class="mt-2" />
-
+            @if($hide != false)
+              <x-jet-label for="telefono" value="{{ __('Telefono') }}" />
+              <x-jet-input wire:model="telefono" id="telefono" type="text" class="mt-1 block w-full" wire:model.defer="telefono" autocomplete="telefono" />
+              <x-jet-input-error for="telefono" class="mt-2" />
+              
+            <div  class="mt-4 flex">
+               <div class="w-6/12">
+                    <x-jet-label value="{{ __('Tipo de Telefono') }}" />
+                <Select class="form-input rounded-md dark:text-gray-300 dark:bg-gray-800 shadow-sm mt-1 w-full" id="sexo" name="sexo" required>
+                    <Option value="F" selected >Fijo</Option>
+                    <Option value="P">Personal</Option>
+                    <Option value="C">Casa</Option>
+                </Select>
+               </div>
+               <div class="w-5/12 ml-2">
+                <x-jet-label value="{{ __('Entidad') }}" />
+                <Select class="form-input rounded-md dark:text-gray-300 dark:bg-gray-800 shadow-sm mt-1 w-full" id="sexo" name="sexo" required>
+                    <Option value="U" selected >Usuario</Option>
+                </Select>
+               </div>
+            </div>
+            
+            @endif
             <x-jet-label for="" class="mt-5" value="{{ __('Seleccionar numero a editar') }}" />
         <div class="flex flex-col ">
             @foreach($telefonos as $numero)   
             <label class=" mt-3">
-            <div class="cursor-pointer flex w-full hover:bg-teal-100 " style="">
-                    <div class="flex w-full dark:bg-gray-700 dark:text-gray-200 dark:focus:bg-gray-500 dark:hover:bg-gray-800 dark:hover:text-gray-400  items-center p-2 pl-2 border-transparent bg-white  border-l-2 relative hover:bg-gray-200 border-teal-600">
-                        <div class="w-full items-center flex">
+            <div class="cursor-pointer flex w-full" style="">
+                    <div class="flex w-full dark:bg-gray-700 dark:text-gray-200 transition-colors dark:focus:bg-gray-500 dark:hover:text-gray-400  items-center p-2 pl-2 border-transparent bg-white  border-l-2 relative hover:border-purple-600 @if($telefono == $numero->numero) border-purple-600 @else border-purple-200 @endif">
+                        <div class="w-full items-center flex  hover:border-teal-600">
                         <input wire:click="select({{$numero}})" type="radio" class="form-radio h-5 w-5 text-gray-600" checked>
                         <div class="mx-2 leading-6 object-right ">{{ $numero->tipo_telefono }} : {{ $numero->numero }} </div>
                         </div>
@@ -23,6 +42,28 @@
             </label>
                
             @endforeach
+            @if($edit != false)
+            <div class="flex">
+            <a wire:click="store()" class="mt-4 inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">
+                {{ __('Actualizar numero') }}
+            </a>
+            <a  wire:click="resetInputFields()" class="mt-4 inline-flex items-center ml-2 px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">
+                {{ __('Cancelar') }}
+            </a>
+            </div>
+            @else
+            {{-- modal --}}
+            <div class="flex">
+                <a wire:click="NewTel" class="mt-4  inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">
+                {{ __('Agregar Telefono') }}
+            </a>
+            <a  wire:click="resetInputFields()" class="mt-4 inline-flex items-center ml-2 px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">
+                {{ __('Cancelar') }}
+            </a>
+            </div>
+            {{-- fin modal --}}
+            @endif
+
             </div>
 
         </div>
