@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 class Telefonos extends Component
 {
 
+    public Detalle_telefonos $telefonos;
     public $telefono;
     public $edit;
     public $hide;
@@ -17,6 +18,12 @@ class Telefonos extends Component
     public $numero;
     public $entidad;
     
+    protected $rules = [
+        'telefonos.tipo_telefono' => 'required|string|min:6',
+        'telefonos.numero' => 'required|string|max:500',
+        'telefonos.entidad' => 'required|string|max:500',
+    ];
+
     public function select($numero){
         $this->telefono = $numero['numero'];
         $this->hide=true;
@@ -44,7 +51,7 @@ class Telefonos extends Component
             'numero' => 'required',
             'entidad' => 'required',
         ]);
-        Detalle_telefonos::Create(['id' => $this->telefono_id], [
+        Detalle_telefonos::create([
             'tipo_telefono'=> $this->tipo_telefono,
             'numero'=> $this->numero,
             'entidad_id'=> $this->Auth::User()->id,
@@ -57,7 +64,42 @@ class Telefonos extends Component
         $this->closeModal();
         $this->resetInputFields();
     }
-
+   
+    public function edit($id)
+    {
+        $record = Detalle_telefonos::findOrFail($id);
+        $this->selected_id = $id;
+        $this->name = $record->name;
+        $this->email = $record->email;
+        $this->updateMode = true;
+    }
+    public function update()
+    {
+        $this->validate([
+            'tipo_telefono' => 'required',
+            'numero' => 'required',
+            'entidad' => 'required',
+        ]);
+        if ($this->selected_id) {
+            $record = Detalle_telefonos::find($this->selected_id);
+            $record->update([
+                'tipo_telefono'=> $this->tipo_telefono,
+                'numero'=> $this->numero,
+                'entidad_id'=> $this->Auth::User()->id,
+                'entidad'=> $this->entidad,
+                'actualizado_por'=> Auth::User()->id
+            ]);
+            $this->resetInput();
+            $this->updateMode = false;
+        }
+    }
+    public function destroy($id)
+    {
+        if ($id) {
+            $record = Detalle_telefonos::where('id', $id);
+            $record->delete();
+        }
+    }
 
     public function mount(){
         $this->edit=false;

@@ -1,3 +1,13 @@
+<x-jet-form-section submit="updateProfileInformation">
+    <x-slot name="title">
+        {{ __('Números de contactos') }}
+    </x-slot>
+
+    <x-slot name="description">
+        {{ __('Agrega / Actualiza tus números de contactos.') }}
+    </x-slot>
+
+    <x-slot name="form">
 
         <div class="col-span-6 sm:col-span-4">
             @if($hide != false)
@@ -27,7 +37,7 @@
         <div class="flex flex-col ">
             @foreach($telefonos as $numero)   
             <label class=" mt-3">
-            <div class="cursor-pointer flex w-full" style="">
+            <div class="cursor-pointer flex w-full">
                     <div class="flex w-full dark:bg-gray-700 dark:text-gray-200 transition-colors dark:focus:bg-gray-500 dark:hover:text-gray-400  items-center p-2 pl-2 border-transparent bg-white  border-l-2 relative hover:border-purple-600 @if($telefono == $numero->numero) border-purple-600 @else border-purple-200 @endif">
                         <div class="w-full items-center flex  hover:border-teal-600">
                         <input wire:click="select({{$numero}})" type="radio" class="form-radio h-5 w-5 text-gray-600" checked>
@@ -42,7 +52,15 @@
             </label>
                
             @endforeach
-            @if($edit != false)
+            
+
+            </div>
+
+        </div>
+        </x-slot>
+
+<x-slot name="actions">
+@if($edit != false)
             <div class="flex">
             <a wire:click="store()" class="mt-4 inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:shadow-outline-gray disabled:opacity-25 transition ease-in-out duration-150">
                 {{ __('Actualizar numero') }}
@@ -63,7 +81,5 @@
             </div>
             {{-- fin modal --}}
             @endif
-
-            </div>
-
-        </div>
+</x-slot>
+</x-jet-form-section>
