@@ -17,11 +17,11 @@ class Telefonos extends Component
     public $numero;
     public $entidad;
     
-    public function edit($numero){
-        $this->telefono_id = $numero['id'];
-        $this->tipo_telefono = $numero['tipo_telefono'];
-        $this->telefono = $numero['numero'];
-        $this->entidad = $numero['entidad'];
+    public function edit($numeros){
+        $this->telefono_id = $numeros['id'];
+        $this->tipo_telefono = $numeros['tipo_telefono'];
+        $this->telefono = $numeros['numero'];
+        $this->entidad = $numeros['entidad'];
         $this->hide=true;
         $this->edit=true;
     }
@@ -60,7 +60,6 @@ class Telefonos extends Component
         $this->closeModal();
         $this->resetInputFields();
     }
-
 
     public function mount(){
         $this->edit=false;
