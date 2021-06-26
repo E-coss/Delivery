@@ -2,16 +2,17 @@
         <div class="col-span-6 sm:col-span-4">
             @if($hide != false)
               <x-jet-label for="telefono" value="{{ __('Telefono') }}" />
-              <x-jet-input wire:model="telefono" id="telefono" type="text" class="mt-1 block w-full" wire:model.defer="telefono" autocomplete="telefono" />
+              <x-jet-input wire:model="telefono" id="telefono" type="text" class="mt-1 block w-full" wire:model.defer="telefono" autocomplete="telefono" required/>
               <x-jet-input-error for="telefono" class="mt-2" />
               
             <div  class="mt-4 flex">
                <div class="w-6/12">
                     <x-jet-label value="{{ __('Tipo de Telefono') }}" />
-                <Select class="form-input rounded-md dark:text-gray-300 dark:bg-gray-800 shadow-sm mt-1 w-full" id="sexo" name="sexo" required>
-                    <Option value="F" selected >Fijo</Option>
-                    <Option value="P">Personal</Option>
-                    <Option value="C">Casa</Option>
+                <Select class="form-input rounded-md dark:text-gray-300 dark:bg-gray-800 shadow-sm mt-1 w-full" wire:model="tipo_telefono" id="tipo_telefono" autocomplete name="tipo_telefono" required>
+                    <Option value="F" @if($tipo_telefono == "F") Selected @endif>Fijo</Option>
+                    <Option value="P" @if($tipo_telefono == "P") Selected @endif>Personal</Option>
+                    <Option value="C" @if($tipo_telefono == "C") Selected @endif>Casa</Option>
+                    <Option value="T" @if($tipo_telefono == "T") Selected @endif>Trabajo</Option>
                 </Select>
                </div>
                <div class="w-5/12 ml-2">
@@ -30,7 +31,7 @@
             <div class="cursor-pointer flex w-full" style="">
                     <div class="flex w-full dark:bg-gray-700 dark:text-gray-200 transition-colors dark:focus:bg-gray-500 dark:hover:text-gray-400  items-center p-2 pl-2 border-transparent bg-white  border-l-2 relative hover:border-purple-600 @if($telefono == $numero->numero) border-purple-600 @else border-purple-200 @endif">
                         <div class="w-full items-center flex  hover:border-teal-600">
-                        <input wire:click="select({{$numero}})" type="radio" class="form-radio h-5 w-5 text-gray-600" checked>
+                        <input wire:click="edit({{$numero}})" type="radio" class="form-radio h-5 w-5 text-gray-600" checked>
                         <div class="mx-2 leading-6 object-right ">{{ $numero->tipo_telefono }} : {{ $numero->numero }} </div>
                         </div>
                     </div>

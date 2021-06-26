@@ -17,8 +17,11 @@ class Telefonos extends Component
     public $numero;
     public $entidad;
     
-    public function select($numero){
+    public function edit($numero){
+        $this->telefono_id = $numero['id'];
+        $this->tipo_telefono = $numero['tipo_telefono'];
         $this->telefono = $numero['numero'];
+        $this->entidad = $numero['entidad'];
         $this->hide=true;
         $this->edit=true;
     }
