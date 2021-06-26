@@ -17,6 +17,17 @@ class Telefonos extends Component
     public $numero;
     public $entidad;
     
+    protected $rules = [
+        'tipo_telefono' => 'required|max:1|string',
+        'telefono' => 'required|max:15|min:10',
+        'entidad' => 'required|string|max:1',
+    ];
+
+    public function updated($propertyName)
+    {
+        $this->validateOnly($propertyName);
+    }
+
     public function edit($numeros){
         $this->telefono_id = $numeros['id'];
         $this->tipo_telefono = $numeros['tipo_telefono'];
@@ -42,20 +53,20 @@ class Telefonos extends Component
     }
     
     public function store(){
-        $this->validate([
-            'tipo_telefono' => 'required',
-            'numero' => 'required',
-            'entidad' => 'required',
-        ]);
+        // $this->validate([
+        //     'tipo_telefono' => 'required',
+        //     'numero' => 'required',
+        //     'entidad' => 'required',
+        // ]);
         Detalle_telefonos::Create(['id' => $this->telefono_id], [
             'tipo_telefono'=> $this->tipo_telefono,
-            'numero'=> $this->numero,
+            'numero'=> $this->telefono,
             'entidad_id'=> $this->Auth::User()->id,
             'entidad'=> $this->entidad,
             'creado_por'=> Auth::User()->id
         ]);
 
-        session()->flash('message', $this->post_id ? 'Numero de telefono actualizado correctamente.' : 'Numero de telefono agregado correctamente.');
+        session()->flash('message', $this->telefono_id ? 'Numero de telefono actualizado correctamente.' : 'Numero de telefono agregado correctamente.');
 
         $this->closeModal();
         $this->resetInputFields();

@@ -9,27 +9,29 @@
 
     <x-slot name="form">
 
-        <div class="col-span-6 sm:col-span-4">
+        <div class="col-span-6 sm:col-span-4 ">
             @if($hide != false)
               <x-jet-label for="telefono" value="{{ __('Telefono') }}" />
-              <x-jet-input wire:model="telefono" id="telefono" type="text" class="mt-1 block w-full" wire:model.defer="telefono" autocomplete="telefono" required/>
+              <x-jet-input wire:model="telefono" id="telefono" type="text" class="mt-1 block w-full" autocomplete="telefono" required/>
               <x-jet-input-error for="telefono" class="mt-2" />
               
             <div  class="mt-4 flex">
                <div class="w-7/12">
                     <x-jet-label value="{{ __('Tipo de Telefono') }}" />
-                <Select class="form-input rounded-md dark:text-gray-300 dark:bg-gray-800 shadow-sm mt-1 w-full" wire:model="tipo_telefono" id="tipo_telefono" autocomplete name="tipo_telefono" required>
+                <Select class="form-input rounded-md dark:text-gray-300 dark:bg-gray-800 shadow-sm mt-1 w-full" wire:model="tipo_telefono" id="tipo_telefono"  name="tipo_telefono" required>
                     <Option value="F" @if($tipo_telefono == "F") Selected @endif>Fijo</Option>
                     <Option value="P" @if($tipo_telefono == "P") Selected @endif>Personal</Option>
                     <Option value="C" @if($tipo_telefono == "C") Selected @endif>Casa</Option>
                     <Option value="T" @if($tipo_telefono == "T") Selected @endif>Trabajo</Option>
                 </Select>
+                <x-jet-input-error for="tipo_telefono" class="mt-2" />
                </div>
                <div class="w-5/12 ml-2">
                 <x-jet-label value="{{ __('Entidad') }}" />
-                <Select class="form-input rounded-md dark:text-gray-300 dark:bg-gray-800 shadow-sm mt-1 w-full" id="sexo" name="sexo" required>
+                <Select class="form-input rounded-md dark:text-gray-300 dark:bg-gray-800 shadow-sm mt-1 w-full" wire:model="entidad" id="entidad" name="entidad" disabled required>
                     <Option value="U" selected >Usuario</Option>
                 </Select>
+                <x-jet-input-error for="entidad" class="mt-2" />
                </div>
             </div>
             
@@ -45,7 +47,7 @@
                         <div class="mx-2 leading-6 object-right ">{{ $numero->tipo_telefono }} : {{ $numero->numero }} </div>
                         </div>
                     </div>
-                    <a href="#" class="pt-2 pr-2 vertical-align: dark:bg-gray-700 dark:text-gray-200 dark:focus:bg-gray-500 middle bg-white relative"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 inline w-6 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <a href="#" wire:click="edit({{$numero}})" class="pt-2 pr-2 vertical-align: dark:bg-gray-700 dark:text-gray-200 dark:focus:bg-gray-500 middle bg-white relative"><svg xmlns="http://www.w3.org/2000/svg" class="h-6 inline w-6 text-red-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                 </svg>
                 </a>
