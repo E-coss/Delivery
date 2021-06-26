@@ -16,7 +16,7 @@
               <x-jet-input-error for="telefono" class="mt-2" />
               
             <div  class="mt-4 flex">
-               <div class="w-6/12">
+               <div class="w-7/12">
                     <x-jet-label value="{{ __('Tipo de Telefono') }}" />
                 <Select class="form-input rounded-md dark:text-gray-300 dark:bg-gray-800 shadow-sm mt-1 w-full" wire:model="tipo_telefono" id="tipo_telefono" autocomplete name="tipo_telefono" required>
                     <Option value="F" @if($tipo_telefono == "F") Selected @endif>Fijo</Option>
@@ -35,7 +35,7 @@
             
             @endif
             <x-jet-label for="" class="mt-5" value="{{ __('Seleccionar numero a editar') }}" />
-        <div class="flex flex-col ">
+        <div class="flex flex-col">
             @foreach($telefonos as $numero)   
             <label class=" mt-3">
             <div class="cursor-pointer flex w-full">
