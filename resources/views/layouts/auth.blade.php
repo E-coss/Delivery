@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" :class="{ 'theme-dark': dark }" x-data="data()">
-    <head>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}"  :class="{ 'theme-dark': dark }" x-data="data()">
+  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>@yield('title')</title>
 
-    <!-- Fonts -->
+        <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
     <!-- Styles -->
@@ -24,10 +24,8 @@
     {{-- <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script> --}}
     <script src="{{ asset('js/init-alpine.js') }}" defer></script>
     {{-- <script src="{{ asset('js/focus-trap.js') }}" defer></script> --}}
-    <script src="{{ asset('js/charts-lines.js') }}" defer></script>
-    <script src="//code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-
-        <style>
+    
+    <style>
         .work-sans {
             font-family: 'Work Sans', sans-serif;
         }
@@ -80,34 +78,17 @@
             /*Set to match the Tailwind colour you want the active one to be */
         }
     </style>
+  </head>
 
-    </head>
-    <body>
-    <div
-      class="flex  bg-gray-50 dark:bg-gray-900"
-      :class="{ 'overflow-hidden': isSideMenuOpen}"
-    >
-      <!-- Desktop sidebar -->
-      @include('layouts.guest.menu')
-      <!-- Mobile sidebar -->
-      <!-- Backdrop -->
-
-
-            
-          </div>
-         
+    <body class="bg-white dark:bg-gray-900">
+    @include('layouts.guest.menu')
+    <div class="flex items-center max-h-screen pt-6 bg-white dark:bg-gray-900" :class="{ 'overflow-hidden': isSideMenuOpen}">
       
-        <main class="h-full overflow-y-auto">
-          <!-- Remove everything INSIDE this div to a really blank page -->
-          <div class=" container px-6 mx-auto ">
-                {{ $slot }}
-          </div>
-        </main>
+      <div class="flex-1 h-full max-w-4xl mx-auto overflow-hidden bg-white rounded-lg shadow-xl dark:bg-gray-800">
+            @yield('content')
       </div>
     </div>
     @stack('modals')
-
     @livewireScripts
-    
-  </body>
+    </body>
 </html>

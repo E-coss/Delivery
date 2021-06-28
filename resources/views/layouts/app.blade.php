@@ -200,7 +200,6 @@
     </div>
     @stack('modals')
     @livewire('livewire-ui-modal')
-    @livewireUIScripts
     @livewireScripts
     
   </body>

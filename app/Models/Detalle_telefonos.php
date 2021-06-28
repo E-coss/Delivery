@@ -9,4 +9,7 @@ class Detalle_telefonos extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'id', 'tipo_telefono','numero', 'entidad_id', 'entidad', 'creado_por', 'actualizado_por'
+    ];
 }

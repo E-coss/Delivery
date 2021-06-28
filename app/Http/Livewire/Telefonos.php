@@ -12,15 +12,16 @@ class Telefonos extends Component
     public $telefono;
     public $edit;
     public $hide;
+    public $nuevo;
     public $telefono_id;
     public $tipo_telefono;
     public $numero;
     public $entidad;
+    public $cerrar=false;
     
     protected $rules = [
         'tipo_telefono' => 'required|max:1|string',
         'telefono' => 'required|max:15|min:10',
-        'entidad' => 'required|string|max:1',
     ];
 
     public function updated($propertyName)
@@ -38,10 +39,53 @@ class Telefonos extends Component
     }
 
     public function NewTel(){
+        if($this->nuevo==false){
         $this->resetInputFields();
         $this->hide=true;
+        $this->nuevo=true;
+        }else{
+            $this->validate();
+            $registro = new Detalle_telefonos;
+            $registro->tipo_telefono = $this->tipo_telefono;
+            $registro->numero = $this->telefono;
+            $registro->entidad_id = Auth::User()->id;
+            $registro->entidad = "U";
+            $registro->creado_por = Auth::User()->id;
+
+            if($registro->save()){
+                $this->addError('guardado', 'Numero de telefono agregado correctamente.');
+            }else{
+                $this->addError('errorguardar', 'No se ha podido agregar su numero de telefono correctamente.');
+            }
+
+            $this->resetInputFields();
+            $this->hide=false;
+            $this->nuevo=false;
+            $this->cerrar=true;
+        }
     }
 
+    public function update()
+    {
+        $this->validate();
+        $registro = Detalle_telefonos::findOrFail($this->telefono_id);
+        $registro->tipo_telefono = $this->tipo_telefono;
+        $registro->numero = $this->telefono;
+        $registro->entidad_id = Auth::User()->id;
+        $registro->entidad = "U";
+        $registro->creado_por = Auth::User()->id;
+
+        if($registro->save()){
+            $this->addError('guardado', 'Numero de telefono actualizado correctamente.');
+        }else{
+            $this->addError('errorguardar', 'No se ha podido actualizar su numero de telefono correctamente.');
+        }
+
+        $this->resetInputFields();
+        $this->hide=false;
+        $this->edit=false;
+        $this->cerrar=true;
+    }
     public function resetInputFields(){
         $this->telefono_id = '';
         $this->telefono = '';
@@ -50,31 +94,33 @@ class Telefonos extends Component
         $this->entidad = '';
         $this->hide=false;
         $this->edit=false;
+        $this->nuevo=false;
+        $this->resetValidation();
     }
     
-    public function store(){
-        // $this->validate([
-        //     'tipo_telefono' => 'required',
-        //     'numero' => 'required',
-        //     'entidad' => 'required',
-        // ]);
-        Detalle_telefonos::Create(['id' => $this->telefono_id], [
-            'tipo_telefono'=> $this->tipo_telefono,
-            'numero'=> $this->telefono,
-            'entidad_id'=> $this->Auth::User()->id,
-            'entidad'=> $this->entidad,
-            'creado_por'=> Auth::User()->id
-        ]);
 
-        session()->flash('message', $this->telefono_id ? 'Numero de telefono actualizado correctamente.' : 'Numero de telefono agregado correctamente.');
+    public function destroy($id)
+    {
+        if ($id) {
+            $record = Detalle_telefonos::where('id', $id);
+            $this->cerrar=true;
+            if($record->delete()){
+                $this->addError('guardado', 'Numero de telefono eliminado correctamente.');
+            }else{
+                $this->addError('errorguardar', 'No se ha podido eliminar su numero de telefono correctamente.');
+            }
+          
+        }
+    }
 
-        $this->closeModal();
-        $this->resetInputFields();
+    public function close(){
+        $this->cerrar=true;
     }
 
     public function mount(){
         $this->edit=false;
         $this->hide=false;
+        $this->nuevo=false;
     }
 
     public function render()
