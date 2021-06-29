@@ -21,12 +21,15 @@ class Telefonos extends Component
     
     protected $rules = [
         'tipo_telefono' => 'required|max:1|string',
-        'telefono' => 'required|max:15|min:10',
+        'telefono' => 'required|max:15|min:10|unique:detalle_telefonos,numero',
     ];
 
     public function updated($propertyName)
     {
-        $this->validateOnly($propertyName);
+        if(!$this->edit){
+            $this->validateOnly($propertyName);
+        }
+       
     }
 
     public function edit($numeros){
@@ -67,8 +70,14 @@ class Telefonos extends Component
 
     public function update()
     {
-        $this->validate();
+        
         $registro = Detalle_telefonos::findOrFail($this->telefono_id);
+        if ($registro->numero === $this->telefono) {
+            $this->validate([
+                'tipo_telefono' => 'required|max:1|string',
+                'telefono' => 'required|max:15|min:10',
+            ]);
+
         $registro->tipo_telefono = $this->tipo_telefono;
         $registro->numero = $this->telefono;
         $registro->entidad_id = Auth::User()->id;
@@ -80,7 +89,7 @@ class Telefonos extends Component
         }else{
             $this->addError('errorguardar', 'No se ha podido actualizar su numero de telefono correctamente.');
         }
-
+    }
         $this->resetInputFields();
         $this->hide=false;
         $this->edit=false;

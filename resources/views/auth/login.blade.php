@@ -1,21 +1,21 @@
 @extends('layouts.auth')
 @section('content')
-
 <div class="flex flex-col overflow-y-auto md:flex-row">
           <div class="h-32 md:h-auto md:w-1/2">
             <img aria-hidden="true" class="object-cover w-full h-full dark:hidden" src="{{ asset('img/login-office.jpeg') }}" alt="Office"  />
             <img aria-hidden="true" class="hidden object-cover w-full h-full dark:block"  src="{{ asset('img/login-office-dark.jpeg') }}" alt="Office" />
           </div>
-          <div class="flex items-center justify-center py-0 px-12 md:w-1/2">
+          <div class="flex items-center justify-center p-6   md:w-1/2">
          
             <div class="w-full">
-            <form method="POST" action="{{ route('login') }}">
-            @csrf
-              <h1 class="my-4 text-xl font-semibold text-gray-700 dark:text-gray-200" >
+            <h1 class="mb-4 text-xl font-semibold text-gray-700 dark:text-gray-200" >
               {{ __('Iniciar Sesión') }}
               </h1>
+            <form method="POST" action="{{ route('login') }}">
+            @csrf
+              
 
-              <x-jet-validation-errors class="mb-1" />
+            <x-jet-validation-errors class="mb-1" />
 
                 @if (session('status'))
                     <div class="mb-2 font-medium text-sm text-green-600">
@@ -25,19 +25,18 @@
 
               <label class="block text-sm">
                 <span class="text-gray-700 dark:text-gray-400">{{ __('perfil.Email') }}</span>
-                <input class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                type="email" name="email" :value="old('email')" required autofocus placeholder="Jane Doe"
-                />
+                <input class="block w-full mt-1 text-sm @if($errors->has('email')) border-red-500 dark:border-red-500 @else dark:border-gray-600 @endif dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                type="email" name="email" value="{{old('email')}}" required autofocus placeholder="Jane Doe" autocomplete="email" />
               </label>
               <label class="block mt-4 text-sm">
                 <span class="text-gray-700 dark:text-gray-400">{{ __('Lgeneral.Password') }}</span>
-                <input class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                <input class="block w-full mt-1 text-sm @if($errors->has('email')) border-red-500 dark:border-red-500 @else dark:border-gray-600 @endif dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                   placeholder="***************" type="password" name="password" required autocomplete="current-password" />
               </label>
 
               <div class="block mt-4">
                 <label class="flex items-center">
-                    <input type="checkbox" class="form-checkbox text-sm font-medium leading-5 text-center text-purple-600 transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple" name="remember">
+                    <input type="checkbox" class="form-checkbox text-sm font-medium leading-5 text-center text-purple-600 transition-colors duration-150 border border-transparent rounded-lg hover:bg-purple-700 focus:outline-none " name="remember">
                     <span class="ml-2 text-sm text-gray-600">{{ __('Lgeneral.Remember me') }}</span>
                 </label>
             </div>
@@ -71,7 +70,7 @@
                 </a>
                 @endif
               </p>
-              <p class="my-1">
+              <p class="mt-1">
                 <a class="text-sm font-medium text-purple-600 dark:text-purple-400 hover:underline" href="{{ route('register') }}" >
                 ¡{{ __('Lgeneral.Register') }}!
                 </a>

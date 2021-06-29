@@ -82,9 +82,9 @@
 
     <body class="bg-white dark:bg-gray-900">
     @include('layouts.guest.menu')
-    <div class="flex items-center max-h-screen p-6 bg-white dark:bg-gray-900" :class="{ 'overflow-hidden': isSideMenuOpen}">
+    <div class="flex items-center min-h-screen p-6 bg-white dark:bg-gray-900" :class="{ 'overflow-hidden': isSideMenuOpen}">
       
-      <div class="flex-1 h-full max-w-3xl mx-auto overflow-hidden bg-white rounded-lg shadow-xl dark:bg-gray-800">
+      <div class="flex-1 h-full max-w-4xl p-0 mx-auto my-0 overflow-hidden bg-white rounded-lg shadow-xl dark:bg-gray-800">
             @yield('content')
       </div>
     </div>
