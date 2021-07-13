@@ -894,6 +894,12 @@ print and (-ms-high-contrast: none) {
     border-color: rgba(112, 114, 117, var(--border-opacity))
 }
 
+.theme-dark .dark\:border-gray-500 {
+    --border-opacity: 1;
+    border-color: #4c4f52;
+    border-color: rgba(112, 114, 117, var(--border-opacity))
+}
+
 .theme-dark .dark\:border-gray-600 {
     --border-opacity: 1;
     border-color: #4c4f52;
@@ -902,7 +908,7 @@ print and (-ms-high-contrast: none) {
 
 .theme-dark .dark\:border-gray-700 {
     --border-opacity: 1;
-    border-color: #24262d;
+    border-color: rgb(36, 38, 45);
     border-color: rgba(36, 38, 45, var(--border-opacity))
 }
 
@@ -1759,7 +1765,8 @@ print and (-ms-high-contrast: none) {
 .theme-dark .dark\:text-gray-300 {
     --text-opacity: 1;
     color: #d5d6d7;
-    color: rgba(213, 214, 215, var(--text-opacity))
+    color: rgba(213, 214, 215, var(--text-opacity));
+    
 }
 
 .theme-dark .dark\:text-gray-400 {

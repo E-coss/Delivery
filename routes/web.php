@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\Admin\AdministracionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,8 +20,15 @@ Route::get('/', function () {
     return view('Frontend.WelcomePage');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->group(function () {
+Route::middleware(['auth:sanctum', 'verified', 'Admin'])->group(function () {
+
+    // DASHBOARD 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/dashboard/G-User', [DashboardController::class, 'G_User'])->name('dashboard.G.User');
+    Route::get('/administracion', [AdministracionController::class, 'index'])->name('administracion');
+    // DASHBOARD 
+
+    // USUARIOS
     Route::get('/users', [UsersController::class, 'index'])->name('users');
+    // USUARIOS
 });

@@ -23,7 +23,7 @@
                 <label class="block uppercase tracking-wide text-gray-700 dark:text-gray-400 text-xs font-bold mb-2" for="grid-first-name">
                 {{ __('Nombre') }}
                 </label>
-                <input class="block w-full mt-1 text-sm @if($errors->has('name')) border-red-500 dark:border-red-500 @else dark:border-gray-600 @endif dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300  dark:focus:shadow-outline-gray form-input" 
+                <input class="block w-full mt-1 text-sm @if($errors->has('name')) border-red-500 dark:border-red-500 @else dark:border-gray-500 @endif dark:bg-gray-700 focus:border-purple-500 focus:outline-none focus:shadow-outline-purple dark:text-gray-300  dark:focus:shadow-outline-gray form-input" 
                 placeholder="Jane" type="text" name="name" value="{{old('name')}}"  autofocus autocomplete="name" />
                 @if($errors->has('name'))
                 <p class="mt-1 text-red-500 text-xs italic">{{ $errors->first('name') }}</p>
@@ -34,7 +34,7 @@
                 <label class="block uppercase tracking-wide text-gray-700 dark:text-gray-400 text-xs font-bold mb-2" for="grid-apellido">
                 {{ __('Apellido') }}
                 </label>
-                <input class="block w-full mt-1 text-sm @if($errors->has('apellido')) border-red-500 dark:border-red-500 @else dark:border-gray-600 @endif dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" 
+                <input class="block w-full mt-1 text-sm @if($errors->has('apellido')) border-red-500 dark:border-red-500 @else dark:border-gray-500 @endif dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" 
                 placeholder="Doe" type="text" name="apellido" value="{{old('apellido')}}"  autofocus autocomplete="apellido"/> 
                 @if($errors->has('apellido'))
                 <p class="mt-1 text-red-500 text-xs italic">{{ $errors->first('apellido') }}</p>
@@ -48,7 +48,7 @@
                 {{ __('Sexo') }}
                 </label>
                 <div class="relative">
-                  <select class="block appearance-none py-1.5 px-4 pr-8 w-full @if($errors->has('sexo')) border-red-500 dark:border-red-500 @else dark:border-gray-600 @endif dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray dark:focus:shadow-outline-gray form-input" 
+                  <select class="block appearance-none py-1.5 px-4 pr-8 w-full @if($errors->has('sexo')) border-red-500 dark:border-red-500 @else dark:border-gray-500 @endif dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" 
                   id="sexo" name="sexo" >
                   <Option value="M" selected >Masculino</Option>
                   <Option value="F">Femenino</Option>
@@ -65,7 +65,7 @@
                 <label class="block uppercase tracking-wide text-gray-700 dark:text-gray-400 text-xs font-bold mb-2" for="grid-apellido">
                 {{ __('perfil.Email') }}
                 </label>
-                <input class="block w-full mt-1 text-sm @if($errors->has('email')) border-red-500 dark:border-red-500 @else dark:border-gray-600 @endif dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" 
+                <input class="block w-full mt-1 text-sm @if($errors->has('email')) border-red-500 dark:border-red-500 @else dark:border-gray-500 @endif dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" 
                 placeholder="ejemplo@gmail.com" type="email" name="email" value="{{old('email')}}" />  
                 @if($errors->has('email'))
                 <p class="mt-1 text-red-500 text-xs italic">{{ $errors->first('email') }}</p>
@@ -78,7 +78,7 @@
                 <label class="block uppercase tracking-wide text-gray-700 dark:text-gray-400 text-xs font-bold mb-2" for="grid-first-name">
                 {{ __('Lgeneral.Password') }}
                 </label>
-                <input class="block w-full mt-1 text-sm @if($errors->has('password')) border-red-500 dark:border-red-500 @else dark:border-gray-600 @endif dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" 
+                <input class="block w-full mt-1 text-sm @if($errors->has('password')) border-red-500 dark:border-red-500 @else dark:border-gray-500 @endif dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" 
                 placeholder="**************" type="password" name="password"  autocomplete="new-password" />
                 @if($errors->has('password'))
                 <p class="mt-1 text-red-500 text-xs italic">{{ $errors->first('password') }}</p>
@@ -88,7 +88,7 @@
                 <label class="block uppercase tracking-wide text-gray-700 dark:text-gray-400 text-xs font-bold mb-2" for="grid-apellido">
                 {{ __('perfil.Confirm Password') }}
                 </label>
-                <input class="block w-full mt-1 text-sm @if($errors->has('password')) border-red-500 dark:border-red-500 @else dark:border-gray-600 @endif dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" 
+                <input class="block w-full mt-1 text-sm @if($errors->has('password')) border-red-500 dark:border-red-500 @else dark:border-gray-500 @endif dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" 
                 placeholder="**************" type="password" name="password_confirmation"  autocomplete="new-password"/>  
                
               </div>
@@ -98,7 +98,7 @@
             <label class="block text-sm">
                 <span class="text-gray-700 dark:text-gray-400">{{ __('Dirección') }}</span>
                 <textarea
-                  class="block w-full mt-1 tracking-wide @if($errors->has('direccion')) border-red-500 dark:border-red-500 @else dark:border-gray-600 @endif text-sm dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                  class="block w-full mt-1 tracking-wide @if($errors->has('direccion')) border-red-500 dark:border-red-500 @else dark:border-gray-500 @endif text-sm dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                   placeholder="Jane Doe" name="direccion" autofocus autocomplete="direccion"
                 >{{old('direccion')}}</textarea>
                 @if($errors->has('direccion'))

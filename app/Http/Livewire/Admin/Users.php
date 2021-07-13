@@ -22,6 +22,7 @@ class Users extends Component
         $this->show = '';
         $this->search = '';
         $this->tipo = 0;
+        $this->tipo =0;
     }
 
     

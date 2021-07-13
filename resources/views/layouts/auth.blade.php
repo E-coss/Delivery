@@ -26,6 +26,8 @@
     {{-- <script src="{{ asset('js/focus-trap.js') }}" defer></script> --}}
     
     <style>
+ 
+        
         .work-sans {
             font-family: 'Work Sans', sans-serif;
         }

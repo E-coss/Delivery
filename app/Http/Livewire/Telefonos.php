@@ -17,7 +17,7 @@ class Telefonos extends Component
     public $tipo_telefono;
     public $numero;
     public $entidad;
-    public $cerrar=false;
+    public $cerrar;
     
     protected $rules = [
         'tipo_telefono' => 'required|max:1|string',
@@ -130,6 +130,7 @@ class Telefonos extends Component
         $this->edit=false;
         $this->hide=false;
         $this->nuevo=false;
+        $this->cerrar=false;
     }
 
     public function render()

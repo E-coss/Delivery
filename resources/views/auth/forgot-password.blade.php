@@ -25,7 +25,7 @@
 
               <label class="block text-sm">
                 <span class="text-gray-700 dark:text-gray-400">{{ __('perfil.Email') }}</span>
-                <input class="block w-full mt-1 text-sm @if($errors->has('email')) border-red-500 dark:border-red-500 @else dark:border-gray-600 @endif dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                <input class="block w-full mt-1 text-sm @if($errors->has('email')) border-red-500 dark:border-red-500 @else dark:border-gray-500 @endif dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                   placeholder="Ejemplo: JaneDoe@gmail.com"
                   type="email" name="email" :value="old('email')" required autofocus />
               </label>

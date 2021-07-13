@@ -25,19 +25,19 @@
 
               <label class="block text-sm">
                 <span class="text-gray-700 dark:text-gray-400">{{ __('perfil.Email') }}</span>
-                <input class="block w-full mt-1 text-sm @if($errors->has('email')) border-red-500 dark:border-red-500 @else dark:border-gray-600 @endif dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                <input class="block w-full mt-1 text-sm @if($errors->has('email')) border-red-500 dark:border-red-500 @else dark:border-gray-500 @endif dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                 type="email" name="email" value="{{old('email')}}" required autofocus placeholder="Jane Doe" autocomplete="email" />
               </label>
-              <label class="block mt-4 text-sm">
+              <label class="block mt-4 text-sm dark:text-gray-400">
                 <span class="text-gray-700 dark:text-gray-400">{{ __('Lgeneral.Password') }}</span>
-                <input class="block w-full mt-1 text-sm @if($errors->has('email')) border-red-500 dark:border-red-500 @else dark:border-gray-600 @endif dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+                <input class="block w-full mt-1 text-sm @if($errors->has('email')) border-red-500 dark:border-red-500 @else dark:border-gray-500 @endif dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                   placeholder="***************" type="password" name="password" required autocomplete="current-password" />
               </label>
 
               <div class="block mt-4">
                 <label class="flex items-center">
                     <input type="checkbox" class="form-checkbox text-sm font-medium leading-5 text-center text-purple-600 transition-colors duration-150 border border-transparent rounded-lg hover:bg-purple-700 focus:outline-none " name="remember">
-                    <span class="ml-2 text-sm text-gray-600">{{ __('Lgeneral.Remember me') }}</span>
+                    <span class="ml-2 text-sm text-gray-400">{{ __('Lgeneral.Remember me') }}</span>
                 </label>
             </div>
               
