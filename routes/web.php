@@ -20,7 +20,7 @@ Route::get('/', function () {
     return view('Frontend.WelcomePage');
 });
 
-Route::middleware(['auth:sanctum', 'verified', 'Admin'])->group(function () {
+Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     // DASHBOARD 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');

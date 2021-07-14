@@ -20,7 +20,6 @@ class DatabaseSeeder extends Seeder
         \App\Models\Detalle_telefonos::factory(100)->create();
         \App\Models\Ingredientes::factory(3)->create();
         \App\Models\Nosotros::factory()->create();
-        \App\Models\roles::factory(3)->create();
-        \App\Models\Users_roles::factory(103)->create();
+        $this->call(RoleSeeder::class);
     }
 }

@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
     <!-- Styles -->
-    {{-- <script src="{{ asset('js/tailwind.config.js') }}" defer></script> --}}
+    <script src="{{ asset('js/tailwind.config.js') }}" defer></script>
 
     @livewireStyles
 
@@ -21,9 +21,9 @@
     <link href="{{ asset('css/tailwind.output.css') }}" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
-    {{-- <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script> --}}
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <script src="{{ asset('js/init-alpine.js') }}" defer></script>
-    {{-- <script src="{{ asset('js/focus-trap.js') }}" defer></script> --}}
+    <script src="{{ asset('js/focus-trap.js') }}" defer></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css"/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" defer></script>
     <script src="{{ asset('js/charts-lines.js') }}" defer></script>
@@ -199,7 +199,6 @@
       </div>
     </div>
     @stack('modals')
-    @livewire('livewire-ui-modal')
     @livewireScripts
     
   </body>

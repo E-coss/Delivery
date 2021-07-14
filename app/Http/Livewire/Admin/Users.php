@@ -5,8 +5,6 @@ namespace App\Http\Livewire\Admin;
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\User;
-use App\Models\Users_roles;
-use App\Models\roles;
 
 class Users extends Component
 {
@@ -16,6 +14,9 @@ class Users extends Component
     public $search;
     public $show;
     public $tipo;
+    public $modal;
+    public $rol;
+    public $SwUser;
 
     public function mount(){
         $this->showcant = 5;
@@ -23,6 +24,7 @@ class Users extends Component
         $this->search = '';
         $this->tipo = 0;
         $this->tipo =0;
+        $this->modal =false;
     }
 
     
@@ -30,6 +32,16 @@ class Users extends Component
     public function updatingSearch()
     {
         $this->resetPage();
+    }
+
+    public function MostrarUser($user)
+    {
+       $this->SwUser=User::findOrFail($user);
+    }
+
+    public function AsignarRol(User $user)
+    {
+       $user->roles()->sync($this->rol);
     }
 
     public function render()
@@ -43,12 +55,6 @@ class Users extends Component
         }else{
             if($this->tipo == 0){
                 $users=User::paginate($this->showcant);
-                $roles=roles::get();
-            }else{
-                $users=Users_roles::with(['tipoUsuario' => function ($query) {
-                    $query->where('name', 'like', '%'.$this->search.'%');
-                }])->paginate($this->showcant);
-                $roles=roles::get();
             }
         }
         return view('livewire.admin.users',compact('users'));

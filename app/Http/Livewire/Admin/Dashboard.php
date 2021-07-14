@@ -5,7 +5,6 @@ namespace App\Http\Livewire\Admin;
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\User;
-use App\Models\Users_roles;
 use Illuminate\Support\Facades\Auth;
 
 class Dashboard extends Component

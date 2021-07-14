@@ -202,10 +202,10 @@
                                           </td>
                                           {{-- rol --}}
                                           <td class="px-4 py-3 text-sm">
-                                            @foreach($user->roles as $rol)
+                                            {{-- @foreach($user->roles as $rol)
                                             <span class="px-2 py-1 m-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-full dark:bg-green-700 dark:text-green-100">
                                             {{$rol->rol}}</span>
-                                             @endforeach
+                                             @endforeach --}}
                                           </td>
 
                                           <td class="px-4 py-3 text-sm">
