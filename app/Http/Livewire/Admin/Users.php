@@ -16,7 +16,7 @@ class Users extends Component
     public $tipo;
     public $modal;
     public $rol;
-    public $SwUser;
+    public User $SwUser;
 
     public function mount(){
         $this->showcant = 5;
@@ -34,14 +34,15 @@ class Users extends Component
         $this->resetPage();
     }
 
-    public function MostrarUser($user)
+    public function MostrarUser(User $user)
     {
-       $this->SwUser=User::findOrFail($user);
+       $this->SwUser=$user;
+       $this->modal=true;
     }
 
     public function AsignarRol(User $user)
     {
-       $user->roles()->sync($this->rol);
+       $user->roles()->sync('Administrador');
     }
 
     public function render()
