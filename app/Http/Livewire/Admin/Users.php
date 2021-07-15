@@ -17,6 +17,7 @@ class Users extends Component
     public $modal;
     public $rol;
     public User $SwUser;
+    public $userid;
 
     public function mount(){
         $this->showcant = 5;
@@ -25,6 +26,7 @@ class Users extends Component
         $this->tipo = 0;
         $this->tipo =0;
         $this->modal =false;
+        $this->userid =0;
     }
 
     
@@ -38,11 +40,12 @@ class Users extends Component
     {
        $this->SwUser=$user;
        $this->modal=true;
+       $this->userid=$this->SwUser->id;
     }
 
-    public function AsignarRol(User $user)
+    public function AsignarRol(User $user, $id)
     {
-       $user->roles()->sync('Administrador');
+       $user->roles()->sync($id);
     }
 
     public function render()
