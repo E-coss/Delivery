@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Admin;
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\User;
+use Spatie\Permission\Models\Role;
 
 class Users extends Component
 {
@@ -15,9 +16,10 @@ class Users extends Component
     public $show;
     public $tipo;
     public $modal;
-    public $rol;
     public User $SwUser;
     public $userid;
+    public User $user;
+    public $roles = [];
 
     public function mount(){
         $this->showcant = 5;
@@ -41,11 +43,12 @@ class Users extends Component
        $this->SwUser=$user;
        $this->modal=true;
        $this->userid=$this->SwUser->id;
+       $this->user=$this->SwUser;
     }
 
-    public function AsignarRol(User $user, $id)
+    public function AsignarRol(User $user)
     {
-       $user->roles()->sync($id);
+       $user->roles()->sync($this->roles);
     }
 
     public function render()

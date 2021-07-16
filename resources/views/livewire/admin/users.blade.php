@@ -178,7 +178,7 @@
         class="w-full px-6 py-4 overflow-hidden bg-white rounded-t-lg dark:bg-gray-800 sm:rounded-lg sm:m-4 sm:max-w-xl"
         role="dialog"
         id="modal"
-      >
+      > <form wire:submit.prevent="AsignarRol({{$userid}})">
         <!-- Remove header if you don't want a close icon. Use modal body to place modal tile. -->
         <header class="flex justify-between bg-gray-100 dark:bg-gray-700 px-6 pt-3 -mx-6 -mt-4">
           <p class="mb-2 text-lg font-semibold text-left text-gray-700 dark:text-gray-300" >
@@ -192,6 +192,7 @@
         </header>
         <!-- Modal body -->
         <div class="mt-4 mb-6">
+       
           <!-- Modal title -->
            <p class="mb-2 text-lg font-semibold text-gray-700 dark:text-gray-300" >
            Asignar / Eliminar Rol a 
@@ -202,39 +203,42 @@
             </b> 
           </p> 
           <!-- Modal description -->
+
           <p class="text-sm text-gray-700 dark:text-gray-400">
           <div class="flex flex-col">
                 <label class="inline-flex items-center mt-3">
-                    <input type="checkbox" wire:click="AsignarRol({{$userid}}, 1)" class="form-checkbox h-5 w-5 text-blue-600" name="Administrador" checked><span class="ml-2 text-gray-700">Administrador</span>
+                    <input type="checkbox" wire:model="roles.{{1}}" class="form-checkbox h-5 w-5 text-blue-600" value="1"><span class="ml-2 text-gray-700">Administrador</span>
                 </label>
 
                 <label class="inline-flex items-center mt-3">
-                    <input type="checkbox" wire:click="AsignarRol({{$userid}}, 2)" class="form-checkbox h-5 w-5 text-indigo-600" name="Supervisor" checked><span class="ml-2 text-gray-700">Supervisor</span>
+                    <input type="checkbox" wire:model="roles.{{2}}" class="form-checkbox h-5 w-5 text-indigo-600" value="2"><span class="ml-2 text-gray-700">Supervisor</span>
                 </label>
 
                 <label class="inline-flex items-center mt-3">
-                    <input type="checkbox" wire:click="AsignarRol({{$userid}}, 3)" class="form-checkbox h-5 w-5 text-purple-600" name="Vendedor" checked><span class="ml-2 text-gray-700">Vendedor</span>
+                    <input type="checkbox" wire:model="roles.{{3}}" class="form-checkbox h-5 w-5 text-purple-600" value="3"><span class="ml-2 text-gray-700">Vendedor</span>
                 </label>
 
                 <label class="inline-flex items-center mt-3">
-                    <input type="checkbox" wire:click="AsignarRol({{$userid}}, 4)" class="form-checkbox h-5 w-5 text-pink-600" name="Cliente" checked><span class="ml-2 text-gray-700">Cliente</span>
+                    <input type="checkbox" wire:model="roles.{{4}}" class="form-checkbox h-5 w-5 text-pink-600" value="4"><span class="ml-2 text-gray-700">Cliente</span>
                 </label>
                 <label class="inline-flex items-center mt-3">
-                    <input type="checkbox" wire:click="AsignarRol({{$userid}}, 5)" class="form-checkbox h-5 w-5 text-green-600" name="Delivery" checked><span class="ml-2 text-gray-700">Delivery</span>
+                    <input type="checkbox" wire:model="roles.{{5}}" class="form-checkbox h-5 w-5 text-green-600" value="5"><span class="ml-2 text-gray-700">Delivery</span>
                 </label>
                 </div>
           </p>
+        
         </div>
         <footer class="flex flex-col items-center justify-end px-6 py-3 -mx-6 -mb-4 space-y-4 sm:space-y-0 sm:space-x-6 sm:flex-row bg-gray-50 dark:bg-gray-700" >
           <button @click="closeModal" class="w-full px-5 py-3 text-sm font-medium leading-5 text-white text-gray-700 transition-colors duration-150 border border-gray-300 rounded-lg dark:text-gray-400 sm:px-4 sm:py-2 sm:w-auto active:bg-transparent hover:border-gray-500 focus:border-gray-500 active:text-gray-500 focus:outline-none focus:shadow-outline-gray" >
             Cancelar
           </button>
-          <button  class="w-full px-5 py-3 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg sm:w-auto sm:px-4 sm:py-2 active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple" >
+          <button type="submit" class="w-full px-5 py-3 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg sm:w-auto sm:px-4 sm:py-2 active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple" >
             Aceptar
           </button>
+          </form>
         </footer>
+        
       </div>
     </div>
-    
 </div>
 
