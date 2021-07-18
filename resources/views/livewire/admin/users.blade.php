@@ -154,7 +154,7 @@
                         </div>
 
                       <!-- Modal backdrop. This what you want to place close to the closing body tag -->
-    <div
+    <div wire:ignore.self
       x-show="isModalOpen"
       x-transition:enter="transition ease-out duration-150"
       x-transition:enter-start="opacity-0"
