@@ -29,7 +29,6 @@ class ConfiguracionFactory extends Factory
             'favicon' => 'favicon.png',
             'logo_admin' => 'logo_admin.png',
             'logo_frontend' => 'logo_frontend.png',
-            'marca' => 'marca.png',
             'facebook' => 'https://www.facebook.com/',
             'instagram' => 'https://www.instagram.com/',
             'youtube' => 'https://www.youtube.com/',

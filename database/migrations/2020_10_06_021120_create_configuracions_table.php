@@ -13,20 +13,19 @@ class CreateConfiguracionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('configuracions', function (Blueprint $table) {
+        Schema::create('configuracion', function (Blueprint $table) {
             $table->id();
             $table->string('nombre',50);
             $table->string('direccion',100);
             $table->string('eslogan',100);
             $table->string('email',50);
-            $table->text('favicon')->nullable();
-            $table->text('logo_admin')->nullable();
-            $table->text('logo_frontend')->nullable();
-            $table->text('marca')->nullable();
-            $table->text('facebook')->nullable();
-            $table->text('instagram')->nullable();
-            $table->text('youtube')->nullable();
-            $table->text('twitter')->nullable();
+            $table->string('favicon',255)->nullable();
+            $table->string('logo_admin',255)->nullable();
+            $table->string('logo_frontend',255)->nullable();
+            $table->string('facebook',255)->nullable();
+            $table->string('instagram',255)->nullable();
+            $table->string('youtube',255)->nullable();
+            $table->string('twitter',255)->nullable();
             $table->integer('creado_por');
             $table->integer('actualizado_por')->nullable();
             $table->timestamps();
@@ -40,6 +39,6 @@ class CreateConfiguracionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('configuracions');
+        Schema::dropIfExists('configuracion');
     }
 }
