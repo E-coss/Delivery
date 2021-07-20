@@ -4,10 +4,12 @@ namespace App\Http\Livewire\Admin;
 
 use Livewire\Component;
 use App\Models\Configuracion;
+use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Auth;
 
 class Empresa extends Component
 {
+    use WithFileUploads;
 
     public Configuracion $con;
 
@@ -20,10 +22,17 @@ class Empresa extends Component
         'con.instagram' => 'required|string|url|max:255',
         'con.youtube' => 'required|string|url|max:255',
         'con.twitter' => 'required|string|url|max:255',
+        'con.favicon' => 'image|max:1024',
     ];
+
+    public function updated($rules)
+    {
+        $this->validateOnly($rules);
+    }
 
     public function Empresa(){
         $this->validate();
+        $this->con->favicon->storeAs('avatar');
     }
 
     public function mount(){
