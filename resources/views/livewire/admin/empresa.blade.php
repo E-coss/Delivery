@@ -147,101 +147,130 @@
                   <p class="mt-1 text-red-500 text-xs italic">{{ $message }}</p>
                   @enderror
                 </label> 
-                  
-                
               </div>
                   </div>
-
-                  <h4 class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300"> Logos </h4> 
-
-                  <div class="flex flex-wrap -mx-3 mb-3">
-                  <div class="w-full sm:w-1/2 lg:w-1/3 px-3 mb-6 md:mb-0">
-                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-400">
-                      Favicon
-                    </label>
-                    <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-400 border-dashed rounded-md">
-                    <div class="space-y-1 text-center">
-                      @if (false)
-                      <img src="{{ $con->favicon->temporaryUrl() }}">
-                      @else
-                      <div class="space-y-1 text-center">
-                        <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
-                          <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                        <div class="flex text-sm text-gray-600">
-                          <label for="favicon" class="relative dark:bg-gray-900 cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
-                            <span>{{ __('Subir Imagen') }}</span>
-                            <input id="favicon" class="sr-only" type="file" wire:model="con.favicon">
-                          </label>
-                          <p class="pl-1 dark:text-gray-400">Dar click aquí</p>
-                        </div>
-                        <p class="text-xs text-gray-500 dark:text-gray-400">
-                          PNG, JPG, JPEG, ICO
-                        </p>
-                      </div>
-                    @endif  
-                    </div>
-                    
-                    </div>
-                    @error('con.favicon')
-                <p class="mt-1 text-red-500 text-xs italic">{{ $message }}</p>
-                  @enderror
-                  </div>
-
-                  <div class="w-full sm:w-1/2 lg:w-1/3 px-3 mb-6 md:mb-0">
-                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-400">
-                      Logo Administrativo
-                    </label>
-                    <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-400 border-dashed rounded-md">
-                      <div class="space-y-1 text-center">
-                        <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
-                          <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                        <div class="flex text-sm text-gray-600">
-                          <label for="file-upload" class="relative dark:bg-gray-900 cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
-                            <span>{{ __('Subir Imagen') }}</span>
-                            <input id="logo_admin" type="file" class="sr-only">
-                          </label>
-                          <p class="pl-1 dark:text-gray-400">Dar click aquí</p>
-                        </div>
-                        <p class="text-xs text-gray-500 dark:text-gray-400">
-                        PNG, JPG, JPEG, ICO
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div class="w-full sm:w-1/2 lg:w-1/3 px-3 mb-6 md:mb-0 ">
-                    <label class="block text-sm font-medium text-gray-700 dark:text-gray-400">
-                      Logo Principal
-                    </label>
-                    <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-400 border-dashed rounded-md">
-                      <div class="space-y-1 text-center">
-                        <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
-                          <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                        <div class="flex text-sm text-gray-600">
-                          <label for="file-upload" class="relative dark:bg-gray-900 cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
-                            <span>{{ __('Subir Imagen') }}</span>
-                            <input id="logo_frontend" type="file" class="sr-only">
-                          </label>
-                          <p class="pl-1 dark:text-gray-400">Dar click aquí</p>
-                        </div>
-                        <p class="text-xs text-gray-500 dark:text-gray-400">
-                        PNG, JPG, JPEG, ICO
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  
-                </div>
+                  <!-- You should use a button here, as the anchor is only used for the example  -->
+              <button type="submit" class="block w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
+                {{ __('Guardar Cambios') }}
+                </button>
+          </form>
               </div>
               
-              <!-- You should use a button here, as the anchor is only used for the example  -->
-              <button type="submit" class="block w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
+
+        <h3 class="mb-4 mt-6 text-2xl font-semibold text-gray-600 dark:text-gray-300"> Logos </h3> 
+
+        <div class="flex flex-wrap -mx-3 mb-3">
+        <div class="w-full sm:w-1/2 lg:w-1/3 px-3 mb-6 md:mb-0">
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-400">
+            Favicon
+          </label>
+         
+          <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-400 border-dashed rounded-md">
+          
+            <div class="space-y-1 text-center">
+            <form wire:submit.prevent="favicon">
+            <div class="space-y-1 text-center">
+              @if ($favicon)
+            <img class="block" src="{{ $favicon->temporaryUrl() }}">
+             @endif 
+             <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
+                <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <div class="flex text-sm justify-center text-gray-600">
+                <label for="favicon" class="text-justify relative dark:bg-gray-900 cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
+                  <span>{{ __('Subir Imagen') }}</span>
+                  <input id="favicon" class="sr-only" type="file" wire:model="favicon">
+                </label>
+                <p class="pl-1 dark:text-gray-400">Dar click aquí</p>
+              </div>
+              <p class="text-xs text-gray-500 dark:text-gray-400">
+                PNG, JPG, JPEG, ICO
+              </p>
+            </div>
+            <button type="submit" class="block w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
               {{ __('Guardar Cambios') }}
               </button>
+          </form>
+          </div>
+          </div>
+          @error('favicon')
+      <p class="mt-1 text-red-500 text-xs italic">{{ $message }}</p>
+        @enderror
+        </div>
 
-        </form>
+        <div class="w-full sm:w-1/2 lg:w-1/3 px-3 mb-6 md:mb-0">
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-400">
+            Logo Administrativo
+          </label>
+          <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-400 border-dashed rounded-md">
+            <div class="space-y-1 text-center">
+              <form wire:submit.prevent="logo_admin">
+                <div class="space-y-1 text-center">
+                @if ($logo_admin)
+                  <img class="block" src="{{ $logo_admin->temporaryUrl() }}">
+                @endif 
+              <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
+                <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <div class="flex text-sm justify-center text-gray-600">
+                <label for="logo_admin" class="relative dark:bg-gray-900 cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
+                  <span>{{ __('Subir Imagen') }}</span>
+                  <input id="logo_admin" type="file" wire:model="logo_admin" class="sr-only">
+                </label>
+                <p class="pl-1 dark:text-gray-400">Dar click aquí</p>
+              </div>
+              <p class="text-xs text-gray-500 dark:text-gray-400">
+              PNG, JPG, JPEG, ICO
+              </p>
             </div>
+            <button type="submit" class="block w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
+              {{ __('Guardar Cambios') }}
+              </button>
+          </form>
+            </div>
+          </div>
+          @error('logo_admin')
+          <p class="mt-1 text-red-500 text-xs italic">{{ $message }}</p>
+            @enderror
+        </div>
+
+        <div class="w-full sm:w-1/2 lg:w-1/3 px-3 mb-6 md:mb-0 ">
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-400">
+            Logo Principal
+          </label>
+          <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-400 border-dashed rounded-md">
+            <div class="space-y-1 text-center">
+              <form wire:submit.prevent="logo_frontend">
+                <div class="space-y-1 text-center">
+                @if ($logo_frontend)
+                  <img class="block" src="{{ $logo_frontend->temporaryUrl() }}">
+                @endif 
+                <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
+                <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+              <div class="flex text-sm justify-center text-gray-600">
+                <label for="logo_frontend" class="relative dark:bg-gray-900 cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
+                  <span>{{ __('Subir Imagen') }}</span>
+                  <input id="logo_frontend" type="file" wire:model="logo_frontend" class="sr-only">
+                </label>
+                <p class="pl-1 dark:text-gray-400">Dar click aquí</p>
+              </div>
+              <p class="text-xs text-gray-500 dark:text-gray-400">
+              PNG, JPG, JPEG, ICO
+              </p>
+            </div>
+            <button type="submit" class="block w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
+              {{ __('Guardar Cambios') }}
+              </button>
+          </form>
+          </div>
+          @error('logo_frontend')
+          <p class="mt-1 text-red-500 text-xs italic">{{ $message }}</p>
+            @enderror
+        </div>
+      
+
+      </div> 
+    </div>
+
 </div>

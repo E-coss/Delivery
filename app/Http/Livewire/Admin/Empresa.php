@@ -11,6 +11,9 @@ class Empresa extends Component
 {
     use WithFileUploads;
 
+    public $favicon;
+    public $logo_admin;
+    public $logo_frontend;
     public Configuracion $con;
 
     protected $rules = [
@@ -22,7 +25,6 @@ class Empresa extends Component
         'con.instagram' => 'required|string|url|max:255',
         'con.youtube' => 'required|string|url|max:255',
         'con.twitter' => 'required|string|url|max:255',
-        'con.favicon' => 'image|max:1024',
     ];
 
     public function updated($rules)
@@ -32,7 +34,27 @@ class Empresa extends Component
 
     public function Empresa(){
         $this->validate();
-        $this->con->favicon->storeAs('avatar');
+    }
+
+    public function favicon(){
+        $this->validate([
+            'favicon' => 'image|max:1024',
+        ]);
+        $this->favicon->storeAs('public', 'favicon.png');
+    }
+
+    public function logo_admin(){
+        $this->validate([
+            'logo_admin' => 'image|max:1024',
+        ]);
+        $this->logo_admin->storeAs('public', 'logo_admin.png');
+    }
+
+    public function logo_frontend(){
+        $this->validate([
+            'logo_frontend' => 'image|max:1024',
+        ]);
+        $this->logo_frontend->storeAs('public', 'logo_frontend.jpg');
     }
 
     public function mount(){
