@@ -40,7 +40,7 @@ class Empresa extends Component
         $this->validate([
             'favicon' => 'image|max:1024',
         ]);
-        $this->favicon->storeAs('public', 'favicon.png');
+        $this->favicon->storePubliclyAs('img', 'favicon.png');
     }
 
     public function logo_admin(){
@@ -54,7 +54,7 @@ class Empresa extends Component
         $this->validate([
             'logo_frontend' => 'image|max:1024',
         ]);
-        $this->logo_frontend->storeAs('public', 'logo_frontend.jpg');
+        $this->logo_frontend->move(public_path('logos'), 'logo_frontend.png');
     }
 
     public function mount(){
