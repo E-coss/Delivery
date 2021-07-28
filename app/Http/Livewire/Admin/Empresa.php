@@ -40,21 +40,21 @@ class Empresa extends Component
         $this->validate([
             'favicon' => 'image|max:1024',
         ]);
-        $this->favicon->storePubliclyAs('img', 'favicon.png');
+        $this->favicon->storeAs('resources', 'favicon.png');
     }
 
     public function logo_admin(){
         $this->validate([
             'logo_admin' => 'image|max:1024',
         ]);
-        $this->logo_admin->storeAs('public', 'logo_admin.png');
+        $this->logo_admin->storeAs('resources', 'logo_admin.png');
     }
 
     public function logo_frontend(){
         $this->validate([
             'logo_frontend' => 'image|max:1024',
         ]);
-        $this->logo_frontend->move(public_path('logos'), 'logo_frontend.png');
+        $this->logo_frontend->storeAs('resources', 'logo_frontend.png');
     }
 
     public function mount(){
