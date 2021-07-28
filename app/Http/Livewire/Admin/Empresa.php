@@ -15,6 +15,8 @@ class Empresa extends Component
     public $logo_admin;
     public $logo_frontend;
     public Configuracion $con;
+    public $mensaje;
+    public $caption;
 
     protected $rules = [
         'con.nombre' => 'required|string|max:50',
@@ -40,25 +42,39 @@ class Empresa extends Component
         $this->validate([
             'favicon' => 'image|max:1024',
         ]);
-        $this->favicon->storeAs('resources', 'favicon.png');
+        if($this->favicon->storeAs('resources', 'favicon.png')){
+            $this->mensaje=true;
+            $this->caption="Favicon Actualizado correctamente";
+        }
     }
 
     public function logo_admin(){
         $this->validate([
             'logo_admin' => 'image|max:1024',
         ]);
-        $this->logo_admin->storeAs('resources', 'logo_admin.png');
+        if($this->logo_admin->storeAs('resources', 'logo_admin.png')){
+            $this->mensaje=true;
+            $this->caption="Logo Administrativo Actualizado correctamente";
+        }
     }
 
     public function logo_frontend(){
         $this->validate([
             'logo_frontend' => 'image|max:1024',
         ]);
-        $this->logo_frontend->storeAs('resources', 'logo_frontend.png');
+        if($this->logo_frontend->storeAs('resources', 'logo_frontend.png')){
+            $this->mensaje=true;
+            $this->caption="Logo Frontend Actualizado correctamente";   
+        }
+    }
+
+    public function alert(){
+        $this->mensaje=false;
     }
 
     public function mount(){
         $this->con=Configuracion::First();
+        $this->mensaje=false;
     }
 
     public function render()

@@ -1,4 +1,5 @@
 <div>
+ 
             <div class="w-full">
               @if ($errors->any()) 
                   <div class="font-medium text-red-600 mb-3" >{{ __('Lgeneral.Whoops! Something went wrong.') }}</div>
@@ -276,6 +277,31 @@
             @enderror
 
       </div> 
+      
     </div>
+    @if($mensaje == true)  
+    <div class="alert-toast fixed bottom-0 right-0 m-8 w-5/6 md:w-full max-w-sm">
+      <input type="checkbox" class="hidden" id="footertoast" wire:click="alert">
+  
+      <label class="close cursor-pointer flex items-start justify-between w-full p-2 bg-green-500 h-12 rounded shadow-lg text-white" title="close" for="footertoast">
+       <span class="bold"> Aviso !!! </span> {{$caption}}
+        <svg class="fill-current text-white" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18">
+          <path d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z"></path>
+        </svg>
+      </label>
+    </div>
+    @endif
+    {{-- <div x-data="{ show: true }" x-show="show"
+    class="flex justify-between items-center bg-green-200 relative text-yellow-600 py-1 px-3 mb-3 rounded-lg">
+    <div>
+        <span class="font-semibold text-yellow-700">Aviso !!!</span>
+        Imagen Guardada Correctamente!
+    </div>
+    <div>
+        <button type="button" @click="show = false" class=" text-yellow-700">
+            <span class="text-2xl">&times;</span>
+        </button>
+    </div>
+</div> --}}
 
 </div>
