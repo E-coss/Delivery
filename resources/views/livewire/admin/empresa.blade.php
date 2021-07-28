@@ -14,7 +14,7 @@
                 {{ __('Nombre') }}
                 </label>
                 <div class="relative text-gray-500 focus-within:text-purple-500 dark:focus-within:text-purple-500" >
-                    <input class="@if($errors->has('con.direccion')) border-red-500 dark:border-red-500 @else dark:border-gray-500 @endif block w-full pl-10 mt-1 text-sm text-black dark:text-gray-300 dark:border-gray-500 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-purple form-input"
+                    <input class="@if($errors->has('con.direccion')) border-red-500 dark:border-red-500 @else dark:border-gray-500 @endif block w-full pl-10 mt-1 text-sm text-black dark:text-gray-300 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-purple form-input"
                     placeholder="Jane" type="text" wire:model="con.nombre" autofocus autocomplete="nombre"/>     
                       <div class="absolute inset-y-0 flex items-center ml-3 pointer-events-none" >  
                       <i class="far fa-building fa-lg"></i>
@@ -30,7 +30,7 @@
                 {{ __('Direccion') }}
                 </label>
                 <div class="relative text-gray-500 focus-within:text-purple-500 dark:focus-within:text-purple-500" >
-                    <input class="@if($errors->has('con.direccion')) border-red-500 dark:border-red-500 @else dark:border-gray-500 @endif block w-full pl-10 mt-1 text-sm text-black dark:text-gray-300 dark:border-gray-500 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-purple form-input"
+                    <input class="@if($errors->has('con.direccion')) border-red-500 dark:border-red-500 @else dark:border-gray-500 @endif block w-full pl-10 mt-1 text-sm text-black dark:text-gray-300 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-purple form-input"
                     placeholder="Calle Duverge #13" type="text" wire:model="con.direccion"  autofocus autocomplete="direccion"/>     
                       <div class="absolute inset-y-0 flex items-center ml-3 pointer-events-none" >  
                       <i class="fas fa-map-marker-alt fa-lg"></i>
@@ -48,7 +48,7 @@
                     {{ __('Eslogan') }}
                     </label>
                     <div class="relative text-gray-500 focus-within:text-purple-500 dark:focus-within:text-purple-500" >
-                    <input class="@if($errors->has('con.eslogan')) border-red-500 dark:border-red-500 @else dark:border-gray-500 @endif block w-full pl-10 mt-1 text-sm text-black dark:text-gray-300 dark:border-gray-500 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-purple form-input"
+                    <input class="@if($errors->has('con.eslogan')) border-red-500 dark:border-red-500 @else dark:border-gray-500 @endif block w-full pl-10 mt-1 text-sm text-black dark:text-gray-300 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-purple form-input"
                     placeholder="La vida es buena" type="text" wire:model="con.eslogan"  autofocus autocomplete="eslogan" />     
                       <div class="absolute inset-y-0 flex items-center ml-3 pointer-events-none" > 
                       <i class="fas fa-quote-left fa-lg"></i>
@@ -63,7 +63,7 @@
                 {{ __('perfil.Email') }}
                 </label>
                 <div class="relative text-gray-500 focus-within:text-purple-500 dark:focus-within:text-purple-500" >
-                      <input class="@if($errors->has('con.email')) border-red-500 dark:border-red-500 @else dark:border-gray-500 @endif block w-full pl-10 mt-1 text-sm text-black dark:text-gray-300 dark:border-gray-500 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-purple form-input"
+                      <input class="@if($errors->has('con.email')) border-red-500 dark:border-red-500 @else dark:border-gray-500 @endif block w-full pl-10 mt-1 text-sm text-black dark:text-gray-300 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-purple form-input"
                       placeholder="Miempresa@gmail.com" wire:model="con.email" autofocus autocomplete="email" type="email" />     
                       <div class="absolute inset-y-0 flex items-center ml-3 pointer-events-none" >
                       <i class="far fa-envelope fa-lg"></i>
@@ -84,7 +84,7 @@
               <span class="text-gray-700 dark:text-gray-400">Facebook</span>
               <!-- focus-within sets the color for the icon when input is focused -->
               <div class="relative text-gray-500 focus-within:text-indigo-600 dark:focus-within:text-indigo-400" >
-                <input class="@if($errors->has('con.facebook')) border-red-500 dark:border-red-500 @else dark:border-gray-500 @endif block w-full pl-10 mt-1 text-sm text-black dark:text-gray-300 dark:border-gray-500 dark:bg-gray-700 focus:border-blue-500 focus:outline-none focus:shadow-outline-blue dark:focus:shadow-outline-blue form-input" placeholder="https://url.com" wire:model="con.facebook" autofocus type="url" />
+                <input class="@if($errors->has('con.facebook')) border-red-500 dark:border-red-500 @else dark:border-gray-500 @endif block w-full pl-10 mt-1 text-sm text-black dark:text-gray-300 dark:bg-gray-700 focus:border-blue-500 focus:outline-none focus:shadow-outline-blue dark:focus:shadow-outline-blue form-input" placeholder="https://url.com" wire:model="con.facebook" autofocus type="url" />
                
                 <div class="absolute inset-y-0 flex items-center ml-3 pointer-events-none" >
                     <i class="fab fa-facebook-f fa-lg text-blue-600"></i>
@@ -102,7 +102,7 @@
                 <span class="text-gray-700 dark:text-gray-400">Instagram</span>
                 <!-- focus-within sets the color for the icon when input is focused -->
                 <div class="relative text-gray-500 focus-within:text-pink-500 dark:focus-within:text-pink-500" >
-                    <input class="@if($errors->has('con.instagram')) border-red-500 dark:border-red-500 @else dark:border-gray-500 @endif block w-full pl-10 mt-1 text-sm text-black dark:text-gray-300 dark:border-gray-500 dark:bg-gray-700 focus:border-pink-400 focus:outline-none focus:shadow-outline-pink dark:focus:shadow-outline-pink form-input" placeholder="https://url.com" wire:model="con.instagram" autofocus type="url" />
+                    <input class="@if($errors->has('con.instagram')) border-red-500 dark:border-red-500 @else dark:border-gray-500 @endif block w-full pl-10 mt-1 text-sm text-black dark:text-gray-300 dark:bg-gray-700 focus:border-pink-400 focus:outline-none focus:shadow-outline-pink dark:focus:shadow-outline-pink form-input" placeholder="https://url.com" wire:model="con.instagram" autofocus type="url" />
                     <div class="absolute inset-y-0 flex items-center ml-3 pointer-events-none" >
                         <i class="fab fa-instagram fa-lg text-pink-500"></i>
                     </div>
@@ -122,7 +122,7 @@
                 <span class="text-gray-700 dark:text-gray-400">Youtube</span>
                 <!-- focus-within sets the color for the icon when input is focused -->
                 <div class="relative text-gray-500 focus-within:text-red-600 dark:focus-within:text-red-400" >
-                  <input class="@if($errors->has('con.youtube')) border-red-500 dark:border-red-500 @else dark:border-gray-500 @endif block w-full pl-10 mt-1 text-sm text-black dark:text-gray-300 dark:border-gray-500 dark:bg-gray-700 focus:border-red-400 focus:outline-none focus:shadow-outline-red dark:focus:shadow-outline-red form-input" placeholder="https://url.com" wire:model="con.youtube" autofocus type="url" />     
+                  <input class="@if($errors->has('con.youtube')) border-red-500 dark:border-red-500 @else dark:border-gray-500 @endif block w-full pl-10 mt-1 text-sm text-black dark:text-gray-300 dark:bg-gray-700 focus:border-red-400 focus:outline-none focus:shadow-outline-red dark:focus:shadow-outline-red form-input" placeholder="https://url.com" wire:model="con.youtube" autofocus type="url" />     
                   <div class="absolute inset-y-0 flex items-center ml-3 pointer-events-none" >
                     <i class="fab fa-youtube fa-lg text-red-500"></i>
                   </div>
@@ -139,7 +139,7 @@
                   <span class="text-gray-700 dark:text-gray-400">Twitter</span>
                   <!-- focus-within sets the color for the icon when input is focused -->
                   <div class="relative text-gray-500 focus-within:text-blue-500 dark:focus-within:text-blue-500" >
-                      <input class="@if($errors->has('con.twitter')) border-red-500 dark:border-red-500 @else dark:border-gray-500 @endif block w-full pl-10 mt-1 text-sm text-black dark:text-gray-300 dark:border-gray-500 dark:bg-gray-700 focus:border-sky-400 focus:outline-none focus:shadow-outline-sky dark:focus:shadow-outline-sky form-input" placeholder="https://url.com" wire:model="con.twitter" autofocus type="url" />     
+                      <input class="@if($errors->has('con.twitter')) border-red-500 dark:border-red-500 @else dark:border-gray-500 @endif block w-full pl-10 mt-1 text-sm text-black dark:text-gray-300 dark:bg-gray-700 focus:border-sky-400 focus:outline-none focus:shadow-outline-sky dark:focus:shadow-outline-sky form-input" placeholder="https://url.com" wire:model="con.twitter" autofocus type="url" />     
                       <div class="absolute inset-y-0 flex items-center ml-3 pointer-events-none" >
                         <i class="fab fa-twitter fa-lg text-blue-400"></i>
                       </div>

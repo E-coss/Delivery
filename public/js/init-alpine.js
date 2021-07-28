@@ -58,6 +58,16 @@ function data() {
         this.trapCleanup()
       },
       open: false,
+
+      isModalNewOpen: false,
+      openModalNew() {
+        this.isModalNewOpen = true
+        this.trapCleanup = focusTrap(document.querySelector('#modalNew'))
+      },
+      closeModalNew() {
+        this.isModalNewOpen = false
+        this.trapCleanup()
+      },
     }
   }
   
