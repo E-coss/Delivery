@@ -17,6 +17,7 @@ class Empresa extends Component
     public Configuracion $con;
     public $mensaje;
     public $caption;
+    public $error;
 
     protected $rules = [
         'con.nombre' => 'required|string|max:50',
@@ -45,6 +46,9 @@ class Empresa extends Component
         if($this->favicon->storeAs('resources', 'favicon.png')){
             $this->mensaje=true;
             $this->caption="Favicon Actualizado correctamente";
+        }else{
+            $this->error=true;
+            $this->caption="Vuelva a intentarlo mas tarde";
         }
     }
 
@@ -54,7 +58,10 @@ class Empresa extends Component
         ]);
         if($this->logo_admin->storeAs('resources', 'logo_admin.png')){
             $this->mensaje=true;
-            $this->caption="Logo Administrativo Actualizado correctamente";
+            $this->caption="Logo Administrativo Actualizado";
+        }else{
+            $this->error=true;
+            $this->caption="Vuelva a intentarlo mas tarde";
         }
     }
 
@@ -65,6 +72,9 @@ class Empresa extends Component
         if($this->logo_frontend->storeAs('resources', 'logo_frontend.png')){
             $this->mensaje=true;
             $this->caption="Logo Frontend Actualizado correctamente";   
+        }else{
+            $this->error=true;
+            $this->caption="Vuelva a intentarlo mas tarde";
         }
     }
 
@@ -75,6 +85,7 @@ class Empresa extends Component
     public function mount(){
         $this->con=Configuracion::First();
         $this->mensaje=false;
+        $this->error=false;
     }
 
     public function render()
