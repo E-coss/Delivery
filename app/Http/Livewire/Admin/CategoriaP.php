@@ -20,6 +20,9 @@ class CategoriaP extends Component
     public $nombre;
     public $descripcion;
     public $estado;
+    public $mensaje;
+    public $caption;
+    public $error;
 
     public function mount(){
         $this->showcant = 5;
@@ -30,10 +33,13 @@ class CategoriaP extends Component
         $this->nombre;
         $this->descripcion;
         $this->estado;
+        $this->mensaje=false;
+        $this->caption="";
+        $this->error=false;
     }
 
     protected $rules = [
-        'SwCategorias.nombre' => 'required|string|max:50',
+        'SwCategorias.nombre' => 'required|string|max:50|unique:categorias,nombre',
         'SwCategorias.descripcion' => 'required|string|max:255',
         'SwCategorias.estado' => 'required|string|max:9',
     ];
@@ -59,7 +65,7 @@ class CategoriaP extends Component
     public function Save()
     {
         $this->validate([
-        'nombre' => 'required|string|max:50',
+        'nombre' => 'required|string|max:50|unique:categorias,nombre',
         'descripcion' => 'required|string|max:255',
         'estado' => 'required|string|max:9',
         ]);
@@ -69,8 +75,15 @@ class CategoriaP extends Component
         $cat->descripcion=$this->descripcion;
         $cat->estado=$this->estado;
         $cat->creado_por=Auth::user()->id;
-        $cat->save();
-        $this->resetInputFields();
+        if($cat->save()){
+            $this->mensaje=true;
+            $this->caption="Categoria Gardada Correctamente";
+        }else{
+            $this->mensaje=true;
+            $this->error=true;
+            $this->caption="No se pudo guardar la categoria";
+        }
+        $this->resetInputFields(); 
     }
 
     public function resetInputFields(){
@@ -80,8 +93,31 @@ class CategoriaP extends Component
         $this->resetValidation();
     }
 
+    public function alert(){
+        $this->mensaje=false;
+    }
 
-    public function Update(){
+    public function Update( Categoria $categoria){
+        $registro = Categorias::findOrFail($this->telefono_id);
+
+        $registro->tipo_telefono = $this->tipo_telefono;
+        $registro->numero = $this->telefono;
+        $registro->entidad_id = Auth::User()->id;
+        $registro->entidad = "U";
+        $registro->creado_por = Auth::User()->id;
+
+        if($registro->save()){
+            $this->mensaje=true;
+            $this->caption="Categoria Gardada Correctamente";
+            
+            $this->addError('guardado', 'Numero de telefono actualizado correctamente.');
+        }else{
+            $this->mensaje=true;
+            $this->error=true;
+            $this->caption="No se pudo guardar la categoria";
+            
+            $this->addError('errorguardar', 'No se ha podido actualizar su numero de telefono correctamente.');
+        }
         $this->resetInputFields();
     }
 
