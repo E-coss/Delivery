@@ -89,12 +89,15 @@ class Telefonos extends Component
         }else{
             $this->addError('errorguardar', 'No se ha podido actualizar su numero de telefono correctamente.');
         }
+    }else{
+        $this->addError('errorguardar', 'Ha ocurrido un error al actualizar su numero de telefono.');
     }
         $this->resetInputFields();
         $this->hide=false;
         $this->edit=false;
         $this->cerrar=true;
     }
+    
     public function resetInputFields(){
         $this->telefono_id = '';
         $this->telefono = '';

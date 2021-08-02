@@ -66,7 +66,6 @@ function data() {
       },
       closeModalNew() {
         this.isModalNewOpen = false
-        this.trapCleanup()
       },
     }
   }

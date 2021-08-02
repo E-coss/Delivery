@@ -14,7 +14,7 @@
                 </label>
                 <div class="relative text-gray-500 focus-within:text-purple-500 dark:focus-within:text-purple-500" >
                     <input class="@if($errors->has('con.direccion')) border-red-500 dark:border-red-500 @else dark:border-gray-500 @endif block w-full pl-10 mt-1 text-sm text-black dark:text-gray-300 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-purple form-input"
-                    placeholder="Jane" type="text" wire:model="con.nombre" autofocus autocomplete="nombre"/>     
+                    placeholder="Jane" type="text" wire:model.debounce.1000ms="con.nombre" autofocus autocomplete="nombre"/>     
                       <div class="absolute inset-y-0 flex items-center ml-3 pointer-events-none" >  
                       <i class="far fa-building fa-lg"></i>
                       </div>
@@ -30,7 +30,7 @@
                 </label>
                 <div class="relative text-gray-500 focus-within:text-purple-500 dark:focus-within:text-purple-500" >
                     <input class="@if($errors->has('con.direccion')) border-red-500 dark:border-red-500 @else dark:border-gray-500 @endif block w-full pl-10 mt-1 text-sm text-black dark:text-gray-300 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-purple form-input"
-                    placeholder="Calle Duverge #13" type="text" wire:model="con.direccion"  autofocus autocomplete="direccion"/>     
+                    placeholder="Calle Duverge #13" type="text" wire:model.debounce.1000ms="con.direccion"  autofocus autocomplete="direccion"/>     
                       <div class="absolute inset-y-0 flex items-center ml-3 pointer-events-none" >  
                       <i class="fas fa-map-marker-alt fa-lg"></i>
                       </div>
@@ -48,7 +48,7 @@
                     </label>
                     <div class="relative text-gray-500 focus-within:text-purple-500 dark:focus-within:text-purple-500" >
                     <input class="@if($errors->has('con.eslogan')) border-red-500 dark:border-red-500 @else dark:border-gray-500 @endif block w-full pl-10 mt-1 text-sm text-black dark:text-gray-300 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-purple form-input"
-                    placeholder="La vida es buena" type="text" wire:model="con.eslogan"  autofocus autocomplete="eslogan" />     
+                    placeholder="La vida es buena" type="text" wire:model.debounce.1000ms="con.eslogan"  autofocus autocomplete="eslogan" />     
                       <div class="absolute inset-y-0 flex items-center ml-3 pointer-events-none" > 
                       <i class="fas fa-quote-left fa-lg"></i>
                       </div>
@@ -63,7 +63,7 @@
                 </label>
                 <div class="relative text-gray-500 focus-within:text-purple-500 dark:focus-within:text-purple-500" >
                       <input class="@if($errors->has('con.email')) border-red-500 dark:border-red-500 @else dark:border-gray-500 @endif block w-full pl-10 mt-1 text-sm text-black dark:text-gray-300 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-purple form-input"
-                      placeholder="Miempresa@gmail.com" wire:model="con.email" autofocus autocomplete="email" type="email" />     
+                      placeholder="Miempresa@gmail.com" wire:model.debounce.1000ms="con.email" autofocus autocomplete="email" type="email" />     
                       <div class="absolute inset-y-0 flex items-center ml-3 pointer-events-none" >
                       <i class="far fa-envelope fa-lg"></i>
                       </div>
@@ -83,7 +83,7 @@
               <span class="text-gray-700 dark:text-gray-400">Facebook</span>
               <!-- focus-within sets the color for the icon when input is focused -->
               <div class="relative text-gray-500 focus-within:text-indigo-600 dark:focus-within:text-indigo-400" >
-                <input class="@if($errors->has('con.facebook')) border-red-500 dark:border-red-500 @else dark:border-gray-500 @endif block w-full pl-10 mt-1 text-sm text-black dark:text-gray-300 dark:bg-gray-700 focus:border-blue-500 focus:outline-none focus:shadow-outline-blue dark:focus:shadow-outline-blue form-input" placeholder="https://url.com" wire:model="con.facebook" autofocus type="url" />
+                <input class="@if($errors->has('con.facebook')) border-red-500 dark:border-red-500 @else dark:border-gray-500 @endif block w-full pl-10 mt-1 text-sm text-black dark:text-gray-300 dark:bg-gray-700 focus:border-blue-500 focus:outline-none focus:shadow-outline-blue dark:focus:shadow-outline-blue form-input" placeholder="https://url.com" wire:model.debounce.1000ms="con.facebook" autofocus type="url" />
                
                 <div class="absolute inset-y-0 flex items-center ml-3 pointer-events-none" >
                     <i class="fab fa-facebook-f fa-lg text-blue-600"></i>
@@ -101,7 +101,7 @@
                 <span class="text-gray-700 dark:text-gray-400">Instagram</span>
                 <!-- focus-within sets the color for the icon when input is focused -->
                 <div class="relative text-gray-500 focus-within:text-pink-500 dark:focus-within:text-pink-500" >
-                    <input class="@if($errors->has('con.instagram')) border-red-500 dark:border-red-500 @else dark:border-gray-500 @endif block w-full pl-10 mt-1 text-sm text-black dark:text-gray-300 dark:bg-gray-700 focus:border-pink-400 focus:outline-none focus:shadow-outline-pink dark:focus:shadow-outline-pink form-input" placeholder="https://url.com" wire:model="con.instagram" autofocus type="url" />
+                    <input class="@if($errors->has('con.instagram')) border-red-500 dark:border-red-500 @else dark:border-gray-500 @endif block w-full pl-10 mt-1 text-sm text-black dark:text-gray-300 dark:bg-gray-700 focus:border-pink-400 focus:outline-none focus:shadow-outline-pink dark:focus:shadow-outline-pink form-input" placeholder="https://url.com" wire:model.debounce.1000ms="con.instagram" autofocus type="url" />
                     <div class="absolute inset-y-0 flex items-center ml-3 pointer-events-none" >
                         <i class="fab fa-instagram fa-lg text-pink-500"></i>
                     </div>
@@ -121,7 +121,7 @@
                 <span class="text-gray-700 dark:text-gray-400">Youtube</span>
                 <!-- focus-within sets the color for the icon when input is focused -->
                 <div class="relative text-gray-500 focus-within:text-red-600 dark:focus-within:text-red-400" >
-                  <input class="@if($errors->has('con.youtube')) border-red-500 dark:border-red-500 @else dark:border-gray-500 @endif block w-full pl-10 mt-1 text-sm text-black dark:text-gray-300 dark:bg-gray-700 focus:border-red-400 focus:outline-none focus:shadow-outline-red dark:focus:shadow-outline-red form-input" placeholder="https://url.com" wire:model="con.youtube" autofocus type="url" />     
+                  <input class="@if($errors->has('con.youtube')) border-red-500 dark:border-red-500 @else dark:border-gray-500 @endif block w-full pl-10 mt-1 text-sm text-black dark:text-gray-300 dark:bg-gray-700 focus:border-red-400 focus:outline-none focus:shadow-outline-red dark:focus:shadow-outline-red form-input" placeholder="https://url.com" wire:model.debounce.1000ms="con.youtube" autofocus type="url" />     
                   <div class="absolute inset-y-0 flex items-center ml-3 pointer-events-none" >
                     <i class="fab fa-youtube fa-lg text-red-500"></i>
                   </div>
@@ -138,7 +138,7 @@
                   <span class="text-gray-700 dark:text-gray-400">Twitter</span>
                   <!-- focus-within sets the color for the icon when input is focused -->
                   <div class="relative text-gray-500 focus-within:text-blue-500 dark:focus-within:text-blue-500" >
-                      <input class="@if($errors->has('con.twitter')) border-red-500 dark:border-red-500 @else dark:border-gray-500 @endif block w-full pl-10 mt-1 text-sm text-black dark:text-gray-300 dark:bg-gray-700 focus:border-sky-400 focus:outline-none focus:shadow-outline-sky dark:focus:shadow-outline-sky form-input" placeholder="https://url.com" wire:model="con.twitter" autofocus type="url" />     
+                      <input class="@if($errors->has('con.twitter')) border-red-500 dark:border-red-500 @else dark:border-gray-500 @endif block w-full pl-10 mt-1 text-sm text-black dark:text-gray-300 dark:bg-gray-700 focus:border-sky-400 focus:outline-none focus:shadow-outline-sky dark:focus:shadow-outline-sky form-input" placeholder="https://url.com" wire:model.debounce.1000ms="con.twitter" autofocus type="url" />     
                       <div class="absolute inset-y-0 flex items-center ml-3 pointer-events-none" >
                         <i class="fab fa-twitter fa-lg text-blue-400"></i>
                       </div>
@@ -156,8 +156,98 @@
           </form>
               </div>
               
+        
+        
+        <h3 class="mb-4 mt-6 text-2xl font-semibold text-gray-600 dark:text-gray-300"> ACERCA DE LA EMPRESA </h3> 
 
-        <h3 class="mb-4 mt-6 text-2xl font-semibold text-gray-600 dark:text-gray-300"> Logos </h3> 
+        <div class="w-full">
+          @if ($errors->any()) 
+              <div class="font-medium text-red-600 mb-3" >{{ __('Lgeneral.Whoops! Something went wrong.') }}</div>
+          @endif
+
+    <form wire:submit.prevent="Empresa()">
+        @csrf
+
+        <div class="flex flex-wrap -mx-3 mb-3">
+          <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+            <label class="block uppercase tracking-wide text-gray-700 dark:text-gray-400 text-xs font-bold mb-2" for="grid-first-name">
+            {{ __('Nombre') }}
+            </label>
+            <div class="relative text-gray-500 focus-within:text-purple-500 dark:focus-within:text-purple-500" >
+                <textarea class="@if($errors->has('con.direccion')) border-red-500 dark:border-red-500 @else dark:border-gray-500 @endif block w-full pl-10 mt-1 text-sm text-black dark:text-gray-300 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-purple form-input"
+                placeholder="Jane" type="text" wire:model.debounce.1000ms="con.nombre" autofocus autocomplete="nombre"></textarea>     
+                  <div class="absolute inset-y-0 flex items-center ml-3 pointer-events-none" >  
+                  <i class="far fa-building fa-lg"></i>
+                  </div>
+                  </div> 
+             @error('con.nombre')
+            <p class="mt-1 text-red-500 text-xs italic">{{ $message }}</p>
+            @enderror
+          </div>
+
+          <div class="w-full md:w-1/2 px-3">
+            <label class="block uppercase tracking-wide text-gray-700 dark:text-gray-400 text-xs font-bold mb-2" for="grid-direccion">
+            {{ __('Direccion') }}
+            </label>
+            <div class="relative text-gray-500 focus-within:text-purple-500 dark:focus-within:text-purple-500" >
+                <textarea class="@if($errors->has('con.direccion')) border-red-500 dark:border-red-500 @else dark:border-gray-500 @endif block w-full pl-10 mt-1 text-sm text-black dark:text-gray-300 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-purple form-input"
+                placeholder="Calle Duverge #13" type="text" wire:model.debounce.1000ms="con.direccion"  autofocus autocomplete="direccion"> </textarea>     
+                  <div class="absolute inset-y-0 flex items-center ml-3 pointer-events-none" >  
+                  <i class="fas fa-map-marker-alt fa-lg"></i>
+                  </div>
+                  </div>
+            @error('con.direccion')
+            <p class="mt-1 text-red-500 text-xs italic">{{ $message }}</p>
+            @enderror
+          </div>
+        </div>
+
+        <div class="flex flex-wrap -mx-3 mb-3">
+          <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+            <label class="block uppercase tracking-wide text-gray-700 dark:text-gray-400 text-xs font-bold mb-2" for="grid-direccion">
+                {{ __('Eslogan') }}
+                </label>
+                <div class="relative text-gray-500 focus-within:text-purple-500 dark:focus-within:text-purple-500" >
+                <textarea class="@if($errors->has('con.eslogan')) border-red-500 dark:border-red-500 @else dark:border-gray-500 @endif block w-full pl-10 mt-1 text-sm text-black dark:text-gray-300 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-purple form-input"
+                placeholder="La vida es buena" type="text" wire:model.debounce.1000ms="con.eslogan"  autofocus autocomplete="eslogan" > </textarea>     
+                  <div class="absolute inset-y-0 flex items-center ml-3 pointer-events-none" > 
+                  <i class="fas fa-quote-left fa-lg"></i>
+                  </div>
+                  </div>
+                @error('con.eslogan')
+                <p class="mt-1 text-red-500 text-xs italic">{{ $message }}</p>
+                @enderror
+          </div>
+          <div class="w-full md:w-1/2 px-3">
+            <label class="block uppercase tracking-wide text-gray-700 dark:text-gray-400 text-xs font-bold mb-2" for="grid-apellido">
+            {{ __('perfil.Email') }}
+            </label>
+            <div class="relative text-gray-500 focus-within:text-purple-500 dark:focus-within:text-purple-500" >
+                  <textarea class="@if($errors->has('con.email')) border-red-500 dark:border-red-500 @else dark:border-gray-500 @endif block w-full pl-10 mt-1 text-sm text-black dark:text-gray-300 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-purple form-input"
+                  placeholder="Miempresa@gmail.com" wire:model.debounce.1000ms="con.email" autofocus autocomplete="email" type="email" > </textarea>     
+                  <div class="absolute inset-y-0 flex items-center ml-3 pointer-events-none" >
+                  <i class="far fa-envelope fa-lg"></i>
+                  </div>
+              </div>
+            @error('con.email')
+                <p class="mt-1 text-red-500 text-xs italic">{{ $message }}</p>
+                @enderror
+          </div>
+        </div>
+
+        <h4 class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300"> MAPA  </h4> 
+
+
+
+              <!-- You should use a button here, as the anchor is only used for the example  -->
+          <button type="submit" class="block w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
+            {{ __('Guardar Cambios') }}
+            </button>
+      </form>
+          </div>
+
+
+        <h3 class="mb-4 mt-6 text-2xl font-semibold text-gray-600 dark:text-gray-300"> LOGOS </h3> 
 
         <div class="flex flex-wrap -mx-3 mb-5">
         <div class="w-full sm:w-1/2 lg:w-1/3 px-3 mb-6 md:mb-0">

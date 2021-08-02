@@ -44,10 +44,7 @@ class CategoriaP extends Component
         'SwCategorias.estado' => 'required|string|max:9',
     ];
 
-    public function updated($rules)
-    {
-        $this->validateOnly($rules);
-    }
+
 
     public function updatingSearch()
     {
@@ -97,27 +94,33 @@ class CategoriaP extends Component
         $this->mensaje=false;
     }
 
-    public function Update( Categoria $categoria){
-        $registro = Categorias::findOrFail($this->telefono_id);
-
-        $registro->tipo_telefono = $this->tipo_telefono;
-        $registro->numero = $this->telefono;
-        $registro->entidad_id = Auth::User()->id;
-        $registro->entidad = "U";
-        $registro->creado_por = Auth::User()->id;
-
-        if($registro->save()){
-            $this->mensaje=true;
-            $this->caption="Categoria Gardada Correctamente";
+    public function Update( Categorias $categoria){
+       
+        if($categoria->id === $this->Categoriasid){
             
-            $this->addError('guardado', 'Numero de telefono actualizado correctamente.');
+        $this->validate([
+            'SwCategorias.nombre' => 'required|string|max:50',
+            'SwCategorias.descripcion' => 'required|string|max:255',
+            'SwCategorias.estado' => 'required|string|max:9',
+        ]);
+        $categoria->nombre = $this->SwCategorias->nombre;
+        $categoria->descripcion = $this->SwCategorias->descripcion;
+        $categoria->estado = $this->SwCategorias->estado;
+        $categoria->actualizado_por = Auth::User()->id;
+
+        if($categoria->save()){
+            $this->mensaje=true;
+            $this->caption="Categoria actualizada Correctamente";
         }else{
             $this->mensaje=true;
             $this->error=true;
-            $this->caption="No se pudo guardar la categoria";
-            
-            $this->addError('errorguardar', 'No se ha podido actualizar su numero de telefono correctamente.');
+            $this->caption="No se pudo actualizar la categoria";
         }
+    }else{
+        $this->mensaje=true;
+        $this->error=true;
+        $this->caption="Ha ocurrido un problema";
+    }
         $this->resetInputFields();
     }
 
