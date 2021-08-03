@@ -13,7 +13,7 @@
                 {{ __('Nombre') }}
                 </label>
                 <div class="relative text-gray-500 focus-within:text-purple-500 dark:focus-within:text-purple-500" >
-                    <input class="@if($errors->has('con.direccion')) border-red-500 dark:border-red-500 @else dark:border-gray-500 @endif block w-full pl-10 mt-1 text-sm text-black dark:text-gray-300 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-purple form-input"
+                    <input class="@if($errors->has('con.nombre')) border-red-500 dark:border-red-500 @else dark:border-gray-500 @endif block w-full pl-10 mt-1 text-sm text-black dark:text-gray-300 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-purple form-input"
                     placeholder="Jane" type="text" wire:model.debounce.1000ms="con.nombre" autofocus autocomplete="nombre"/>     
                       <div class="absolute inset-y-0 flex items-center ml-3 pointer-events-none" >  
                       <i class="far fa-building fa-lg"></i>
@@ -156,97 +156,9 @@
           </form>
               </div>
               
-        
-        
         <h3 class="mb-4 mt-6 text-2xl font-semibold text-gray-600 dark:text-gray-300"> ACERCA DE LA EMPRESA </h3> 
-        
-        <div class="w-full">
-          @if ($errors->any()) 
-              <div class="font-medium text-red-600 mb-3" >{{ __('Lgeneral.Whoops! Something went wrong.') }}</div>
-          @endif
-
-    <form wire:submit.prevent="Empresa()">
-        @csrf
-        <textarea cols="10" id="editor1" name="editor1" rows="10" wire:model.debounce.1000ms="con.nombre" data-sample-short></textarea>
-        <div class="flex flex-wrap -mx-3 mb-3">
-          <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-            <label class="block uppercase tracking-wide text-gray-700 dark:text-gray-400 text-xs font-bold mb-2" for="grid-first-name">
-            {{ __('Nombre') }}
-            </label>
-            <div class="relative text-gray-500 focus-within:text-purple-500 dark:focus-within:text-purple-500" >
-                <textarea  class="@if($errors->has('con.nombre')) border-red-500 dark:border-red-500 @else dark:border-gray-500 @endif block w-full pl-10 mt-1 text-sm text-black dark:text-gray-300 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-purple form-input"
-                placeholder="Jane" type="text" wire:model.debounce.1000ms="con.nombre" autofocus autocomplete="nombre"></textarea>     
-                  <div class="absolute inset-y-0 flex items-center ml-3 pointer-events-none" >  
-                  <i class="far fa-building fa-lg"></i>
-                  </div>
-                  </div> 
-             @error('con.nombre')
-            <p class="mt-1 text-red-500 text-xs italic">{{ $message }}</p>
-            @enderror
-          </div>
-
-          <div class="w-full md:w-1/2 px-3">
-            <label class="block uppercase tracking-wide text-gray-700 dark:text-gray-400 text-xs font-bold mb-2" for="grid-direccion">
-            {{ __('Direccion') }}
-            </label>
-            <div class="relative text-gray-500 focus-within:text-purple-500 dark:focus-within:text-purple-500" >
-                <textarea class="@if($errors->has('con.direccion')) border-red-500 dark:border-red-500 @else dark:border-gray-500 @endif block w-full pl-10 mt-1 text-sm text-black dark:text-gray-300 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-purple form-input"
-                placeholder="Calle Duverge #13" type="text" wire:model.debounce.1000ms="con.direccion"  autofocus autocomplete="direccion"> </textarea>     
-                  <div class="absolute inset-y-0 flex items-center ml-3 pointer-events-none" >  
-                  <i class="fas fa-map-marker-alt fa-lg"></i>
-                  </div>
-                  </div>
-            @error('con.direccion')
-            <p class="mt-1 text-red-500 text-xs italic">{{ $message }}</p>
-            @enderror
-          </div>
-        </div>
-
-        <div class="flex flex-wrap -mx-3 mb-3">
-          <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-            <label class="block uppercase tracking-wide text-gray-700 dark:text-gray-400 text-xs font-bold mb-2" for="grid-direccion">
-                {{ __('Eslogan') }}
-                </label>
-                <div class="relative text-gray-500 focus-within:text-purple-500 dark:focus-within:text-purple-500" >
-                <textarea class="@if($errors->has('con.eslogan')) border-red-500 dark:border-red-500 @else dark:border-gray-500 @endif block w-full pl-10 mt-1 text-sm text-black dark:text-gray-300 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-purple form-input"
-                placeholder="La vida es buena" type="text" wire:model.debounce.1000ms="con.eslogan"  autofocus autocomplete="eslogan" > </textarea>     
-                  <div class="absolute inset-y-0 flex items-center ml-3 pointer-events-none" > 
-                  <i class="fas fa-quote-left fa-lg"></i>
-                  </div>
-                  </div>
-                @error('con.eslogan')
-                <p class="mt-1 text-red-500 text-xs italic">{{ $message }}</p>
-                @enderror
-          </div>
-          <div class="w-full md:w-1/2 px-3">
-            <label class="block uppercase tracking-wide text-gray-700 dark:text-gray-400 text-xs font-bold mb-2" for="grid-apellido">
-            {{ __('perfil.Email') }}
-            </label>
-            <div class="relative text-gray-500 focus-within:text-purple-500 dark:focus-within:text-purple-500" >
-                  <textarea class="@if($errors->has('con.email')) border-red-500 dark:border-red-500 @else dark:border-gray-500 @endif block w-full pl-10 mt-1 text-sm text-black dark:text-gray-300 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-purple form-input"
-                  placeholder="Miempresa@gmail.com" wire:model.debounce.1000ms="con.email" autofocus autocomplete="email" type="email" > </textarea>     
-                  <div class="absolute inset-y-0 flex items-center ml-3 pointer-events-none" >
-                  <i class="far fa-envelope fa-lg"></i>
-                  </div>
-              </div>
-            @error('con.email')
-                <p class="mt-1 text-red-500 text-xs italic">{{ $message }}</p>
-                @enderror
-          </div>
-        </div>
-
-        <h4 class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300"> MAPA  </h4> 
-
-
-
-              <!-- You should use a button here, as the anchor is only used for the example  -->
-          <button type="submit" class="block w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple">
-            {{ __('Guardar Cambios') }}
-            </button>
-      </form>
-          </div>
-
-
+      
+            @livewire('admin.acerca-de-nosotros')
         <h3 class="mb-4 mt-6 text-2xl font-semibold text-gray-600 dark:text-gray-300"> LOGOS </h3> 
 
         <div class="flex flex-wrap -mx-3 mb-5">
@@ -394,12 +306,3 @@
 </div> --}}
 
 </div>
-@push('scripts')
-<script src="https://cdn.ckeditor.com/4.16.1/standard-all/ckeditor.js"></script>
-<script>
-  CKEDITOR.replace('editor1', {
-    extraPlugins: 'editorplaceholder',
-    editorplaceholder: 'Start typing here...'
-  });
-</script>
-@endpush

@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\UsersController;
-use App\Http\Controllers\Admin\AdministracionController;
+use App\Http\Controllers\Admin\AdministracionController; 
 use App\Http\Controllers\Admin\CategoriasController;
 use Illuminate\Support\Facades\Route;
 

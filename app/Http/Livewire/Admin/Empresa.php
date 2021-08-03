@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Admin;
 
 use Livewire\Component;
 use App\Models\Configuracion;
+use App\Models\Nosotros;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Auth;
 
@@ -27,16 +28,24 @@ class Empresa extends Component
         'con.facebook' => 'required|string|url|max:255',
         'con.instagram' => 'required|string|url|max:255',
         'con.youtube' => 'required|string|url|max:255',
-        'con.twitter' => 'required|string|url|max:255',
+        'con.twitter' => 'required|string|url|max:255', 
     ];
 
-    public function updated($rules)
+    public function updated($propertyName)
     {
-        $this->validateOnly($rules);
+        $this->validateOnly($propertyName);
     }
 
     public function Empresa(){
-        $this->validate();
+        
+        if($this->con->save()){
+            $this->mensaje=true;
+            $this->caption="Información actualizada Correctamente";
+        }else{
+            $this->mensaje=true;
+            $this->error=true;
+            $this->caption="No se pudo actualizar la Información";
+        }
     }
 
     public function favicon(){
@@ -47,6 +56,7 @@ class Empresa extends Component
             $this->mensaje=true;
             $this->caption="Favicon Actualizado correctamente";
         }else{
+            $this->mensaje=true;
             $this->error=true;
             $this->caption="Vuelva a intentarlo mas tarde";
         }
@@ -60,6 +70,7 @@ class Empresa extends Component
             $this->mensaje=true;
             $this->caption="Logo Administrativo Actualizado";
         }else{
+            $this->mensaje=true;
             $this->error=true;
             $this->caption="Vuelva a intentarlo mas tarde";
         }
@@ -73,6 +84,7 @@ class Empresa extends Component
             $this->mensaje=true;
             $this->caption="Logo Frontend Actualizado correctamente";   
         }else{
+            $this->mensaje=true;
             $this->error=true;
             $this->caption="Vuelva a intentarlo mas tarde";
         }

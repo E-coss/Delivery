@@ -92,15 +92,21 @@
             </x-responsive-nav-link>
         </div>
         <div class="pt-1 pb-1 space-y-1 ">
-            <x-responsive-nav-link href="{{ route('administracion') }}" :active="request()->routeIs('administracion')">
-                {{ __('Administracion') }}
-            </x-responsive-nav-link>
-        </div>
-        <div class="pt-1 pb-1 space-y-1 ">
             <x-responsive-nav-link href="{{ route('users') }}" :active="request()->routeIs('users')">
                 {{ __('Usuarios') }}
             </x-responsive-nav-link>
         </div>
+        <div class="pt-1 pb-1 space-y-1 ">
+            <x-responsive-nav-link href="{{ route('administracion') }}" :active="request()->routeIs('administracion')">
+                {{ __('Administracion') }}
+            </x-responsive-nav-link>
+        </div> 
+        <div class="pt-1 pb-1 space-y-1 ">
+            <x-responsive-nav-link href="{{ route('categorias') }}" :active="request()->routeIs('categorias')">
+                {{ __('Categorias') }}
+            </x-responsive-nav-link>
+        </div>
+       
 
         
         <!-- Responsive Settings Options -->
