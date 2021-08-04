@@ -99,7 +99,7 @@
       
         <main class="h-full overflow-y-auto">
           <!-- Remove everything INSIDE this div to a really blank page -->
-          <div class=" container px-6 mx-auto ">
+          <div>
                 {{ $slot }}
           </div>
         </main>
