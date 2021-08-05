@@ -65,7 +65,7 @@
                 <textarea rows="5" class="@if($errors->has('nos.valores')) border-red-500 dark:border-red-500 @else dark:border-gray-500 @endif block w-full pl-10 mt-1 text-sm text-black dark:text-gray-300 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-purple form-input"
                 placeholder="Valores de la empresa" wire:model.debounce.1000ms="nos.valores" autofocus autocomplete="valores" > </textarea>  
                 <div class="absolute inset-y-0 flex items-center ml-3 pointer-events-none" >
-                  <i class="fas fa-quote-left fa-lg"></i>
+                  <i class="far fa-heart fa-lg"></i> 
                 </div>
             </div>
           @error('nos.valores')
@@ -87,7 +87,7 @@
           placeholder="iframe" wire:model.debounce.1000ms="nos.iframe" autofocus > </textarea>
          
           <div class="absolute inset-y-0 flex items-center ml-3 pointer-events-none" >
-              <i class="fas fa-map-marker-alt fa-lg text-red-600"></i> 
+              <i class="fas fa-map-marker-alt fa-lg"></i> 
           </div> 
         </div>
           @error('nos.iframe')
