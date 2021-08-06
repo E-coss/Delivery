@@ -90,6 +90,7 @@
             @yield('content')
       </div>
     </div>
+    
     @stack('modals')
     @livewireScripts
     </body>

@@ -105,6 +105,8 @@
         </main>
       </div>
     </div>
+    @include('layouts.guest.footer')
+
     @stack('modals')
 
     @livewireScripts
