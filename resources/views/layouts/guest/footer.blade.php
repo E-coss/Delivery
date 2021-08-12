@@ -15,7 +15,7 @@
                   <span class="ml-2 text-xl font-bold tracking-wide text-gray-100 uppercase">Company</span>
                 </a>
                 <div class="mt-4 lg:max-w-sm">
-                  <p class="text-sm text-deep-purple-50">
+                  <p class="text-sm text-deep-purple-500">
                     Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.
                   </p>
                   <p class="mt-4 text-sm text-deep-purple-50">

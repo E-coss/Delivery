@@ -108,7 +108,7 @@
     @include('layouts.guest.footer')
 
     @stack('modals')
-
+    @stack('scripts')
     @livewireScripts
     
   </body>

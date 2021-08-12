@@ -621,8 +621,4 @@ Alternatively if you want to just have a single hero
     </div>
 </div>
 
-
-  
- 
-
     </x-guest-layout>
