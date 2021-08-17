@@ -1817,6 +1817,12 @@ print and (-ms-high-contrast: none) {
     color: rgba(158, 158, 158, var(--text-opacity))
 }
 
+.theme-dark .dark\:text-black {
+    --text-opacity: 1;
+    color: #121317;
+    color: rgba(18, 19, 23, var(--bg-opacity))
+}
+
 .theme-dark .dark\:text-red-100 {
     --text-opacity: 1;
     color: #fde8e8;
@@ -1900,6 +1906,12 @@ print and (-ms-high-contrast: none) {
     --text-opacity: 1;
     color: #e5e7eb;
     color: rgba(229, 231, 235, var(--text-opacity))
+}
+
+.theme-dark .dark\:hover\:text-gray-400:hover {
+    --text-opacity: 1;
+    color: #9e9e9e;
+    color: rgba(158, 158, 158, var(--text-opacity)) 
 }
 
 .uppercase {

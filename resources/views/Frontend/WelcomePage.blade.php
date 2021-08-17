@@ -91,26 +91,26 @@ Alternatively if you want to just have a single hero
 
 -->
 
-    <section class="py-8">
+    <section class="py-8 dark:bg-gray-900">
 
         <div class="container mx-auto flex items-center flex-wrap pt-4 pb-12">
 
             <nav id="store" class="w-full z-30 top-0 px-6 py-1">
                 <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-2 py-3">
 
-                    <a class="uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl " href="#">
+                    <a class="uppercase dark:text-gray-200 tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl " href="#">
 				Store
 			</a>
 
                     <div class="flex items-center" id="store-nav-content">
 
-                        <a class="pl-3 inline-block no-underline hover:text-black" href="#">
+                        <a class="pl-3 dark:text-gray-200 inline-block no-underline hover:text-black" href="#">
                             <svg class="fill-current hover:text-black" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                 <path d="M7 11H17V13H7zM4 7H20V9H4zM10 15H14V17H10z" />
                             </svg>
                         </a>
 
-                        <a class="pl-3 inline-block no-underline hover:text-black" href="#">
+                        <a class="pl-3 dark:text-gray-200 inline-block no-underline hover:text-black" href="#">
                             <svg class="fill-current hover:text-black" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                 <path d="M10,18c1.846,0,3.543-0.635,4.897-1.688l4.396,4.396l1.414-1.414l-4.396-4.396C17.365,13.543,18,11.846,18,10 c0-4.411-3.589-8-8-8s-8,3.589-8,8S5.589,18,10,18z M10,4c3.309,0,6,2.691,6,6s-2.691,6-6,6s-6-2.691-6-6S6.691,4,10,4z" />
                             </svg>
@@ -124,12 +124,12 @@ Alternatively if you want to just have a single hero
                 <a href="#">
                     <img class="hover:grow hover:shadow-lg" src="https://images.unsplash.com/photo-1555982105-d25af4182e4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=400&q=80">
                     <div class="pt-3 flex items-center justify-between">
-                        <p class="">Product Name</p>
-                        <svg class="h-6 w-6 fill-current text-gray-500 hover:text-black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <p class="dark:text-gray-300">Product Name</p>
+                        <svg class="h-6 w-6 fill-current dark:hover:text-gray-400 dark:text-gray-300 text-gray-500 hover:text-black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             <path d="M12,4.595c-1.104-1.006-2.512-1.558-3.996-1.558c-1.578,0-3.072,0.623-4.213,1.758c-2.353,2.363-2.352,6.059,0.002,8.412 l7.332,7.332c0.17,0.299,0.498,0.492,0.875,0.492c0.322,0,0.609-0.163,0.792-0.409l7.415-7.415 c2.354-2.354,2.354-6.049-0.002-8.416c-1.137-1.131-2.631-1.754-4.209-1.754C14.513,3.037,13.104,3.589,12,4.595z M18.791,6.205 c1.563,1.571,1.564,4.025,0.002,5.588L12,18.586l-6.793-6.793C3.645,10.23,3.646,7.776,5.205,6.209 c0.76-0.756,1.754-1.172,2.799-1.172s2.035,0.416,2.789,1.17l0.5,0.5c0.391,0.391,1.023,0.391,1.414,0l0.5-0.5 C14.719,4.698,17.281,4.702,18.791,6.205z" />
                         </svg>
                     </div>
-                    <p class="pt-1 text-gray-900">£9.99</p>
+                    <p class="pt-1 text-gray-900 dark:text-gray-300">£9.99</p>
                 </a>
             </div>
 
@@ -137,12 +137,12 @@ Alternatively if you want to just have a single hero
                 <a href="#">
                     <img class="hover:grow hover:shadow-lg" src="https://images.unsplash.com/photo-1508423134147-addf71308178?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=400&q=80">
                     <div class="pt-3 flex items-center justify-between">
-                        <p class="">Product Name</p>
-                        <svg class="h-6 w-6 fill-current text-gray-500 hover:text-black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <p class="dark:text-gray-300">Product Name</p>
+                        <svg class="h-6 w-6 fill-current dark:hover:text-gray-400 dark:text-gray-300 text-gray-500 hover:text-black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             <path d="M12,4.595c-1.104-1.006-2.512-1.558-3.996-1.558c-1.578,0-3.072,0.623-4.213,1.758c-2.353,2.363-2.352,6.059,0.002,8.412 l7.332,7.332c0.17,0.299,0.498,0.492,0.875,0.492c0.322,0,0.609-0.163,0.792-0.409l7.415-7.415 c2.354-2.354,2.354-6.049-0.002-8.416c-1.137-1.131-2.631-1.754-4.209-1.754C14.513,3.037,13.104,3.589,12,4.595z M18.791,6.205 c1.563,1.571,1.564,4.025,0.002,5.588L12,18.586l-6.793-6.793C3.645,10.23,3.646,7.776,5.205,6.209 c0.76-0.756,1.754-1.172,2.799-1.172s2.035,0.416,2.789,1.17l0.5,0.5c0.391,0.391,1.023,0.391,1.414,0l0.5-0.5 C14.719,4.698,17.281,4.702,18.791,6.205z" />
                         </svg>
                     </div>
-                    <p class="pt-1 text-gray-900">£9.99</p>
+                    <p class="pt-1 text-gray-900 dark:text-gray-300">£9.99</p>
                 </a>
             </div>
 
@@ -150,12 +150,12 @@ Alternatively if you want to just have a single hero
                 <a href="#">
                     <img class="hover:grow hover:shadow-lg" src="https://images.unsplash.com/photo-1449247709967-d4461a6a6103?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=400&q=80">
                     <div class="pt-3 flex items-center justify-between">
-                        <p class="">Product Name</p>
-                        <svg class="h-6 w-6 fill-current text-gray-500 hover:text-black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <p class="dark:text-gray-300">Product Name</p>
+                        <svg class="h-6 w-6 fill-current dark:hover:text-gray-400 dark:text-gray-300 text-gray-500 hover:text-black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             <path d="M12,4.595c-1.104-1.006-2.512-1.558-3.996-1.558c-1.578,0-3.072,0.623-4.213,1.758c-2.353,2.363-2.352,6.059,0.002,8.412 l7.332,7.332c0.17,0.299,0.498,0.492,0.875,0.492c0.322,0,0.609-0.163,0.792-0.409l7.415-7.415 c2.354-2.354,2.354-6.049-0.002-8.416c-1.137-1.131-2.631-1.754-4.209-1.754C14.513,3.037,13.104,3.589,12,4.595z M18.791,6.205 c1.563,1.571,1.564,4.025,0.002,5.588L12,18.586l-6.793-6.793C3.645,10.23,3.646,7.776,5.205,6.209 c0.76-0.756,1.754-1.172,2.799-1.172s2.035,0.416,2.789,1.17l0.5,0.5c0.391,0.391,1.023,0.391,1.414,0l0.5-0.5 C14.719,4.698,17.281,4.702,18.791,6.205z" />
                         </svg>
                     </div>
-                    <p class="pt-1 text-gray-900">£9.99</p>
+                    <p class="pt-1 text-gray-900 dark:text-gray-300">£9.99</p>
                 </a>
             </div>
 
@@ -163,12 +163,12 @@ Alternatively if you want to just have a single hero
                 <a href="#">
                     <img class="hover:grow hover:shadow-lg" src="https://images.unsplash.com/reserve/LJIZlzHgQ7WPSh5KVTCB_Typewriter.jpg?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=400&q=80">
                     <div class="pt-3 flex items-center justify-between">
-                        <p class="">Product Name</p>
-                        <svg class="h-6 w-6 fill-current text-gray-500 hover:text-black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <p class="dark:text-gray-300">Product Name</p>
+                        <svg class="h-6 w-6 fill-current dark:hover:text-gray-400 dark:text-gray-300 text-gray-500 hover:text-black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             <path d="M12,4.595c-1.104-1.006-2.512-1.558-3.996-1.558c-1.578,0-3.072,0.623-4.213,1.758c-2.353,2.363-2.352,6.059,0.002,8.412 l7.332,7.332c0.17,0.299,0.498,0.492,0.875,0.492c0.322,0,0.609-0.163,0.792-0.409l7.415-7.415 c2.354-2.354,2.354-6.049-0.002-8.416c-1.137-1.131-2.631-1.754-4.209-1.754C14.513,3.037,13.104,3.589,12,4.595z M18.791,6.205 c1.563,1.571,1.564,4.025,0.002,5.588L12,18.586l-6.793-6.793C3.645,10.23,3.646,7.776,5.205,6.209 c0.76-0.756,1.754-1.172,2.799-1.172s2.035,0.416,2.789,1.17l0.5,0.5c0.391,0.391,1.023,0.391,1.414,0l0.5-0.5 C14.719,4.698,17.281,4.702,18.791,6.205z" />
                         </svg>
                     </div>
-                    <p class="pt-1 text-gray-900">£9.99</p>
+                    <p class="pt-1 text-gray-900 dark:text-gray-300">£9.99</p>
                 </a>
             </div>
 
@@ -176,12 +176,12 @@ Alternatively if you want to just have a single hero
                 <a href="#">
                     <img class="hover:grow hover:shadow-lg" src="https://images.unsplash.com/photo-1467949576168-6ce8e2df4e13?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=400&q=80">
                     <div class="pt-3 flex items-center justify-between">
-                        <p class="">Product Name</p>
-                        <svg class="h-6 w-6 fill-current text-gray-500 hover:text-black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <p class="dark:text-gray-300">Product Name</p>
+                        <svg class="h-6 w-6 fill-current dark:hover:text-gray-400 dark:text-gray-300 text-gray-500 hover:text-black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             <path d="M12,4.595c-1.104-1.006-2.512-1.558-3.996-1.558c-1.578,0-3.072,0.623-4.213,1.758c-2.353,2.363-2.352,6.059,0.002,8.412 l7.332,7.332c0.17,0.299,0.498,0.492,0.875,0.492c0.322,0,0.609-0.163,0.792-0.409l7.415-7.415 c2.354-2.354,2.354-6.049-0.002-8.416c-1.137-1.131-2.631-1.754-4.209-1.754C14.513,3.037,13.104,3.589,12,4.595z M18.791,6.205 c1.563,1.571,1.564,4.025,0.002,5.588L12,18.586l-6.793-6.793C3.645,10.23,3.646,7.776,5.205,6.209 c0.76-0.756,1.754-1.172,2.799-1.172s2.035,0.416,2.789,1.17l0.5,0.5c0.391,0.391,1.023,0.391,1.414,0l0.5-0.5 C14.719,4.698,17.281,4.702,18.791,6.205z" />
                         </svg>
                     </div>
-                    <p class="pt-1 text-gray-900">£9.99</p>
+                    <p class="pt-1 text-gray-900 dark:text-gray-300">£9.99</p>
                 </a>
             </div>
 
@@ -189,12 +189,12 @@ Alternatively if you want to just have a single hero
                 <a href="#">
                     <img class="hover:grow hover:shadow-lg" src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=400&q=80">
                     <div class="pt-3 flex items-center justify-between">
-                        <p class="">Product Name</p>
-                        <svg class="h-6 w-6 fill-current text-gray-500 hover:text-black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <p class="dark:text-gray-300">Product Name</p>
+                        <svg class="h-6 w-6 fill-current dark:hover:text-gray-400 dark:text-gray-300 text-gray-500 hover:text-black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             <path d="M12,4.595c-1.104-1.006-2.512-1.558-3.996-1.558c-1.578,0-3.072,0.623-4.213,1.758c-2.353,2.363-2.352,6.059,0.002,8.412 l7.332,7.332c0.17,0.299,0.498,0.492,0.875,0.492c0.322,0,0.609-0.163,0.792-0.409l7.415-7.415 c2.354-2.354,2.354-6.049-0.002-8.416c-1.137-1.131-2.631-1.754-4.209-1.754C14.513,3.037,13.104,3.589,12,4.595z M18.791,6.205 c1.563,1.571,1.564,4.025,0.002,5.588L12,18.586l-6.793-6.793C3.645,10.23,3.646,7.776,5.205,6.209 c0.76-0.756,1.754-1.172,2.799-1.172s2.035,0.416,2.789,1.17l0.5,0.5c0.391,0.391,1.023,0.391,1.414,0l0.5-0.5 C14.719,4.698,17.281,4.702,18.791,6.205z" />
                         </svg>
                     </div>
-                    <p class="pt-1 text-gray-900">£9.99</p>
+                    <p class="pt-1 text-gray-900 dark:text-gray-300">£9.99</p>
                 </a>
             </div>
 
@@ -202,12 +202,12 @@ Alternatively if you want to just have a single hero
                 <a href="#">
                     <img class="hover:grow hover:shadow-lg" src="https://images.unsplash.com/photo-1550837368-6594235de85c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=400&q=80">
                     <div class="pt-3 flex items-center justify-between">
-                        <p class="">Product Name</p>
-                        <svg class="h-6 w-6 fill-current text-gray-500 hover:text-black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <p class="dark:text-gray-300">Product Name</p>
+                        <svg class="h-6 w-6 fill-current dark:hover:text-gray-400 dark:text-gray-300 text-gray-500 hover:text-black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             <path d="M12,4.595c-1.104-1.006-2.512-1.558-3.996-1.558c-1.578,0-3.072,0.623-4.213,1.758c-2.353,2.363-2.352,6.059,0.002,8.412 l7.332,7.332c0.17,0.299,0.498,0.492,0.875,0.492c0.322,0,0.609-0.163,0.792-0.409l7.415-7.415 c2.354-2.354,2.354-6.049-0.002-8.416c-1.137-1.131-2.631-1.754-4.209-1.754C14.513,3.037,13.104,3.589,12,4.595z M18.791,6.205 c1.563,1.571,1.564,4.025,0.002,5.588L12,18.586l-6.793-6.793C3.645,10.23,3.646,7.776,5.205,6.209 c0.76-0.756,1.754-1.172,2.799-1.172s2.035,0.416,2.789,1.17l0.5,0.5c0.391,0.391,1.023,0.391,1.414,0l0.5-0.5 C14.719,4.698,17.281,4.702,18.791,6.205z" />
                         </svg>
                     </div>
-                    <p class="pt-1 text-gray-900">£9.99</p>
+                    <p class="pt-1 text-gray-900 dark:text-gray-300">£9.99</p>
                 </a>
             </div>
 
@@ -215,12 +215,12 @@ Alternatively if you want to just have a single hero
                 <a href="#">
                     <img class="hover:grow hover:shadow-lg" src="https://images.unsplash.com/photo-1551431009-a802eeec77b1?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&h=400&q=80">
                     <div class="pt-3 flex items-center justify-between">
-                        <p class="">Product Name</p>
-                        <svg class="h-6 w-6 fill-current text-gray-500 hover:text-black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <p class="dark:text-gray-300">Product Name</p>
+                        <svg class="h-6 w-6 fill-current dark:hover:text-gray-400 dark:text-gray-300 text-gray-500 hover:text-black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                             <path d="M12,4.595c-1.104-1.006-2.512-1.558-3.996-1.558c-1.578,0-3.072,0.623-4.213,1.758c-2.353,2.363-2.352,6.059,0.002,8.412 l7.332,7.332c0.17,0.299,0.498,0.492,0.875,0.492c0.322,0,0.609-0.163,0.792-0.409l7.415-7.415 c2.354-2.354,2.354-6.049-0.002-8.416c-1.137-1.131-2.631-1.754-4.209-1.754C14.513,3.037,13.104,3.589,12,4.595z M18.791,6.205 c1.563,1.571,1.564,4.025,0.002,5.588L12,18.586l-6.793-6.793C3.645,10.23,3.646,7.776,5.205,6.209 c0.76-0.756,1.754-1.172,2.799-1.172s2.035,0.416,2.789,1.17l0.5,0.5c0.391,0.391,1.023,0.391,1.414,0l0.5-0.5 C14.719,4.698,17.281,4.702,18.791,6.205z" />
                         </svg>
                     </div>
-                    <p class="pt-1 text-gray-900">£9.99</p>
+                    <p class="pt-1 text-gray-900 dark:text-gray-300">£9.99</p>
                 </a>
             </div>
 
@@ -229,16 +229,15 @@ Alternatively if you want to just have a single hero
     </section>
 
     <!-- This example requires Tailwind CSS v2.0+ -->
-<div class="h-3/6 relative bg-white overflow-hidden">
-    <div class=" mx-auto">
-      <div class="h-3/6 relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
+<div class="h-3/6 relative bg-white dark:bg-gray-900 overflow-hidden dark:bg-gray-900">
+    <div class="dark:bg-gray-900 mx-auto">
+      <div class="dark:bg-gray-900 h-3/6 relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
         <svg class="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2" fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-          <polygon points="50,0 100,0 50,100 0,100" />
+          <polygon class="dark:text-black" points="50,0 100,0 50,100 0,100" />
         </svg>
-  
-        <div>
-          <div class="h-3/6 relative pt-6 px-4 sm:px-6 lg:px-8">
-        
+   
+          <div class="dark:bg-gray-900 h-3/6 relative pt-6 px-4 sm:px-6 lg:px-8">
+         
           </div>
   
           <!--
@@ -251,19 +250,17 @@ Alternatively if you want to just have a single hero
               From: "opacity-100 scale-100"
               To: "opacity-0 scale-95"
           -->
-         
-        </div>
-  
-        <main class="mt-10 mx-auto w-full px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
-          <div class="sm:text-center lg:text-left">
-            <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
-              <span class="block xl:inline">Hazlo</span>
+          
+        <main class="dark:bg-gray-900 mt-10 mx-auto w-full px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28 ">
+          <div class="sm:text-center lg:text-left dark:bg-gray-900">
+            <h1 class="text-4xl tracking-tight font-extrabold dark:bg-gray-900 text-gray-900 sm:text-5xl md:text-6xl">
+              <span class="block xl:inline dark:text-gray-300">Hazlo</span>
               <span class="block text-purple-600 xl:inline">Simple</span>
             </h1>
-            <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
+            <p class="mt-3 dark:text-gray-200 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
               Inicia sesion y agrega todas las ubicaciones de envios que prefieras. 
             </p>
-            <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
+            <p class="mt-3 dark:text-gray-200 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
                 Guarda tus platos Favoritos y Mantente al tanto de tus pedidos.
               </p>
             <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
@@ -283,7 +280,7 @@ Alternatively if you want to just have a single hero
       </div>
     </div>
     <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-      <img class="w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-5/6" src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80" alt="">
+      <img class="w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full" src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
     </div>
   </div>
 
@@ -454,11 +451,11 @@ Alternatively if you want to just have a single hero
 
 
 
-<div class="p-4">
-    <p class="text-center text-3xl font-bold text-gray-800">
+<div class="p-4 dark:bg-gray-900">
+    <p class="text-center text-3xl font-bold text-gray-800 dark:text-white">
         Professional team
     </p>
-    <p class="text-center mb-32 text-xl font-normal text-gray-500">
+    <p class="text-center mb-32 text-xl font-normal dark:text-gray-200 text-gray-500">
         Meat the best team in wolrd
     </p>
     <div class="flex items-center space-y-24 md:space-y-0 flex-col md:flex-row justify evenly">

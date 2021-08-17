@@ -150,7 +150,7 @@
               </form>
           </div>
           
-          <div class="text-center mt-7 bg-gray-100 p-3 font-light flex items-center justify-center">
+          <div class="text-center dark:bg-gray-900 mt-7 bg-gray-100 p-3 font-light flex items-center justify-center">
               © Copyright 2020 Creativo Inc. All rights reserved.
           </div>
       </div>
