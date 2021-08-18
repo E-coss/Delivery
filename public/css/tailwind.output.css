@@ -796,6 +796,12 @@ print and (-ms-high-contrast: none) {
     background-color: rgba(26, 28, 35, var(--bg-opacity))
 }
 
+.theme-dark .dark\:bg-purple-600 {
+    --bg-opacity: 1;
+    background-color: #885dd1 !important; 
+}
+
+
 .theme-dark .dark\:bg-gray-900 {
     --bg-opacity: 1;
     background-color: #121317;
@@ -1819,8 +1825,8 @@ print and (-ms-high-contrast: none) {
 
 .theme-dark .dark\:text-black {
     --text-opacity: 1;
-    color: #121317;
-    color: rgba(18, 19, 23, var(--bg-opacity))
+    color: #1a1c23;
+    color: rgba(26, 28, 35, var(--bg-opacity))
 }
 
 .theme-dark .dark\:text-red-100 {

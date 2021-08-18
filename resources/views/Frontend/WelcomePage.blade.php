@@ -9,9 +9,9 @@
                 <div class="block h-full w-full mx-auto flex pt-6 md:pt-0 md:items-center bg-cover bg-right" style="background-image: url('https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');">
 
                     <div class="container mx-auto">
-                        <div class="flex flex-col w-full lg:w-1/2 md:ml-16 items-center md:items-start px-6 tracking-wide">
-                            <p class="text-black text-2xl my-4">Stripy Zig Zag Jigsaw Pillow and Duvet Set</p>
-                            <a class="text-xl inline-block no-underline border-b border-gray-600 leading-relaxed hover:text-black hover:border-black" href="#">view product</a>
+                        <div class="flex flex-col tracking-tight font-extrabold w-full lg:w-1/2 md:ml-16 items-center md:items-start px-6 tracking-wide">
+                            <p class="text-black text-5xl my-4">Stripy Zig Zag Jigsaw Pillow and Duvet Set</p>
+                            <a class="text-2xl inline-block no-underline border-b border-gray-600 leading-relaxed hover:text-black hover:border-black" href="#">view product</a>
                         </div>
                     </div>
 
@@ -91,7 +91,7 @@ Alternatively if you want to just have a single hero
 
 -->
 
-    <section class="py-8 dark:bg-gray-900">
+    <section class="py-8 dark:bg-gray-800">
 
         <div class="container mx-auto flex items-center flex-wrap pt-4 pb-12">
 
@@ -105,13 +105,13 @@ Alternatively if you want to just have a single hero
                     <div class="flex items-center" id="store-nav-content">
 
                         <a class="pl-3 dark:text-gray-200 inline-block no-underline hover:text-black" href="#">
-                            <svg class="fill-current hover:text-black" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <svg class="dark:hover:text-gray-400 fill-current hover:text-black" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                 <path d="M7 11H17V13H7zM4 7H20V9H4zM10 15H14V17H10z" />
                             </svg>
                         </a>
 
                         <a class="pl-3 dark:text-gray-200 inline-block no-underline hover:text-black" href="#">
-                            <svg class="fill-current hover:text-black" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                            <svg class="dark:hover:text-gray-400 fill-current hover:text-black" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                 <path d="M10,18c1.846,0,3.543-0.635,4.897-1.688l4.396,4.396l1.414-1.414l-4.396-4.396C17.365,13.543,18,11.846,18,10 c0-4.411-3.589-8-8-8s-8,3.589-8,8S5.589,18,10,18z M10,4c3.309,0,6,2.691,6,6s-2.691,6-6,6s-6-2.691-6-6S6.691,4,10,4z" />
                             </svg>
                         </a>
@@ -122,7 +122,7 @@ Alternatively if you want to just have a single hero
 
             <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
                 <a href="#">
-                    <img class="hover:grow hover:shadow-lg" src="https://images.unsplash.com/photo-1555982105-d25af4182e4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=400&q=80">
+                    <img class="hover:grow hover:shadow-lg" src="https://images.pexels.com/photos/1055270/pexels-photo-1055270.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260">
                     <div class="pt-3 flex items-center justify-between">
                         <p class="dark:text-gray-300">Product Name</p>
                         <svg class="h-6 w-6 fill-current dark:hover:text-gray-400 dark:text-gray-300 text-gray-500 hover:text-black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -135,7 +135,7 @@ Alternatively if you want to just have a single hero
 
             <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
                 <a href="#">
-                    <img class="hover:grow hover:shadow-lg" src="https://images.unsplash.com/photo-1508423134147-addf71308178?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=400&q=80">
+                    <img class="hover:grow hover:shadow-lg" src="{{ asset('img/comida3.jpg') }}">
                     <div class="pt-3 flex items-center justify-between">
                         <p class="dark:text-gray-300">Product Name</p>
                         <svg class="h-6 w-6 fill-current dark:hover:text-gray-400 dark:text-gray-300 text-gray-500 hover:text-black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -148,7 +148,7 @@ Alternatively if you want to just have a single hero
 
             <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
                 <a href="#">
-                    <img class="hover:grow hover:shadow-lg" src="https://images.unsplash.com/photo-1449247709967-d4461a6a6103?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=400&q=80">
+                    <img class="hover:grow hover:shadow-lg" src="https://images.pexels.com/photos/1055271/pexels-photo-1055271.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260">
                     <div class="pt-3 flex items-center justify-between">
                         <p class="dark:text-gray-300">Product Name</p>
                         <svg class="h-6 w-6 fill-current dark:hover:text-gray-400 dark:text-gray-300 text-gray-500 hover:text-black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -161,7 +161,7 @@ Alternatively if you want to just have a single hero
 
             <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
                 <a href="#">
-                    <img class="hover:grow hover:shadow-lg" src="https://images.unsplash.com/reserve/LJIZlzHgQ7WPSh5KVTCB_Typewriter.jpg?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=400&q=80">
+                    <img class="hover:grow hover:shadow-lg" src="{{ asset('img/comida4.jpg') }}">
                     <div class="pt-3 flex items-center justify-between">
                         <p class="dark:text-gray-300">Product Name</p>
                         <svg class="h-6 w-6 fill-current dark:hover:text-gray-400 dark:text-gray-300 text-gray-500 hover:text-black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -174,7 +174,7 @@ Alternatively if you want to just have a single hero
 
             <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
                 <a href="#">
-                    <img class="hover:grow hover:shadow-lg" src="https://images.unsplash.com/photo-1467949576168-6ce8e2df4e13?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=400&q=80">
+                    <img class="hover:grow hover:shadow-lg" src="{{ asset('img/comida5.jpg') }}">
                     <div class="pt-3 flex items-center justify-between">
                         <p class="dark:text-gray-300">Product Name</p>
                         <svg class="h-6 w-6 fill-current dark:hover:text-gray-400 dark:text-gray-300 text-gray-500 hover:text-black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -187,7 +187,7 @@ Alternatively if you want to just have a single hero
 
             <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
                 <a href="#">
-                    <img class="hover:grow hover:shadow-lg" src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=400&q=80">
+                    <img class="hover:grow hover:shadow-lg" src="{{ asset('img/comida2.jpg') }}">
                     <div class="pt-3 flex items-center justify-between">
                         <p class="dark:text-gray-300">Product Name</p>
                         <svg class="h-6 w-6 fill-current dark:hover:text-gray-400 dark:text-gray-300 text-gray-500 hover:text-black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -200,7 +200,7 @@ Alternatively if you want to just have a single hero
 
             <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
                 <a href="#">
-                    <img class="hover:grow hover:shadow-lg" src="https://images.unsplash.com/photo-1550837368-6594235de85c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=400&q=80">
+                    <img class="hover:grow hover:shadow-lg" src="https://images.pexels.com/photos/1055272/pexels-photo-1055272.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
                     <div class="pt-3 flex items-center justify-between">
                         <p class="dark:text-gray-300">Product Name</p>
                         <svg class="h-6 w-6 fill-current dark:hover:text-gray-400 dark:text-gray-300 text-gray-500 hover:text-black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -213,7 +213,7 @@ Alternatively if you want to just have a single hero
 
             <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
                 <a href="#">
-                    <img class="hover:grow hover:shadow-lg" src="https://images.unsplash.com/photo-1551431009-a802eeec77b1?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&h=400&q=80">
+                    <img class="hover:grow hover:shadow-lg" src="{{ asset('img/comida.jpg') }}">
                     <div class="pt-3 flex items-center justify-between">
                         <p class="dark:text-gray-300">Product Name</p>
                         <svg class="h-6 w-6 fill-current dark:hover:text-gray-400 dark:text-gray-300 text-gray-500 hover:text-black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
@@ -229,14 +229,14 @@ Alternatively if you want to just have a single hero
     </section>
 
     <!-- This example requires Tailwind CSS v2.0+ -->
-<div class="h-3/6 relative bg-white dark:bg-gray-900 overflow-hidden dark:bg-gray-900">
-    <div class="dark:bg-gray-900 mx-auto">
-      <div class="dark:bg-gray-900 h-3/6 relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
+<div class="h-3/6 relative bg-white dark:bg-gray-800 overflow-hidden dark:bg-gray-800">
+    <div class="dark:bg-gray-800 mx-auto">
+      <div class="dark:bg-gray-800 h-3/6 relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
         <svg class="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2" fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
           <polygon class="dark:text-black" points="50,0 100,0 50,100 0,100" />
         </svg>
    
-          <div class="dark:bg-gray-900 h-3/6 relative pt-6 px-4 sm:px-6 lg:px-8">
+          <div class="dark:bg-gray-800 h-3/6 relative pt-6 px-4 sm:px-6 lg:px-8">
          
           </div>
   
@@ -251,9 +251,9 @@ Alternatively if you want to just have a single hero
               To: "opacity-0 scale-95"
           -->
           
-        <main class="dark:bg-gray-900 mt-10 mx-auto w-full px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28 ">
-          <div class="sm:text-center lg:text-left dark:bg-gray-900">
-            <h1 class="text-4xl tracking-tight font-extrabold dark:bg-gray-900 text-gray-900 sm:text-5xl md:text-6xl">
+        <main class="dark:bg-gray-800 mt-10 mx-auto w-full px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28 ">
+          <div class="sm:text-center lg:text-left dark:bg-gray-800">
+            <h1 class="text-4xl tracking-tight font-extrabold dark:bg-gray-800 text-gray-900 sm:text-5xl md:text-6xl">
               <span class="block xl:inline dark:text-gray-300">Hazlo</span>
               <span class="block text-purple-600 xl:inline">Simple</span>
             </h1>
@@ -287,7 +287,7 @@ Alternatively if you want to just have a single hero
   
   
 
-  <div class="p-8 bg-white dark:bg-gray-800 rounded-lg shadow">
+  <div class="p-8 bg-white dark:bg-gray-800 ">
     <p class="text-center text-3xl font-bold text-gray-800 dark:text-white">
         Professional team
     </p>
