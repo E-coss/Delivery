@@ -1,5 +1,5 @@
 
-<nav id="header" class="w-full z-30 top-0 py-1 dark:bg-gray-800">
+<nav id="header" class="w-full z-30 fixed top-0 py-1 dark:bg-gray-800 bg-white">
         <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-6 py-3">
 
             <label for="menu-toggle" class="cursor-pointer md:hidden block text-gray-700 dark:text-gray-200">
@@ -96,8 +96,8 @@
             </div>
 
             <div class="order-1 md:order-2">
-                <a class="flex items-center inline-block align-middle tracking-wide no-underline hover:no-underline font-bold text-gray-800 dark:text-gray-300 text-xl " href="{{ url('/') }}">
-                   <img src="{{ asset('img/logo en letra.png') }}" class="inline-block align-middle" width="350" height="250" alt="">
+                <a class="flex items-center ml-1 inline-block align-middle tracking-wide no-underline hover:no-underline font-bold text-gray-800 dark:text-gray-300 text-xl " href="{{ url('/') }}">
+                   <img src="{{ asset('img/logo.png') }}" class="inline-block align-middle" width="220" height="100" alt="">
                    
                 </a>
             </div>

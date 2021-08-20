@@ -1,7 +1,7 @@
 <x-guest-layout>
 @section('title',"Inicio")
 
-    <div class="carousel relative mx-auto">
+    <div class="carousel mt-20 relative mx-auto">
         <div class="carousel-inner relative overflow-hidden w-full">
             <!--Slide 1-->
             <input class="carousel-open" type="radio" id="carousel-1" name="carousel" aria-hidden="true" hidden="" checked="checked">
@@ -95,7 +95,7 @@ Alternatively if you want to just have a single hero
 
         <div class="container mx-auto flex items-center flex-wrap pt-4 pb-12">
 
-            <nav id="store" class="w-full z-30 top-0 px-6 py-1">
+            <nav id="store" class="w-full relative  top-0 px-6 py-1">
                 <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-2 py-3">
 
                     <a class="uppercase dark:text-gray-200 tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl " href="#">
