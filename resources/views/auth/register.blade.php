@@ -2,8 +2,8 @@
 @section('content')
 <div class="flex flex-col overflow-y-auto md:flex-row">
         <div class="h-32 md:h-auto md:w-1/2"> 
-          <img aria-hidden="true" class="object-cover w-full h-full dark:hidden" src="{{ asset('img/create-account-office.jpeg') }}" alt="Office"  />
-          <img aria-hidden="true" class="hidden object-cover w-full h-full dark:block"  src="{{ asset('img/create-account-office-dark.jpeg') }}" alt="Office" />
+          <img aria-hidden="true" class="object-cover w-full h-full dark:hidden" src="{{ asset('img/registro-claro.jpg') }}" alt="Office"  />
+          <img aria-hidden="true" class="hidden object-cover w-full h-full dark:block"  src="{{ asset('img/registro-oscuro.jpg') }}" alt="Office" />
         </div>
           <div class="flex items-center justify-center p-6 sm:p-6 md:w-2/4">
             <div class="w-full">
