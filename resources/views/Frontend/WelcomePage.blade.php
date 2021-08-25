@@ -6,14 +6,9 @@
             <!--Slide 1-->
             <input class="carousel-open" type="radio" id="carousel-1" name="carousel" aria-hidden="true" hidden="" checked="checked">
             <div class="carousel-item absolute opacity-0" style="height:50vh;">
-                <div class="block h-full w-full mx-auto flex pt-6 md:pt-0 md:items-center bg-cover bg-right" style="background-image: url('https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');">
+                <div class="block h-auto w-auto mx-auto flex pt-6 md:pt-0 md:items-center bg-cover bg-right">
 
-                    <div class="container mx-auto">
-                        <div class="flex flex-col tracking-tight font-extrabold w-full lg:w-1/2 md:ml-16 items-center md:items-start px-6 tracking-wide">
-                            <p class="text-black text-5xl my-4">Stripy Zig Zag Jigsaw Pillow and Duvet Set</p>
-                            <a class="text-2xl inline-block no-underline border-b border-gray-600 leading-relaxed hover:text-black hover:border-black" href="#">view product</a>
-                        </div>
-                    </div>
+                   <img src="{{asset('img/banner3.jpg')}}" class="" alt="" >
 
                 </div>
             </div>
