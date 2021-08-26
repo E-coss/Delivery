@@ -97,7 +97,7 @@
 
             <div class="order-1 md:order-2">
                 <a class="flex items-center ml-1 inline-block align-middle tracking-wide no-underline hover:no-underline font-bold text-gray-800 dark:text-gray-300 text-xl " href="{{ url('/') }}">
-                   <img src="{{ asset('img/logo.png') }}" class="inline-block align-middle" width="220" height="100" alt="">
+                   <img src="{{ asset('resources/'.$con->logo_frontend) }}" class="inline-block align-middle" width="220" height="100" alt="">
                    
                 </a>
             </div>

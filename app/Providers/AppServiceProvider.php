@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Configuracion;
+use App\Models\Nosotros;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -23,6 +25,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $con=Configuracion::First();
+        $no=Nosotros::First();
+        view()->share('con', $con);
+        view()->share('no', $no);
     }
 }
