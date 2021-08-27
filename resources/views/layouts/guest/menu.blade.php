@@ -3,7 +3,7 @@
         <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-6 py-3">
 
             <label for="menu-toggle" class="cursor-pointer md:hidden block text-gray-700 dark:text-gray-200">
-                <svg class="fill-current text-gray-900" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                <svg class="dark:text-gray-200 fill-current text-gray-900" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
                     <title>menu</title>
                     <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
                 </svg>
@@ -15,90 +15,13 @@
                     <ul class="md:flex items-center justify-between text-base text-gray-800 dark:text-gray-300 pt-4 md:pt-0">
                         <li><a class="inline-block no-underline hover:text-gray-500 hover:underline py-2 px-4" href="#">Tienda</a></li>
                         <li><a class="inline-block no-underline hover:text-gray-500 hover:underline py-2 px-4" href="#">Acerca de</a></li>
-                        @auth  
-                        <x-dropdown align="right" width="48">
-                        <x-slot name="trigger">
-                     
-                <button class="md:hidden flex py-2 px-4 text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out">
-                {{ Auth::user()->name }}
-                            </button>
-                        </x-slot>
-    
-                        <x-slot name="content" >
-                            <!-- Account Management -->
-                            <div class="block px-4 py-2 text-xs font-bold text-gray-400 dark:text-gray-300">
-                                {{ __('Lgeneral.Manage Account') }}
-                            </div>
-    
-                            <x-jet-dropdown-link href="{{ route('profile.show') }}" class="font-semibold dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-gray-200">
-                              <span><i class="fas fa-user-cog dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-gray-200 pr-2"></i></span>
-                              {{ __('perfil.Profile') }}
-                            </x-jet-dropdown-link>
-    
-                            @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
-                                <x-jet-dropdown-link href="{{ route('api-tokens.index') }}" class="font-semibold dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-gray-200">
-                                  <span><i class="fas fa-cog dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-gray-200 pr-2"></i></span> 
-                                  {{ __('API Tokens') }}
-                                </x-jet-dropdown-link>
-                            @endif
-    
-                            <div class="border-t border-gray-100"></div>
-    
-                            <!-- Team Management -->
-                            @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
-                                <div class="block px-4 py-2 text-xs font-bold text-gray-400 dark:text-gray-300">
-                                    {{ __('Lgeneral.Manage Team') }}
-                                </div>
-    
-                                <!-- Team Settings -->
-                                <x-jet-dropdown-link href="{{ route('teams.show', Auth::user()->currentTeam->id) }}" class="font-semibold dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-gray-200">
-                                  <span><i class="fas fa-users-cog dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-gray-200 pr-2"></i></span>
-                                  {{ __('Lgeneral.Team Settings') }}
-                                </x-jet-dropdown-link>
-    
-                                @can('create', Laravel\Jetstream\Jetstream::newTeamModel())
-                                    <x-jet-dropdown-link href="{{ route('teams.create') }}" class="font-semibold dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-gray-200">
-                                      <span><i class="fas fa-plus dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-gray-200  pr-3"></i></span>  
-                                      {{ __('Lgeneral.Create New Team') }}
-                                    </x-jet-dropdown-link>
-                                @endcan
-    
-                                <div class="border-t border-gray-100"></div>
-    
-                                <!-- Team Switcher -->
-                                <div class="block px-4 py-2 text-xs text-gray-400 font-bold dark:text-gray-300" >
-                                    {{ __('Lgeneral.Create New Team') }}
-                                </div>
-    
-                                @foreach (Auth::user()->allTeams() as $team)
-                                    <x-switchable-team :team="$team" />
-                                @endforeach
-    
-                                <div class="border-t border-gray-100"></div>
-                            @endif
-    
-                            <!-- Authentication -->
-                            <form method="POST" action="{{ route('logout') }}">
-                                @csrf
-    
-                                <x-jet-dropdown-link class="font-semibold dark:hover:bg-gray-800 dark:text-gray-300 dark:hover:text-gray-200" href="{{ route('logout') }}"
-                                                    onclick="event.preventDefault();
-                                                                this.closest('form').submit();">
-                                   <span><i class="fas fa-sign-out-alt pr-3"></i></span>
-                                    {{ __('Lgeneral.Logout') }}
-                                </x-jet-dropdown-link>
-                            </form>
-                        </x-slot>
-                    </x-dropdown>
-                    @endauth  
                     </ul>
                 </nav>
             </div>
 
             <div class="order-1 md:order-2">
                 <a class="flex items-center ml-1 inline-block align-middle tracking-wide no-underline hover:no-underline font-bold text-gray-800 dark:text-gray-300 text-xl " href="{{ url('/') }}">
-                   <img src="{{ asset('resources/'.$con->logo_frontend) }}" class="inline-block align-middle" width="220" height="100" alt="">
-                   
+                  <img src="{{ asset('resources/'.$con->logo_frontend) }}" class="inline-block h-10 sm:h-14 align-middle w-auto" alt="FoodService"> 
                 </a>
             </div>
 
@@ -106,7 +29,7 @@
             
             <ul class="flex items-center text-gray-800 hover:text-gray-500 dark:text-gray-300 flex-shrink-0 space-x-4">
               <!-- Theme toggler -->
-              <li class="hidden sm:flex" >
+              <li class="flex" >
                 <button
                   class="rounded-md focus:outline-none focus:shadow-outline-purple"
                   @click="toggleTheme"
@@ -151,7 +74,7 @@
                 </a>
                 
                 @auth
-                <div class="hidden sm:flex sm:items-center text-gray-800 dark:text-gray-300">
+                <div class="flex items-center text-gray-800 dark:text-gray-300">
                     <x-dropdown align="right" width="48">
                         <x-slot name="trigger">
                         <a class="inline-block  no-underline hover:text-gray-500" href="#">

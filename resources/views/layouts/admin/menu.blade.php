@@ -5,8 +5,8 @@
              
             <div class="py-4 text-gray-500 dark:text-gray-400">
                 <a class="ml-6 text-lg font-bold text-gray-800 dark:text-gray-200" href="{{ route('dashboard') }}">
-                  {{ config('app.name', 'Delivery') }}
-          </a>
+                <img src="{{ asset('resources/'.$con->logo_frontend) }}" class="hidden sm:inline-block align-middle" width="220" height="100" alt="">
+              </a>
                 <ul class="mt-6">
                     <li class="relative px-6 py-3">
                       @if(request()->routeIs('dashboard'))
