@@ -4,7 +4,7 @@
       Productos
     </h2>
 
-@livewire('admin.productos')
+@livewire('admin.producto')
 
     <!-- Charts -->
 
