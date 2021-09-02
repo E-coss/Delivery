@@ -1,7 +1,7 @@
 <div class="mb-4">
     <!-- New Table -->
     <div class="w-full overflow-hidden rounded-lg shadow-xs">
-      <div class="w-full overflow-x-auto">
+      <div class="w-full ">
         <div class="my-2 flex sm:flex-row flex-col">
           <div class="flex flex-row mb-1 sm:mb-0">
               <div class="relative">
@@ -57,7 +57,7 @@
               </svg>
             </button>
       </div>
-      <table class="w-full whitespace-no-wrap">
+      <table class="w-full block overflow-x-auto whitespace-no-wrap">
           <thead>
               <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
                   <th class="px-4 py-3">Nombre</th>
