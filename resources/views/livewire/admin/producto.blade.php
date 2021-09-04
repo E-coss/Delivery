@@ -51,7 +51,7 @@
               <input wire:model="search" placeholder="Buscar por nombre"
                   class="dark:placeholder-gray-500 dark:focus:shadow-outline-gray dark:focus:placeholder-gray-600 dark:bg-gray-700 dark:text-gray-200  focus:bg-none  dark:focus:bg-gray-500 focus:border-purple-300 focus:outline-none focus:shadow-outline-purple form-input dark:bg-gray-800 dark:text-gray-200 appearance-none rounded-r rounded-l sm:rounded-l-none border border-gray-500 border-b block pl-8 pr-6 py-2 w-full bg-white text-sm placeholder-gray-400 text-gray-700 focus:bg-none focus:placeholder-gray-600 focus:text-gray-700" />
           </div>
-          <button type="button" @click="openModalNew"  class="w-full px-5 py-3 lg:ml-1 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg sm:w-auto sm:px-4 sm:py-2 active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple" >
+          <button type="button" wire:click="$toggle('mod')"   class="w-full px-5 py-3 lg:ml-1 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg sm:w-auto sm:px-4 sm:py-2 active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple" >
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
@@ -129,6 +129,144 @@
       
   </div>
 
+  <x-jet-dialog-modal wire:model="mod" >
+    <x-slot name="title"> {{ __('Crear Producto') }}</x-slot>
+    <x-slot name="content">
+      <p class="text-sm text-gray-700 dark:text-gray-400">
+        <div class="flex flex-wrap -mx-3 mb-3">
+            <div class="w-50 px-3 mb-6 md:mb-0">
+                <label class="block uppercase tracking-wide text-gray-700 dark:text-gray-400 text-xs font-bold mb-2" for="grid-first-name">
+                {{ __('Nombre') }}
+                </label>
+                <div class="relative text-gray-500 focus-within:text-purple-500 dark:focus-within:text-purple-500" >
+                    <input  wire:model.defer="nombre" class="@if($errors->has('nombre')) border-red-500 dark:border-red-500 @else dark:border-gray-500 @endif block w-full pl-10 mt-1 text-sm text-black dark:text-gray-300  dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-purple form-input"
+            placeholder="Nombre de la producto" type="text" autofocus autocomplete="nombre"/>
+                      <div class="absolute inset-y-0 flex items-center ml-3 pointer-events-none" >  
+                        <i class="fas fa-align-right fa-lg"></i>
+                      </div>
+                      </div> 
+                 @error('nombre')
+                <p class="mt-1 text-red-500 text-xs italic">{{ $message }}</p>
+                @enderror
+                
+              </div>
+
+         
+              <div class="w-50 px-3 mb-6 md:mb-0">
+                <label class="block uppercase tracking-wide text-gray-700 dark:text-gray-400 text-xs font-bold my-2" for="grid-first-name">
+                {{ __('Descripción') }}
+                </label>
+                <div class="relative text-gray-500 focus-within:text-purple-500 dark:focus-within:text-purple-500" >
+                    <input  wire:model.defer="descripcion" class="@if($errors->has('descripcion')) border-red-500 dark:border-red-500 @else dark:border-gray-500 @endif block w-full pl-10 mt-1 text-sm text-black dark:text-gray-300  dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-purple form-input"
+                    placeholder="Descripción del producto" type="text" autofocus autocomplete="descripcion"/>
+                    
+                      <div class="absolute inset-y-0 flex items-center ml-3 pointer-events-none" >  
+                        <i class="fas fa-align-right fa-lg"></i>
+                      </div>
+                      </div> 
+                 @error('descripcion')
+                <p class="mt-1 text-red-500 text-xs italic">{{ $message }}</p>
+                @enderror
+              </div>
+
+              <div class="w-full px-3 mb-6 md:mb-0">
+                  <label class="block uppercase tracking-wide text-gray-700 dark:text-gray-400 text-xs font-bold my-2" for="grid-first-name">
+                  {{ __('Slug') }}
+                  </label>
+                  <div class="relative text-gray-500 focus-within:text-purple-500 dark:focus-within:text-purple-500" >
+                      <input  wire:model.defer="slug" class="@if($errors->has('slug')) border-red-500 dark:border-red-500 @else dark:border-gray-500 @endif block w-full pl-10 mt-1 text-sm text-black dark:text-gray-300  dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-purple form-input"
+                      placeholder="Descripción de la etiqueta del producto" type="text" autofocus autocomplete="slug"/>
+                      
+                        <div class="absolute inset-y-0 flex items-center ml-3 pointer-events-none" >  
+                          <i class="fas fa-align-right fa-lg"></i>
+                        </div>
+                        </div> 
+                   @error('slug')
+                  <p class="mt-1 text-red-500 text-xs italic">{{ $message }}</p>
+                  @enderror
+                </div>
+
+                <div class="w-full px-3 mb-6 md:mb-0">
+                  <label class="block uppercase tracking-wide text-gray-700 dark:text-gray-400 text-xs font-bold my-2" for="grid-first-name">
+                  {{ __('Precio de Compra') }}
+                  </label>
+                  <div class="relative text-gray-500 focus-within:text-purple-500 dark:focus-within:text-purple-500" >
+                      <input  wire:model.defer="precio_compra" class="@if($errors->has('precio_compra')) border-red-500 dark:border-red-500 @else dark:border-gray-500 @endif block w-full pl-10 mt-1 text-sm text-black dark:text-gray-300  dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-purple form-input"
+                      placeholder="Precio de compra del producto" type="text" autofocus autocomplete="precio_compra"/>
+                      
+                        <div class="absolute inset-y-0 flex items-center ml-3 pointer-events-none" >  
+                          <i class="fas fa-align-right fa-lg"></i>
+                        </div>
+                        </div> 
+                   @error('precio_compra')
+                  <p class="mt-1 text-red-500 text-xs italic">{{ $message }}</p>
+                  @enderror
+                </div>
+
+                <div class="w-full px-3 mb-6 md:mb-0">
+                  <label class="block uppercase tracking-wide text-gray-700 dark:text-gray-400 text-xs font-bold my-2" for="grid-first-name">
+                  {{ __('Precio de Venta') }}
+                  </label>
+                  <div class="relative text-gray-500 focus-within:text-purple-500 dark:focus-within:text-purple-500" >
+                      <input  wire:model.defer="precio_venta" class="@if($errors->has('precio_venta')) border-red-500 dark:border-red-500 @else dark:border-gray-500 @endif block w-full pl-10 mt-1 text-sm text-black dark:text-gray-300  dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-purple form-input"
+                      placeholder="Precio de venta del producto" type="text" autofocus autocomplete="precio_venta"/>
+                      
+                        <div class="absolute inset-y-0 flex items-center ml-3 pointer-events-none" >  
+                          <i class="fas fa-align-right fa-lg"></i>
+                        </div>
+                        </div> 
+                   @error('precio_venta')
+                  <p class="mt-1 text-red-500 text-xs italic">{{ $message }}</p>
+                  @enderror
+                </div>
+
+                <div class="w-full px-3 mb-6 md:mb-0">
+                  <label class="block uppercase tracking-wide text-gray-700 dark:text-gray-400 text-xs font-bold my-2" for="grid-first-name">
+                  {{ __('Imagen') }}
+                  </label>
+                  <div class="relative text-gray-500 focus-within:text-purple-500 dark:focus-within:text-purple-500" >
+                      <input  wire:model.defer="imagen" class="@if($errors->has('imagen')) border-red-500 dark:border-red-500 @else dark:border-gray-500 @endif block w-full pl-10 mt-1 text-sm text-black dark:text-gray-300  dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-purple form-input"
+                      placeholder="Imagen del producto" type="file" autofocus autocomplete="imagen"/>
+                      
+                        <div class="absolute inset-y-0 flex items-center ml-3 pointer-events-none" >  
+                          <i class="fas fa-align-right fa-lg"></i>
+                        </div>
+                        </div> 
+                   @error('imagen')
+                  <p class="mt-1 text-red-500 text-xs italic">{{ $message }}</p>
+                  @enderror
+                </div>
+
+              <div class="w-full px-3 mb-6 md:mb-0">
+              <label class="block mt-4 text-sm">
+                <span class="text-gray-700 dark:text-gray-400">
+                 Estado
+                </span>
+                <select wire:model.defer="estado" class="@if($errors->has('estado')) border-red-500 dark:border-red-500 @else dark:border-gray-500 @endif block w-full mt-1 text-sm dark:text-gray-300 dark:bg-gray-700 form-select focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray">
+                  <option value="Disponible">Disponible</option>
+                  <option value="Agotado" >Agotado</option>
+                </select>
+              </label>
+              @error('estado')
+                <p class="mt-1 text-red-500 text-xs italic">{{ $message }}</p>
+                @enderror
+              </div>
+
+        </div>
+        </p>
+    </x-slot>
+    <x-slot name="footer">
+      <x-jet-secondary-button wire:click="$toggle('mod')" wire:loading.attr="disabled">
+        Cancelar
+    </x-jet-secondary-button>
+
+    <x-jet-danger-button class="ml-2" wire:click="Save()" wire:loading.attr="disabled">
+        Crear Producto
+    </x-jet-danger-button>
+    </x-slot>
+</x-jet-dialog-modal>
+
+ 
           <!-- Modal backdrop. This what you want to place close to the closing body tag -->
           <div wire:ignore.self
           x-show="isModalNewOpen"

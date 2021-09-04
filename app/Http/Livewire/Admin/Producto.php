@@ -29,6 +29,7 @@ class Producto extends Component
     public $mensaje;
     public $caption;
     public $error;
+    public $mod;
 
     public function mount(){
         $this->showcant = 5;
@@ -46,8 +47,10 @@ class Producto extends Component
         $this->mensaje=false;
         $this->caption="";
         $this->error=false;
+        $this->mod=true;
     }
 
+   
     protected $rules = [
         'SwProductos.nombre' => 'required|string|max:50|unique:Productos,nombre',
         'SwProductos.descripcion' => 'required|string|max:255',
