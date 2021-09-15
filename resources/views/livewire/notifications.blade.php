@@ -1,7 +1,7 @@
 <div >
   <!-- Notifications menu -->
     <button
-      class="dark:text-purple-300 text-purple-500 relative mx-2 sm:inline-block align-middle rounded-md focus:outline-none focus:shadow-outline-purple"
+      class="dark:text-purple-300 text-purple-500 relative sm:inline-block align-middle rounded-md focus:outline-none focus:shadow-outline-purple"
       @click="toggleNotificationsMenu"
       @keydown.escape="closeNotificationsMenu"
       aria-label="Notifications"

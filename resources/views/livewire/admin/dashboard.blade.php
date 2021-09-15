@@ -111,7 +111,7 @@
     </div>
 
                         <!-- New Table -->
-                        <div class="w-full overflow-hidden rounded-lg shadow-xs">
+                        <div class="grid w-full overflow-hidden rounded-lg shadow-xs">
                           <div class="w-full overflow-x-auto">
                             <div class="my-2 flex sm:flex-row flex-col">
                               <div class="flex flex-row mb-1 sm:mb-0">

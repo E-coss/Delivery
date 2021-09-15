@@ -40,34 +40,9 @@
       @include('layouts.admin.menu')
       <!-- Mobile sidebar -->
       <!-- Backdrop -->
- 
-   
-      <div class="flex flex-col flex-1">
-        <header class="z-10 py-4 bg-white shadow-md dark:bg-gray-800">
-          <div
-            class="container flex items-center justify-between h-full px-6 mx-auto text-purple-600 dark:text-purple-300"
-          >
-            <!-- Mobile hamburger -->
-            <button
-              class="p-1 -ml-1 mr-5 rounded-md md:hidden focus:outline-none focus:shadow-outline-purple"
-              @click="toggleSideMenu"
-              aria-label="Menu"
-            >
-              <svg
-                class="w-6 h-6"
-                aria-hidden="true"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-            </button>
+
             <!-- Search input -->
-            <div class="flex justify-center flex-1 lg:mr-32">
+            <div class="hidden sm:flex  justify-center flex-1 lg:mr-32">
               <div
                 class="relative w-full max-w-xl mr-6 focus-within:text-purple-500"
               >
@@ -85,17 +60,18 @@
                     ></path>
                   </svg>
                 </div>
+                
                 <input
-                  class="w-full pl-8 pr-2 text-sm text-gray-700 placeholder-gray-600 bg-gray-100 border-0 rounded-md dark:placeholder-gray-500 dark:focus:shadow-outline-gray dark:focus:placeholder-gray-600 dark:bg-gray-700 dark:text-gray-200 focus:placeholder-gray-500 focus:bg-white focus:border-purple-300 focus:outline-none focus:shadow-outline-purple form-input"
+                  class="w-full pl-8 pr-2 text-sm text-gray-700 placeholder-gray-600 bg-gray-100 border-0 rounded-md dark:placeholder-gray-500 dark:focus:shadow-outline-gray dark:focus:placeholder-gray-600 dark:bg-gray-700 dark:text-gray-200 focus:placeholder-gray-500 focus:bg-none  dark:focus:bg-gray-500 focus:border-purple-300 focus:outline-none focus:shadow-outline-purple form-input"
                   type="text"
                   placeholder="Search for projects"
                   aria-label="Search"
                 />
               </div>
             </div>
-            <ul class="flex items-center flex-shrink-0 space-x-6">
+            <ul class="flex items-center flex-shrink-0 space-x-4">
               <!-- Theme toggler -->
-              <li class="flex">
+              <li class="hidden sm:flex " >
                 <button
                   class="rounded-md focus:outline-none focus:shadow-outline-purple"
                   @click="toggleTheme"
@@ -130,11 +106,10 @@
                 </button>
               </li>
               <!-- Notifications menu -->
-              <li class="relative">
-                @livewire('notifications')
-              </li>
-              <!-- Profile menu -->
-              <x-dropdown align="right" width="48">
+              <span class="hidden sm:inline-block">@livewire('notifications')</span>
+              
+              <div class="hidden sm:flex sm:items-center ">
+                <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out">
                             <img class="h-8 w-8 rounded-full object-cover" src="{{ Auth::user()->profile_photo_url }}" alt="{{ Auth::user()->name }}" />
@@ -207,13 +182,19 @@
                         </form>
                     </x-slot>
                 </x-dropdown>
+            </div>
+
             </ul>
+            
           </div>
+          @livewire('navigation-dropdown')
+          
+         
         </header>
-        <main class="h-full pb-16 overflow-y-auto">
+        <main class="h-full overflow-y-auto">
           <!-- Remove everything INSIDE this div to a really blank page -->
-          <div class="container px-6 mx-auto grid">
-          {{ $slot }}
+          <div class=" container px-6 mx-auto ">
+                {{ $slot }}
           </div>
         </main>
       </div>
