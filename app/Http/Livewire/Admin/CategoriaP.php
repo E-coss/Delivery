@@ -32,19 +32,23 @@ class CategoriaP extends Component
         $this->Categoriasid =0;
         $this->nombre;
         $this->descripcion;
-        $this->estado;
         $this->mensaje=false;
         $this->caption="";
         $this->error=false;
     }
 
-    protected $rules = [
-        'SwCategorias.nombre' => 'required|string|max:50|unique:categorias,nombre',
-        'SwCategorias.descripcion' => 'required|string|max:255',
-        'SwCategorias.estado' => 'required|string|max:9',
-    ];
+    protected function rules(){
+        return [
+            'SwCategorias.nombre' => 'required|string|min:5|max:50|unique:categorias,nombre,' . $this->Categoriasid,
+            'SwCategorias.descripcion' => 'required|string|max:255',
+            'SwCategorias.estado' => 'required|string|max:9',
+        ];
+    }
 
-
+    public function updated()
+    {
+        $this->validate();
+    }
 
     public function updatingSearch()
     {
@@ -62,7 +66,7 @@ class CategoriaP extends Component
     public function Save()
     {
         $this->validate([
-        'nombre' => 'required|string|max:50|unique:categorias,nombre',
+        'nombre' => 'required|string|min:5|max:50|unique:categorias,nombre',
         'descripcion' => 'required|string|max:255',
         'estado' => 'required|string|max:9',
         ]);
@@ -98,11 +102,7 @@ class CategoriaP extends Component
        
         if($categoria->id === $this->Categoriasid){
             
-        $this->validate([
-            'SwCategorias.nombre' => 'required|string|max:50',
-            'SwCategorias.descripcion' => 'required|string|max:255',
-            'SwCategorias.estado' => 'required|string|max:9',
-        ]);
+        $this->validate();
         $categoria->nombre = $this->SwCategorias->nombre;
         $categoria->descripcion = $this->SwCategorias->descripcion;
         $categoria->estado = $this->SwCategorias->estado;

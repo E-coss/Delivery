@@ -20,8 +20,9 @@ class CreateProductosTable extends Migration
             $table->string('slug')->unique();
             $table->decimal('precio_compra',10);
             $table->decimal('precio_venta',10);
-            $table->string('imagen',50);
+            $table->string('imagen',255);
             $table->enum('estado', ['Disponible', 'Agotado'])->default('Disponible');
+            $table->integer('categoria_id');
             $table->integer('oferta_id')->nullable();
             $table->integer('creado_por');
             $table->integer('actualizado_por')->nullable();

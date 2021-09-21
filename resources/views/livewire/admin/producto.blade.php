@@ -64,6 +64,7 @@
                   <th class="px-4 py-3">Descripcion</th>
                   <th class="px-4 py-3">Precio Compra</th>
                   <th class="px-4 py-3">Precio Venta</th>
+                  <th class="px-4 py-3">Categoria</th>
                   <th class="px-4 py-3">Estado</th>
                   <th class="px-4 py-3">Acciones</th>
                  
@@ -90,6 +91,10 @@
 
                   <td class="px-4 py-3 text-sm">
                     {{ $producto->precio_venta }}
+                  </td>
+
+                  <td class="px-4 py-3 text-sm">
+                    {{ $producto->categorias->nombre }}
                   </td>
                   
                   <td class="px-4 py-3 text-sm">
@@ -134,13 +139,13 @@
     <x-slot name="content">
       <p class="text-sm text-gray-700 dark:text-gray-400">
         <div class="flex flex-wrap -mx-3 mb-3">
-            <div class="w-50 px-3 mb-6 md:mb-0">
+          <div class="w-full px-3 mb-6 md:mb-0">
                 <label class="block uppercase tracking-wide text-gray-700 dark:text-gray-400 text-xs font-bold mb-2" for="grid-first-name">
                 {{ __('Nombre') }}
                 </label>
                 <div class="relative text-gray-500 focus-within:text-purple-500 dark:focus-within:text-purple-500" >
                     <input  wire:model.defer="nombre" class="@if($errors->has('nombre')) border-red-500 dark:border-red-500 @else dark:border-gray-500 @endif block w-full pl-10 mt-1 text-sm text-black dark:text-gray-300  dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-purple form-input"
-            placeholder="Nombre de la producto" type="text" autofocus autocomplete="nombre"/>
+            placeholder="Nombre del producto" type="text" autofocus autocomplete="nombre"/>
                       <div class="absolute inset-y-0 flex items-center ml-3 pointer-events-none" >  
                         <i class="fas fa-align-right fa-lg"></i>
                       </div>
@@ -152,7 +157,7 @@
               </div>
 
          
-              <div class="w-50 px-3 mb-6 md:mb-0">
+              <div class="w-full px-3 mb-6 md:mb-0">
                 <label class="block uppercase tracking-wide text-gray-700 dark:text-gray-400 text-xs font-bold my-2" for="grid-first-name">
                 {{ __('Descripción') }}
                 </label>
@@ -222,8 +227,42 @@
 
                 <div class="w-full px-3 mb-6 md:mb-0">
                   <label class="block uppercase tracking-wide text-gray-700 dark:text-gray-400 text-xs font-bold my-2" for="grid-first-name">
+                  {{ __('Categoria') }}
+                  </label>
+                  <div class="relative text-gray-500 focus-within:text-purple-500 dark:focus-within:text-purple-500" >
+                    <select wire:model.defer="categoriaid" class="@if($errors->has('categoriaid')) border-red-500 dark:border-red-500 @else dark:border-gray-500 @endif block w-full mt-1 text-sm dark:text-gray-300 dark:bg-gray-700 form-select focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray">
+                      @foreach($Cat as $cate)
+                      <option value="{{ $cate->id }}" @if($loop->first && $title != "") selected="selected" @endif >{{ $cate->nombre }}</option>
+                      @endforeach
+                    </select>
+                        </div> 
+                   @error('categoriaid')
+                  <p class="mt-1 text-red-500 text-xs italic">{{ $message }}</p>
+                  @enderror
+                </div>
+
+                <div class="w-full px-3 mb-6 md:mb-0">
+                  <label class="block uppercase tracking-wide text-gray-700 dark:text-gray-400 text-xs font-bold my-2" for="grid-first-name">
                   {{ __('Imagen') }}
                   </label>
+                  <div class="space-y-1 text-center">
+                    @if ($title != "")
+                   <img class="block" src="{{asset('resources/productos/'.$imagen)}}">
+                   @endif 
+                   <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
+                      <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                    <div class="flex text-sm justify-center text-gray-600">
+                      <label for="imagen" class="text-justify relative dark:bg-gray-900 cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
+                        <span>{{ __('Subir Imagen') }}</span>
+                        <input id="favicon" class="sr-only" type="file" wire:model="imagen">
+                      </label>
+                      <p class="pl-1 dark:text-gray-400">Dar click aquí</p>
+                    </div>
+                    <p class="text-xs text-gray-500 dark:text-gray-400">
+                      PNG, JPG, JPEG, ICO
+                    </p>
+                  </div>
                   <div class="relative text-gray-500 focus-within:text-purple-500 dark:focus-within:text-purple-500" >
                       <input  wire:model.defer="imagen" class="@if($errors->has('imagen')) border-red-500 dark:border-red-500 @else dark:border-gray-500 @endif block w-full pl-10 mt-1 text-sm text-black dark:text-gray-300  dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-purple form-input"
                       placeholder="Imagen del producto" type="file" autofocus autocomplete="imagen"/>

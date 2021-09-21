@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Admin;
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\Productos;
+use App\Models\Categorias;
 use Illuminate\Support\Facades\Auth;
 use Livewire\WithFileUploads;
 
@@ -25,6 +26,7 @@ class Producto extends Component
     public $precio_compra;
     public $precio_venta;
     public $imagen;
+    public $categoriaid;
     public $estado;
     public $mensaje;
     public $caption;
@@ -39,12 +41,13 @@ class Producto extends Component
         $this->search = '';
         $this->modal =false;
         $this->Productosid =0;
-        $this->slug;
-        $this->precio_compra;
-        $this->precio_venta;
-        $this->imagen;
-        $this->nombre;
-        $this->descripcion;
+        $this->categoriaid =0;
+        $this->slug="";
+        $this->precio_compra=0.00;
+        $this->precio_venta=0.00;
+        $this->imagen="";
+        $this->nombre="";
+        $this->descripcion="";
         $this->estado="Disponible";
         $this->mensaje=false;
         $this->caption="";
@@ -53,19 +56,6 @@ class Producto extends Component
         $this->modedit=false;
         $this->title="";
     }
-
-   
-    protected $rules = [
-        'SwProductos.nombre' => 'required|string|max:50|unique:Productos,nombre',
-        'SwProductos.descripcion' => 'required|string|max:255',
-        'SwProductos.slug' => 'required|string|max:255|unique:Productos,slug',
-        'SwProductos.precio_compra' => 'required|numeric',
-        'SwProductos.precio_venta' => 'required|numeric',
-        'SwProductos.imagen' => 'required|image',
-        'SwProductos.estado' => 'required|string|max:9',
-    ];
-
-
 
     public function updatingSearch()
     {
@@ -89,6 +79,8 @@ class Producto extends Component
             $this->slug=$this->SwProductos->slug;
             $this->precio_compra=$this->SwProductos->precio_compra;
             $this->precio_venta=$this->SwProductos->precio_venta; 
+            $this->imagen=$this->SwProductos->imagen; 
+            $this->categoriaid=$this->SwProductos->categoria_id; 
             $this->estado=$this->SwProductos->estado;
     
             $this->Productosid=$this->SwProductos->id;
@@ -102,8 +94,9 @@ class Producto extends Component
         'slug' => 'required|string|max:255|unique:Productos,slug',
         'precio_compra' => 'required|numeric',
         'precio_venta' => 'required|numeric',
+        'categoriaid' => 'required|numeric',
         'imagen' => 'required|image',
-        'estado' => 'required|string|max:9',
+        'estado' => 'required|string|max:11',
         ]);
 
         $pro= new Productos;
@@ -114,6 +107,7 @@ class Producto extends Component
         $pro->precio_venta=$this->precio_venta;
         $pro->imagen=$this->imagen;
         $pro->estado=$this->estado;
+        $pro->categoria_id=$this->categoriaid;
         $pro->creado_por=Auth::user()->id;
         if($this->imagen->storeAs('resources/productos', $this->slug.'.png')){
             if($pro->save()){
@@ -134,13 +128,16 @@ class Producto extends Component
     }
 
     public function resetInputFields(){
-        $this->nombre = '';
-        $this->descripcion = '';
-        $this->slug = '';
-        $this->precio_compra = 0.00;
-        $this->precio_venta = 0.00;
-        $this->imagen = '';
+        $this->slug="";
+        $this->precio_compra=0.00;
+        $this->precio_venta=0.00;
+        $this->imagen="";
+        $this->nombre="";
+        $this->descripcion="";
         $this->estado="Disponible";
+        $this->mensaje=false;
+        $this->caption="";
+        $this->error=false;
         $this->resetValidation();
     }
 
@@ -154,22 +151,24 @@ class Producto extends Component
             
             if($this->imagen != ""){ 
             $this->validate([
-                'nombre' => 'required|string|max:50',
+                'nombre' => 'required|string|max:50|unique:Productos,nombre,' . $this->Productosid,
                 'descripcion' => 'required|string|max:255',
-                'slug' => 'required|string|max:255',
+                'slug' => 'required|string|max:255|unique:Productos,slug,'. $this->Productosid,
                 'precio_compra' => 'required|numeric',
                 'precio_venta' => 'required|numeric',
+                'categoriaid' => 'required|numeric',
                 'imagen' => 'required|image',
-                'estado' => 'required|string|max:9',
+                'estado' => 'required|string|max:11',
                 ]);
             }else{
                 $this->validate([
-                    'nombre' => 'required|string|max:50',
+                    'nombre' => 'required|string|max:50|unique:Productos,nombre,' . $this->Productosid,
                     'descripcion' => 'required|string|max:255',
-                    'slug' => 'required|string|max:255',
+                    'slug' => 'required|string|max:255|unique:Productos,slug,' . $this->Productosid,
                     'precio_compra' => 'required|numeric',
                     'precio_venta' => 'required|numeric',
-                    'estado' => 'required|string|max:9',
+                    'categoriaid' => 'required|numeric',
+                    'estado' => 'required|string|max:11',
                     ]);
             }   
         $producto->nombre=$this->nombre;
@@ -179,6 +178,7 @@ class Producto extends Component
         $producto->precio_venta=$this->precio_venta;
         $producto->imagen=$this->imagen;
         $producto->estado=$this->estado;
+        $producto->categoria_id=$this->categoriaid;
         $producto->creado_por=Auth::user()->id;
 
         if($this->imagen != ""){
@@ -212,9 +212,15 @@ class Producto extends Component
         $this->error=true;
         $this->caption="Ha ocurrido un problema";
     }
-        $this->resetInputFields();
     }
 
+
+    public function hydrate()
+    {
+        if($this->mod == false){
+        $this->resetInputFields();
+        }
+    }
     public function render()
     {
         if(!empty($this->search) && $this->show == "Disponible" || $this->show == "Agotado"){
@@ -226,6 +232,7 @@ class Producto extends Component
         }else{
                 $Productos=Productos::paginate($this->showcant);
         }
-        return view('livewire.admin.producto',compact('Productos'));
+        $Cat=Categorias::where('estado', 'Activo')->get();
+        return view('livewire.admin.producto',compact('Productos','Cat'));
     }
 }

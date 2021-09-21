@@ -207,11 +207,11 @@
                    Estado
                   </span>
                   <select wire:model.defer="estado" class="@if($errors->has('estado')) border-red-500 dark:border-red-500 @else dark:border-gray-500 @endif block w-full mt-1 text-sm dark:text-gray-300 dark:bg-gray-700 form-select focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray">
-                    <option value="Activo" >Activo</option>
+                    <option value="Activo" Selected >Activo</option>
                     <option value="Inactivo" >Inactivo</option>
                   </select>
                 </label>
-                @error('descripcion')
+                @error('estado')
                   <p class="mt-1 text-red-500 text-xs italic">{{ $message }}</p>
                   @enderror
                 </div>
