@@ -30,6 +30,8 @@ class Producto extends Component
     public $caption;
     public $error;
     public $mod;
+    public $modedit;
+    public $title;
 
     public function mount(){
         $this->showcant = 5;
@@ -47,7 +49,9 @@ class Producto extends Component
         $this->mensaje=false;
         $this->caption="";
         $this->error=false;
-        $this->mod=true;
+        $this->mod=false;
+        $this->modedit=false;
+        $this->title="";
     }
 
    
@@ -70,9 +74,23 @@ class Producto extends Component
 
     public function MostrarProductos(Productos $Productos)
     {
+        if($this->mod == true){
+            $this->mod=false;
+        }else{
+            $this->mod=true;
+        }
+        $this->title="Actualizar Producto";
         $this->resetInputFields();
             $this->SwProductos=$Productos;
-            $this->modal=true;
+            $this->title="Actualizar Producto";
+            $this->resetInputFields();
+            $this->nombre=$this->SwProductos->nombre;
+            $this->descripcion=$this->SwProductos->descripcion;
+            $this->slug=$this->SwProductos->slug;
+            $this->precio_compra=$this->SwProductos->precio_compra;
+            $this->precio_venta=$this->SwProductos->precio_venta; 
+            $this->estado=$this->SwProductos->estado;
+    
             $this->Productosid=$this->SwProductos->id;
     }
 
@@ -134,16 +152,51 @@ class Producto extends Component
        
         if($producto->id === $this->Productosid){
             
-        $this->validate([
-            'SwProductos.nombre' => 'required|string|max:50',
-            'SwProductos.descripcion' => 'required|string|max:255',
-            'SwProductos.estado' => 'required|string|max:9',
-        ]);
-        $producto->nombre = $this->SwProductos->nombre;
-        $producto->descripcion = $this->SwProductos->descripcion;
-        $producto->estado = $this->SwProductos->estado;
-        $producto->actualizado_por = Auth::User()->id;
+            if($this->imagen != ""){ 
+            $this->validate([
+                'nombre' => 'required|string|max:50',
+                'descripcion' => 'required|string|max:255',
+                'slug' => 'required|string|max:255',
+                'precio_compra' => 'required|numeric',
+                'precio_venta' => 'required|numeric',
+                'imagen' => 'required|image',
+                'estado' => 'required|string|max:9',
+                ]);
+            }else{
+                $this->validate([
+                    'nombre' => 'required|string|max:50',
+                    'descripcion' => 'required|string|max:255',
+                    'slug' => 'required|string|max:255',
+                    'precio_compra' => 'required|numeric',
+                    'precio_venta' => 'required|numeric',
+                    'estado' => 'required|string|max:9',
+                    ]);
+            }   
+        $producto->nombre=$this->nombre;
+        $producto->descripcion=$this->descripcion;
+        $producto->slug=$this->slug;
+        $producto->precio_compra=$this->precio_compra;
+        $producto->precio_venta=$this->precio_venta;
+        $producto->imagen=$this->imagen;
+        $producto->estado=$this->estado;
+        $producto->creado_por=Auth::user()->id;
 
+        if($this->imagen != ""){
+        if($this->imagen->storeAs('resources/productos', $this->slug.'.png')){
+            if($producto->save()){
+                $this->mensaje=true;
+                $this->caption="producto actualizado Correctamente";
+            }else{
+                $this->mensaje=true;
+                $this->error=true;
+                $this->caption="No se pudo actualizar el producto";
+            }
+        }else{
+            $this->mensaje=true;
+                $this->error=true;
+                $this->caption="No se pudo actualizar el producto";
+        }
+    }else{
         if($producto->save()){
             $this->mensaje=true;
             $this->caption="producto actualizado Correctamente";
@@ -152,6 +205,8 @@ class Producto extends Component
             $this->error=true;
             $this->caption="No se pudo actualizar el producto";
         }
+    }
+
     }else{
         $this->mensaje=true;
         $this->error=true;
