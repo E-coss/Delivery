@@ -8,6 +8,7 @@ use App\Models\Productos;
 use App\Models\Categorias;
 use Illuminate\Support\Facades\Auth;
 use Livewire\WithFileUploads;
+use Illuminate\Support\Facades\Storage;
 
 class Producto extends Component
 {
@@ -18,6 +19,7 @@ class Producto extends Component
     public $search;
     public $show;
     public $modal;
+    public $temporal;
     public Productos $SwProductos;
     public $Productosid;
     public $nombre;
@@ -76,7 +78,7 @@ class Producto extends Component
             $this->slug=$this->SwProductos->slug;
             $this->precio_compra=$this->SwProductos->precio_compra;
             $this->precio_venta=$this->SwProductos->precio_venta; 
-            $this->imagen=$this->SwProductos->imagen; 
+            $this->temporal=$this->SwProductos->imagen; 
             $this->categoriaid=$this->SwProductos->categoria_id; 
             $this->estado=$this->SwProductos->estado;
     
@@ -118,7 +120,7 @@ class Producto extends Component
         }else{
             $this->mensaje=true;
                 $this->error=true;
-                $this->caption="No se pudo guardar el producto";
+                $this->caption="No se pudo guardar la imagen del producto";
         }
         
         $this->resetInputFields(); 
@@ -135,6 +137,7 @@ class Producto extends Component
         $this->estado="Disponible";
         $this->mensaje=false;
         $this->caption="";
+        $this->temporal="";
         $this->error=false;
         $this->resetValidation();
     }
@@ -178,9 +181,11 @@ class Producto extends Component
         $producto->estado=$this->estado;
         $producto->categoria_id=$this->categoriaid;
         $producto->creado_por=Auth::user()->id;
-
+        
         if($this->imagen != "" && $this->imagen != $producto->imagen){
+            
         if($this->imagen->storeAs('resources/productos', $this->slug.'.png')){
+            $this->temporal=$this->slug.'.png';
             if($producto->save()){
                 $this->mensaje=true;
                 $this->caption="producto actualizado Correctamente";
@@ -192,7 +197,7 @@ class Producto extends Component
         }else{
             $this->mensaje=true;
                 $this->error=true;
-                $this->caption="No se pudo actualizar el producto";
+                $this->caption="No se pudo actualizar la imagen";
         }
     }else{
         if($producto->save()){
