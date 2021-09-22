@@ -1,7 +1,7 @@
 <div class="mb-4">
     <!-- New Table -->
     <div class="grid w-full overflow-hidden rounded-lg shadow-xs">
-      <div class="grid w-full ">
+      <div class="w-full overflow-x-auto ">
         <div class="my-2 flex sm:flex-row flex-col">
           <div class="flex flex-row mb-1 sm:mb-0">
               <div class="relative">
@@ -57,7 +57,7 @@
               </svg>
             </button>
       </div>
-      <table class="w-full block overflow-x-auto whitespace-no-wrap">
+      <table class="w-full overflow-x-auto whitespace-no-wrap">
           <thead>
               <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
                   <th class="px-4 py-3">Nombre</th>
@@ -232,7 +232,7 @@
                   <div class="relative text-gray-500 focus-within:text-purple-500 dark:focus-within:text-purple-500" >
                     <select wire:model.defer="categoriaid" class="@if($errors->has('categoriaid')) border-red-500 dark:border-red-500 @else dark:border-gray-500 @endif block w-full mt-1 text-sm dark:text-gray-300 dark:bg-gray-700 form-select focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray">
                       @foreach($Cat as $cate)
-                      <option value="{{ $cate->id }}" @if($loop->first && $title != "") selected="selected" @endif >{{ $cate->nombre }}</option>
+                      <option value="{{ $cate->id }}" @if($loop->first) selected="selected" @endif >{{ $cate->nombre }}</option>
                       @endforeach
                     </select>
                         </div> 
@@ -255,7 +255,7 @@
                     <div class="flex text-sm justify-center text-gray-600">
                       <label for="imagen" class="text-justify relative dark:bg-gray-900 cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
                         <span>{{ __('Subir Imagen') }}</span>
-                        <input id="favicon" class="sr-only" type="file" wire:model="imagen">
+                        <input id="imagen" class="sr-only" type="file" wire:model="">
                       </label>
                       <p class="pl-1 dark:text-gray-400">Dar click aquí</p>
                     </div>

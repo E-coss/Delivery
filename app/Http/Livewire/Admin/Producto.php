@@ -69,11 +69,8 @@ class Producto extends Component
         }else{
             $this->mod=true;
         }
-        $this->title="Actualizar Producto";
-        $this->resetInputFields();
             $this->SwProductos=$Productos;
             $this->title="Actualizar Producto";
-            $this->resetInputFields();
             $this->nombre=$this->SwProductos->nombre;
             $this->descripcion=$this->SwProductos->descripcion;
             $this->slug=$this->SwProductos->slug;
@@ -105,7 +102,7 @@ class Producto extends Component
         $pro->slug=$this->slug;
         $pro->precio_compra=$this->precio_compra;
         $pro->precio_venta=$this->precio_venta;
-        $pro->imagen=$this->imagen;
+        $pro->imagen=$this->slug.'.png';
         $pro->estado=$this->estado;
         $pro->categoria_id=$this->categoriaid;
         $pro->creado_por=Auth::user()->id;
@@ -129,6 +126,7 @@ class Producto extends Component
 
     public function resetInputFields(){
         $this->slug="";
+        $this->title="";
         $this->precio_compra=0.00;
         $this->precio_venta=0.00;
         $this->imagen="";
@@ -149,7 +147,7 @@ class Producto extends Component
        
         if($producto->id === $this->Productosid){
             
-            if($this->imagen != ""){ 
+            if($this->imagen != "" && $this->imagen != $producto->imagen){ 
             $this->validate([
                 'nombre' => 'required|string|max:50|unique:Productos,nombre,' . $this->Productosid,
                 'descripcion' => 'required|string|max:255',
@@ -176,12 +174,12 @@ class Producto extends Component
         $producto->slug=$this->slug;
         $producto->precio_compra=$this->precio_compra;
         $producto->precio_venta=$this->precio_venta;
-        $producto->imagen=$this->imagen;
+        $producto->imagen=$this->slug.'.png';
         $producto->estado=$this->estado;
         $producto->categoria_id=$this->categoriaid;
         $producto->creado_por=Auth::user()->id;
 
-        if($this->imagen != ""){
+        if($this->imagen != "" && $this->imagen != $producto->imagen){
         if($this->imagen->storeAs('resources/productos', $this->slug.'.png')){
             if($producto->save()){
                 $this->mensaje=true;
