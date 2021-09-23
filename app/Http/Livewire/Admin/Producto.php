@@ -224,6 +224,7 @@ class Producto extends Component
         $this->resetInputFields();
         }
     }
+    
     public function render()
     {
         if(!empty($this->search) && $this->show == "Disponible" || $this->show == "Agotado"){

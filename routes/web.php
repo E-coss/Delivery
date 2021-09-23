@@ -5,6 +5,7 @@ use App\Http\Controllers\UsersController;
 use App\Http\Controllers\Admin\AdministracionController; 
 use App\Http\Controllers\Admin\CategoriasController;
 use App\Http\Controllers\Admin\ProductosController;
+use App\Http\Controllers\Admin\SliderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,6 +31,7 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     Route::get('/administracion', [AdministracionController::class, 'index'])->name('administracion');
     Route::get('/categorias', [CategoriasController::class, 'index'])->name('categorias');
     Route::get('/productos', [ProductosController::class, 'index'])->name('productos');
+    Route::get('/slides', [SliderController::class, 'index'])->name('slides');
     // DASHBOARD 
 
     // USUARIOS
