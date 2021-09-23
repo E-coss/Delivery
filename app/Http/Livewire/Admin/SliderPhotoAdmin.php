@@ -40,9 +40,9 @@ class SliderPhotoAdmin extends Component
             $this->mod=true;
         }
             $this->SwSlides=$Slides;
-            $this->title="Actualizar Slides";
-            $this->temporal=$this->SwProductos->imagen;
-            $this->estado=$this->SwProductos->estado;
+            $this->title="Actualizar Slider";
+            $this->temporal=$this->SwSlides->imagen;
+            $this->estado=$this->SwSlides->estado;
     
             $this->Slideid=$this->SwSlides->id;
     }
@@ -53,13 +53,13 @@ class SliderPhotoAdmin extends Component
         'imagen' => 'required|image',
         'estado' => 'required|string|max:11',
         ]);
-
+        $name = date('m-d-Y-h-i-s-a', time());
         $sli= new Slides;
-        $sli->imagen=$this->estado.'.png';
-        $pro->estado=$this->estado;
-        $pro->creado_por=Auth::user()->id;
-        if($this->imagen->storeAs('resources/slides', $this->estado.'.png')){
-            if($pro->save()){
+        $sli->imagen=$name.'.png';
+        $sli->estado=$this->estado;
+        $sli->creado_por=Auth::user()->id;
+        if($this->imagen->storeAs('resources/slides',$name.'.png')){
+            if($sli->save()){
                 $this->mensaje=true;
                 $this->caption="Slide Gardado Correctamente";
             }else{
@@ -79,7 +79,7 @@ class SliderPhotoAdmin extends Component
     public function resetInputFields(){
         $this->title="";
         $this->imagen="";
-        $this->estado="Disponible";
+        $this->estado="Activo";
         $this->mensaje=false;
         $this->caption="";
         $this->temporal="";
@@ -91,7 +91,7 @@ class SliderPhotoAdmin extends Component
         $this->mensaje=false;
     }
 
-    public function Update( Slide $slide){
+    public function Update( Slides $slide){
        
         if($slide->id === $this->Slideid){
             
@@ -105,15 +105,15 @@ class SliderPhotoAdmin extends Component
                     'estado' => 'required|string|max:11',
                     ]);
             }   
-        $producto->imagen=$this->estado.'.png';
-        $producto->estado=$this->estado;
-        $producto->creado_por=Auth::user()->id;
+        $slide->imagen=$slide->imagen.'.png';
+        $slide->estado=$this->estado;
+        $slide->creado_por=Auth::user()->id;
         
         if($this->imagen != "" && $this->imagen != $slide->imagen){
             
-        if($this->imagen->storeAs('resources/slides', $this->slug.'.png')){
-            $this->temporal=$this->estado.'.png';
-            if($producto->save()){
+        if($this->imagen->storeAs('resources/slides', $slide->imagen)){
+            $this->temporal=$slide->imagen.'.png';
+            if($slide->save()){
                 $this->mensaje=true;
                 $this->caption="Slide actualizado Correctamente";
             }else{
@@ -127,7 +127,7 @@ class SliderPhotoAdmin extends Component
                 $this->caption="No se pudo actualizar la imagen";
         }
     }else{
-        if($producto->save()){
+        if($slide->save()){
             $this->mensaje=true;
             $this->caption="Slide actualizado Correctamente";
         }else{
