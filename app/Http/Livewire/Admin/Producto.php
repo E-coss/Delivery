@@ -177,15 +177,15 @@ class Producto extends Component
         $producto->slug=$this->slug;
         $producto->precio_compra=$this->precio_compra;
         $producto->precio_venta=$this->precio_venta;
-        $producto->imagen=$this->slug.'.png';
+        $producto->imagen=$producto->imagen;
         $producto->estado=$this->estado;
         $producto->categoria_id=$this->categoriaid;
         $producto->creado_por=Auth::user()->id;
         
         if($this->imagen != "" && $this->imagen != $producto->imagen){
             
-        if($this->imagen->storeAs('resources/productos', $this->slug.'.png')){
-            $this->temporal=$this->slug.'.png';
+        if($this->imagen->storeAs('resources/productos',$producto->imagen)){
+            $this->temporal=$producto->imagen;
             if($producto->save()){
                 $this->mensaje=true;
                 $this->caption="producto actualizado Correctamente";

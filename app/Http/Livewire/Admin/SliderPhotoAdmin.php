@@ -105,14 +105,13 @@ class SliderPhotoAdmin extends Component
                     'estado' => 'required|string|max:11',
                     ]);
             }   
-        $slide->imagen=$slide->imagen.'.png';
         $slide->estado=$this->estado;
         $slide->creado_por=Auth::user()->id;
         
         if($this->imagen != "" && $this->imagen != $slide->imagen){
             
         if($this->imagen->storeAs('resources/slides', $slide->imagen)){
-            $this->temporal=$slide->imagen.'.png';
+            $this->temporal=$slide->imagen;
             if($slide->save()){
                 $this->mensaje=true;
                 $this->caption="Slide actualizado Correctamente";

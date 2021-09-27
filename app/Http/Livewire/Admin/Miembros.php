@@ -123,7 +123,7 @@ class Miembros extends Component
                     'estado' => 'required|string|max:11',
                     ]);
             }   
-        $Miembro->imagen=$Miembro->imagen.'.png';
+        $Miembro->imagen=$Miembro->imagen;
         $Miembro->nombre=$this->nombre;
         $Miembro->puesto=$this->puesto;
         $Miembro->descripcion=$this->descripcion;
@@ -133,7 +133,7 @@ class Miembros extends Component
         if($this->imagen != "" && $this->imagen != $Miembro->imagen){
             
         if($this->imagen->storeAs('resources/Miembros', $Miembro->imagen)){
-            $this->temporal=$Miembro->imagen.'.png';
+            $this->temporal=$Miembro->imagen;
             if($Miembro->save()){
                 $this->mensaje=true;
                 $this->caption="Miembro actualizado Correctamente";
