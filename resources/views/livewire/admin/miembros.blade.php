@@ -187,6 +187,84 @@
                   @enderror
                 </div>
 
+                <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                  <!-- Inputs with icons -->
+   <label class="block text-sm">
+    <label class="block uppercase tracking-wide text-gray-700 dark:text-gray-400 text-xs font-bold my-2" for="grid-puesto">
+      {{ __('Facebook') }}
+      </label>
+     <!-- focus-within sets the color for the icon when input is focused -->
+     <div class="relative text-gray-500 focus-within:text-indigo-600 dark:focus-within:text-indigo-400" >
+       <input class="@if($errors->has('facebook')) border-red-500 dark:border-red-500 @else dark:border-gray-500 @endif block w-full pl-10 mt-1 text-sm text-black dark:text-gray-300 dark:bg-gray-700 focus:border-blue-500 focus:outline-none focus:shadow-outline-blue dark:focus:shadow-outline-blue form-input" placeholder="https://url.com" wire:model.debounce.1000ms="facebook" autofocus type="url" />
+      
+       <div class="absolute inset-y-0 flex items-center ml-3 pointer-events-none" >
+           <i class="fab fa-facebook-f fa-lg text-blue-600"></i>
+       </div> 
+     </div>
+       @error('facebook')
+       <p class="mt-1 text-red-500 text-xs italic">{{ $message }}</p>
+       @enderror
+   </label> 
+   </div>
+   <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+       <!-- Inputs with icons --> 
+       <label class="block text-sm">
+        <label class="block uppercase tracking-wide text-gray-700 dark:text-gray-400 text-xs font-bold my-2" for="grid-puesto">
+          {{ __('Instagram') }}
+          </label>
+       <!-- focus-within sets the color for the icon when input is focused -->
+       <div class="relative text-gray-500 focus-within:text-pink-500 dark:focus-within:text-pink-500" >
+           <input class="@if($errors->has('instagram')) border-red-500 dark:border-red-500 @else dark:border-gray-500 @endif block w-full pl-10 mt-1 text-sm text-black dark:text-gray-300 dark:bg-gray-700 focus:border-pink-400 focus:outline-none focus:shadow-outline-pink dark:focus:shadow-outline-pink form-input" placeholder="https://url.com" wire:model.debounce.1000ms="instagram" autofocus type="url" />
+           <div class="absolute inset-y-0 flex items-center ml-3 pointer-events-none" >
+               <i class="fab fa-instagram fa-lg text-pink-500"></i>
+           </div>
+       </div>
+       @error('instagram')
+           <p class="mt-1 text-red-500 text-xs italic">{{ $message }}</p>
+           @enderror
+       </label>
+       
+       </div>
+   </div>
+
+   <div class="flex flex-wrap -mx-3 mb-3">
+       <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                    <!-- Inputs with icons -->
+     <label class="block text-sm">
+      <label class="block uppercase tracking-wide text-gray-700 dark:text-gray-400 text-xs font-bold my-2" for="grid-puesto">
+        {{ __('Youtube') }}
+        </label>
+       <!-- focus-within sets the color for the icon when input is focused -->
+       <div class="relative text-gray-500 focus-within:text-red-600 dark:focus-within:text-red-400" >
+         <input class="@if($errors->has('youtube')) border-red-500 dark:border-red-500 @else dark:border-gray-500 @endif block w-full pl-10 mt-1 text-sm text-black dark:text-gray-300 dark:bg-gray-700 focus:border-red-400 focus:outline-none focus:shadow-outline-red dark:focus:shadow-outline-red form-input" placeholder="https://url.com" wire:model.debounce.1000ms="youtube" autofocus type="url" />     
+         <div class="absolute inset-y-0 flex items-center ml-3 pointer-events-none" >
+           <i class="fab fa-youtube fa-lg text-red-500"></i>
+         </div>
+       </div>
+       @error('youtube')
+         <p class="mt-1 text-red-500 text-xs italic">{{ $message }}</p>
+         @enderror
+     </label> 
+     </div>
+
+     <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+         <!-- Inputs with icons --> 
+         <label class="block text-sm">
+          <label class="block uppercase tracking-wide text-gray-700 dark:text-gray-400 text-xs font-bold my-2" for="grid-puesto">
+            {{ __('Twitter') }}
+            </label>
+         <!-- focus-within sets the color for the icon when input is focused -->
+         <div class="relative text-gray-500 focus-within:text-blue-500 dark:focus-within:text-blue-500" >
+             <input class="@if($errors->has('twitter')) border-red-500 dark:border-red-500 @else dark:border-gray-500 @endif block w-full pl-10 mt-1 text-sm text-black dark:text-gray-300 dark:bg-gray-700 focus:border-sky-400 focus:outline-none focus:shadow-outline-sky dark:focus:shadow-outline-sky form-input" placeholder="https://url.com" wire:model.debounce.1000ms="twitter" autofocus type="url" />     
+             <div class="absolute inset-y-0 flex items-center ml-3 pointer-events-none" >
+               <i class="fab fa-twitter fa-lg text-blue-400"></i>
+             </div>
+         </div>
+         @error('twitter')
+         <p class="mt-1 text-red-500 text-xs italic">{{ $message }}</p>
+         @enderror
+       </label> 
+     </div>
                 <div class="w-full px-3 mb-6 md:mb-0">
                   <label class="block uppercase tracking-wide text-gray-700 dark:text-gray-400 text-xs font-bold my-2" for="grid-first-name">
                   {{ __('Imagen') }}
@@ -194,11 +272,11 @@
                   <div class="space-y-1 text-center">
                       @if ($imagen)
                         Vista Previa:
-                        <img src="{{ $imagen->temporaryUrl() }}">
+                        <img class="block m-auto" src="{{ $imagen->temporaryUrl() }}">
                     @endif
                     @if ($imagen == "" && $temporal != "")
                     Imagen del Miembro
-                   <img class="block" src="{{asset('resources/Miembros/'.$temporal)}}">
+                   <img class="block m-auto" src="{{asset('resources/Miembros/'.$temporal)}}">
                    @endif 
                    <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
                       <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />

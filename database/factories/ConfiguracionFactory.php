@@ -33,7 +33,6 @@ class ConfiguracionFactory extends Factory
             'instagram' => 'https://www.instagram.com/',
             'youtube' => 'https://www.youtube.com/',
             'twitter' => 'https://twitter.com/',
-            'creado_por' => $this->faker->numberBetween(1,100),
         ];
     }
 }

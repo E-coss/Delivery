@@ -26,8 +26,6 @@ class CreateConfiguracionsTable extends Migration
             $table->string('instagram',255)->nullable();
             $table->string('youtube',255)->nullable();
             $table->string('twitter',255)->nullable();
-            $table->integer('creado_por');
-            $table->integer('actualizado_por')->nullable();
             $table->timestamps();
         });
     }

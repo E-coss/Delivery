@@ -24,6 +24,10 @@ class Miembros extends Component
     public $puesto;
     public $descripcion;
     public $nombre;
+    public $facebook;
+    public $instagram;
+    public $youtube;
+    public $twitter;
     public $mensaje;
     public $caption;
     public $error;
@@ -47,6 +51,10 @@ class Miembros extends Component
             $this->temporal=$this->SwMiembros->imagen;
             $this->nombre=$this->SwMiembros->nombre;
             $this->puesto=$this->SwMiembros->puesto;
+            $this->facebook=$this->SwMiembros->facebook;
+            $this->instagram=$this->SwMiembros->instagram;
+            $this->youtube=$this->SwMiembros->youtube;
+            $this->twitter=$this->SwMiembros->twitter;
             $this->descripcion=$this->SwMiembros->descripcion;
             $this->estado=$this->SwMiembros->estado;
     
@@ -57,10 +65,14 @@ class Miembros extends Component
     {
         $this->validate([
         'imagen' => 'required|image',
-        'nombre' => 'required|max:20',
+        'nombre' => 'required|max:30',
         'puesto' => 'required|max:30',
         'descripcion' => 'required',
         'estado' => 'required|string|max:11',
+        'facebook' => 'string|max:255',
+        'instagram' => 'string|max:255',
+        'youtube' => 'string|max:255',
+        'twitter' => 'string|max:255',
         ]);
         $name = date('m-d-Y-h-i-s-a', time());
         $mie= new Miembro;
@@ -69,6 +81,10 @@ class Miembros extends Component
         $mie->puesto=$this->puesto;
         $mie->descripcion=$this->descripcion;
         $mie->estado=$this->estado;
+        $mie->facebook=$this->facebook;
+        $mie->instagram=$this->instagram;
+        $mie->youtube=$this->youtube;
+        $mie->twitter=$this->twitter;
         $mie->creado_por=Auth::user()->id;
         if($this->imagen->storeAs('resources/Miembros',$name.'.png')){
             if($mie->save()){
@@ -94,6 +110,10 @@ class Miembros extends Component
         $this->puesto="";
         $this->descripcion="";
         $this->imagen="";
+        $this->facebook="";
+        $this->instagram="";
+        $this->youtube="";
+        $this->twitter="";
         $this->estado="Activo";
         $this->mensaje=false;
         $this->caption="";
@@ -111,28 +131,45 @@ class Miembros extends Component
         if($Miembro->id === $this->Miembroid){
             
             if($this->imagen != "" && $this->imagen != $Miembro->imagen){ 
+                $name = date('m-d-Y-h-i-s-a', time());
             $this->validate([
                 'imagen' => 'required|image|unique:miembros,imagen,'. $this->Miembroid,
-                'nombre' => 'required|max:20|unique:miembros,nombre,'. $this->Miembroid,
+                'nombre' => 'required|max:30|unique:miembros,nombre,'. $this->Miembroid,
                 'puesto' => 'required|max:30',
                 'descripcion' => 'required',
                 'estado' => 'required|string|max:11',
+                'facebook' => 'string|max:255',
+                'instagram' => 'string|max:255',
+                'youtube' => 'string|max:255',
+                'twitter' => 'string|max:255',
                 ]);
+                $Miembro->imagen=$name.".png";
             }else{
                 $this->validate([
                     'estado' => 'required|string|max:11',
+                    'facebook' => 'string|max:255',
+                    'instagram' => 'string|max:255',
+                    'youtube' => 'string|max:255',
+                    'twitter' => 'string|max:255',
                     ]);
             }   
-        $Miembro->imagen=$Miembro->imagen;
+        
+        $img=$Miembro->imagen;
+        
         $Miembro->nombre=$this->nombre;
         $Miembro->puesto=$this->puesto;
         $Miembro->descripcion=$this->descripcion;
         $Miembro->estado=$this->estado;
-        $Miembro->creado_por=Auth::user()->id;
+        $Miembro->facebook=$this->facebook;
+        $Miembro->instagram=$this->instagram;
+        $Miembro->youtube=$this->youtube;
+        $Miembro->twitter=$this->twitter;
+        $Miembro->actualizado_por=Auth::user()->id;
         
-        if($this->imagen != "" && $this->imagen != $Miembro->imagen){
+        if($this->imagen != ""){
             
-        if($this->imagen->storeAs('resources/Miembros', $Miembro->imagen)){
+        if($this->imagen->storeAs('resources/Miembros', $name.'.png')){
+            unlink(public_path('resources/Miembros/'.$img));
             $this->temporal=$Miembro->imagen;
             if($Miembro->save()){
                 $this->mensaje=true;

@@ -151,6 +151,7 @@ class Producto extends Component
         if($producto->id === $this->Productosid){
             
             if($this->imagen != "" && $this->imagen != $producto->imagen){ 
+                $name = date('m-d-Y-h-i-s-a', time());
             $this->validate([
                 'nombre' => 'required|string|max:50|unique:Productos,nombre,' . $this->Productosid,
                 'descripcion' => 'required|string|max:255',
@@ -161,6 +162,7 @@ class Producto extends Component
                 'imagen' => 'required|image',
                 'estado' => 'required|string|max:11',
                 ]);
+                $producto->imagen=$name.".png";
             }else{
                 $this->validate([
                     'nombre' => 'required|string|max:50|unique:Productos,nombre,' . $this->Productosid,
@@ -172,19 +174,22 @@ class Producto extends Component
                     'estado' => 'required|string|max:11',
                     ]);
             }   
+        
+        
+        $img=$producto->imagen;
         $producto->nombre=$this->nombre;
         $producto->descripcion=$this->descripcion;
         $producto->slug=$this->slug;
         $producto->precio_compra=$this->precio_compra;
         $producto->precio_venta=$this->precio_venta;
-        $producto->imagen=$producto->imagen;
         $producto->estado=$this->estado;
         $producto->categoria_id=$this->categoriaid;
-        $producto->creado_por=Auth::user()->id;
+        $producto->actualizado_por=Auth::user()->id;
         
-        if($this->imagen != "" && $this->imagen != $producto->imagen){
+        if($this->imagen != ""){
             
-        if($this->imagen->storeAs('resources/productos',$producto->imagen)){
+        if($this->imagen->storeAs('resources/productos',$name.'.png')){
+            unlink(public_path('resources/productos/'.$img));
             $this->temporal=$producto->imagen;
             if($producto->save()){
                 $this->mensaje=true;

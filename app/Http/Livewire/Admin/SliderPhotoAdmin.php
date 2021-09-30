@@ -96,21 +96,27 @@ class SliderPhotoAdmin extends Component
         if($slide->id === $this->Slideid){
             
             if($this->imagen != "" && $this->imagen != $slide->imagen){ 
+                $name = date('m-d-Y-h-i-s-a', time());
             $this->validate([
                 'imagen' => 'required|image|unique:Slides,imagen,'. $this->Slideid,
                 'estado' => 'required|string|max:11',
                 ]);
+                $slide->imagen=$name.".png";
             }else{
                 $this->validate([
                     'estado' => 'required|string|max:11',
                     ]);
             }   
-        $slide->estado=$this->estado;
-        $slide->creado_por=Auth::user()->id;
         
-        if($this->imagen != "" && $this->imagen != $slide->imagen){
+        $slide->estado=$this->estado;
+        $img=$slide->imagen;
+        
+        $slide->actualizado_por=Auth::user()->id;
+        
+        if($this->imagen != ""){
             
-        if($this->imagen->storeAs('resources/slides', $slide->imagen)){
+        if($this->imagen->storeAs('resources/slides', $name.'.png')){
+            unlink(public_path('resources/slides/'.$img));
             $this->temporal=$slide->imagen;
             if($slide->save()){
                 $this->mensaje=true;

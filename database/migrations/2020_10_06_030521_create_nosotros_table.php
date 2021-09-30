@@ -20,8 +20,6 @@ class CreateNosotrosTable extends Migration
             $table->string('vision');
             $table->string('valores');
             $table->text('iframe')->nullable();
-            $table->integer('creado_por');
-            $table->integer('actualizado_por')->nullable();
             $table->timestamps();
         });
     }
