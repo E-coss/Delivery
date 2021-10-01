@@ -152,6 +152,7 @@ class Producto extends Component
             
             if($this->imagen != "" && $this->imagen != $producto->imagen){ 
                 $name = date('m-d-Y-h-i-s-a', time());
+                $img=$producto->imagen;
             $this->validate([
                 'nombre' => 'required|string|max:50|unique:Productos,nombre,' . $this->Productosid,
                 'descripcion' => 'required|string|max:255',
@@ -176,7 +177,7 @@ class Producto extends Component
             }   
         
         
-        $img=$producto->imagen;
+        
         $producto->nombre=$this->nombre;
         $producto->descripcion=$this->descripcion;
         $producto->slug=$this->slug;

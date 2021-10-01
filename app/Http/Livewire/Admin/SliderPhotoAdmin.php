@@ -97,6 +97,7 @@ class SliderPhotoAdmin extends Component
             
             if($this->imagen != "" && $this->imagen != $slide->imagen){ 
                 $name = date('m-d-Y-h-i-s-a', time());
+                $img=$slide->imagen;
             $this->validate([
                 'imagen' => 'required|image|unique:Slides,imagen,'. $this->Slideid,
                 'estado' => 'required|string|max:11',
@@ -109,7 +110,7 @@ class SliderPhotoAdmin extends Component
             }   
         
         $slide->estado=$this->estado;
-        $img=$slide->imagen;
+       
         
         $slide->actualizado_por=Auth::user()->id;
         

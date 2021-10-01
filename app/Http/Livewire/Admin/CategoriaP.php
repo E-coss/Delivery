@@ -23,6 +23,8 @@ class CategoriaP extends Component
     public $mensaje;
     public $caption;
     public $error;
+    public $mod;
+    public $title;
 
     public function mount(){
         $this->showcant = 5;
@@ -39,15 +41,10 @@ class CategoriaP extends Component
 
     protected function rules(){
         return [
-            'SwCategorias.nombre' => 'required|string|min:5|max:50|unique:categorias,nombre,' . $this->Categoriasid,
-            'SwCategorias.descripcion' => 'required|string|max:255',
-            'SwCategorias.estado' => 'required|string|max:9',
+            'nombre' => 'required|string|min:5|max:50|unique:categorias,nombre,' . $this->Categoriasid,
+            'descripcion' => 'required|string|max:255',
+            'estado' => 'required|string|max:9',
         ];
-    }
-
-    public function updated()
-    {
-        $this->validate();
     }
 
     public function updatingSearch()
@@ -57,19 +54,18 @@ class CategoriaP extends Component
 
     public function MostrarCategorias(Categorias $Categorias)
     {
-        $this->resetInputFields();
             $this->SwCategorias=$Categorias;
-            $this->modal=true;
+            $this->nombre=$this->SwCategorias->nombre;
+            $this->descripcion=$this->SwCategorias->descripcion;
+            $this->estado=$this->SwCategorias->estado;
+            $this->mod=true;
+            $this->title="Actualizar Categoria";
             $this->Categoriasid=$this->SwCategorias->id;
     }
 
     public function Save()
     {
-        $this->validate([
-        'nombre' => 'required|string|min:5|max:50|unique:categorias,nombre',
-        'descripcion' => 'required|string|max:255',
-        'estado' => 'required|string|max:9',
-        ]);
+        $this->validate();
 
         $cat= new Categorias;
         $cat->nombre=$this->nombre;
@@ -90,7 +86,7 @@ class CategoriaP extends Component
     public function resetInputFields(){
         $this->nombre = '';
         $this->descripcion = '';
-        $this->estado = '';
+        $this->estado="Activo";
         $this->resetValidation();
     }
 
@@ -98,14 +94,21 @@ class CategoriaP extends Component
         $this->mensaje=false;
     }
 
+    public function hydrate()
+    {
+        if($this->mod == false){
+        $this->resetInputFields();
+        }
+    }
+
     public function Update( Categorias $categoria){
        
         if($categoria->id === $this->Categoriasid){
             
         $this->validate();
-        $categoria->nombre = $this->SwCategorias->nombre;
-        $categoria->descripcion = $this->SwCategorias->descripcion;
-        $categoria->estado = $this->SwCategorias->estado;
+        $categoria->nombre = $this->nombre;
+        $categoria->descripcion = $this->descripcion;
+        $categoria->estado = $this->estado;
         $categoria->actualizado_por = Auth::User()->id;
 
         if($categoria->save()){
@@ -121,7 +124,6 @@ class CategoriaP extends Component
         $this->error=true;
         $this->caption="Ha ocurrido un problema";
     }
-        $this->resetInputFields();
     }
 
     public function render()

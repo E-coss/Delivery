@@ -132,6 +132,7 @@ class Miembros extends Component
             
             if($this->imagen != "" && $this->imagen != $Miembro->imagen){ 
                 $name = date('m-d-Y-h-i-s-a', time());
+                $img=$Miembro->imagen;
             $this->validate([
                 'imagen' => 'required|image|unique:miembros,imagen,'. $this->Miembroid,
                 'nombre' => 'required|max:30|unique:miembros,nombre,'. $this->Miembroid,
@@ -154,7 +155,7 @@ class Miembros extends Component
                     ]);
             }   
         
-        $img=$Miembro->imagen;
+        
         
         $Miembro->nombre=$this->nombre;
         $Miembro->puesto=$this->puesto;
