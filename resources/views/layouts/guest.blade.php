@@ -100,7 +100,7 @@
         <main class="h-full overflow-y-auto">
           <!-- Remove everything INSIDE this div to a really blank page -->
           <div>
-                {{ $slot }}
+             {{ $slot }}
           </div>
         </main>
       </div>

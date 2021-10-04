@@ -27,7 +27,7 @@ Alternatively if you want to just have a single hero
 @livewire('front.list-products')
 
     <!-- This example requires Tailwind CSS v2.0+ -->
-<div class="h-3/6 relative bg-white dark:bg-gray-800 overflow-hidden dark:bg-gray-800">
+<div class="h-3/6 relative bg-white overflow-hidden dark:bg-gray-800">
     <div class="dark:bg-gray-800 mx-auto">
       <div class="dark:bg-gray-800 relative z-10 pb-8 bg-white sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
         <svg class="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2" fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">

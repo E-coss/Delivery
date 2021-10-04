@@ -13,8 +13,8 @@
             <div class="hidden md:flex md:items-center md:w-auto w-full order-3 md:order-1" id="menu">
                 <nav>
                     <ul class="md:flex items-center justify-between text-base text-gray-800 dark:text-gray-300 pt-4 md:pt-0">
-                        <li><a class="inline-block no-underline hover:text-gray-500 hover:underline py-2 px-4" href="#">Tienda</a></li>
-                        <li><a class="inline-block no-underline hover:text-gray-500 hover:underline py-2 px-4" href="#">Acerca de</a></li>
+                        <li><a class="inline-block no-underline hover:text-gray-500 hover:underline py-2 px-4" href="{{ route('galeria') }}">Galería</a></li>
+                        <li><a class="inline-block no-underline hover:text-gray-500 hover:underline py-2 px-4" href="{{ route('contactanos') }}">Contáctanos</a></li>
                     </ul>
                 </nav>
             </div>

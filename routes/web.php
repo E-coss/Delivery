@@ -7,6 +7,8 @@ use App\Http\Controllers\Admin\CategoriasController;
 use App\Http\Controllers\Admin\ProductosController;
 use App\Http\Controllers\Admin\SliderController;
 use App\Http\Controllers\Admin\MiembroController;
+use App\Http\Controllers\Front\GalleryController;
+use App\Http\Controllers\Front\ContactController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,6 +25,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('Frontend.WelcomePage');
 });
+
+Route::get('/galeria', [GalleryController::class, 'index'])->name('galeria');
+Route::get('/contactanos', [ContactController::class, 'index'])->name('contactanos');
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
