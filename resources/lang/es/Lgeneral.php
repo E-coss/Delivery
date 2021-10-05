@@ -1,7 +1,7 @@
 <?php
 
 return [
-
+    'Hello!'     => 'Hola',
     'Dashboard'     => 'Dashboard',
     'Users'         => 'Usuarios',  
     'Logout'        => 'Cerrar sesión',

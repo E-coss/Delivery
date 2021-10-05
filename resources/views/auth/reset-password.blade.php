@@ -1,36 +1,49 @@
-<x-guest-layout>
-    <x-jet-authentication-card>
-        <x-slot name="logo">
-            <x-jet-authentication-card-logo />
-        </x-slot>
-
-        <x-jet-validation-errors class="mb-4" />
-
-        <form method="POST" action="{{ route('password.update') }}">
+@extends('layouts.auth')
+@section('title',"Restablecer Contraseña")
+@section('content')
+<div class="flex flex-col overflow-y-auto md:flex-row">
+          <div class="h-32 md:h-auto md:w-1/2"> 
+          <img aria-hidden="true" class="object-cover w-full h-full dark:hidden" src="{{ asset('img/forgot-password-office.jpeg') }}" alt="Office"  />
+          <img aria-hidden="true" class="hidden object-cover w-full h-full dark:block"  src="{{ asset('img/forgot-password-office-dark.jpeg') }}" alt="Office" />
+          </div>
+          <div class="flex items-center justify-center p-6 sm:p-12 md:w-1/2">
+            <div class="w-full">
+            <h1 class="mb-5 text-2xl font-bold text-gray-700 dark:text-gray-200" >
+              {{ __('Restablecer Contraseña') }}
+              </h1>
+            <form method="POST" action="{{ route('password.update') }}">
             @csrf
-
             <input type="hidden" name="token" value="{{ $request->route('token') }}">
 
-            <div class="block">
-                <x-jet-label value="{{ __('perfil.Email') }}" />
-                <x-jet-input class="block mt-1 w-full" type="email" name="email" :value="old('email', $request->email)" required autofocus />
-            </div>
+            @if (session('status'))
+                <div class="mb-4 font-medium text-sm text-green-600">
+                    {{ session('status') }}
+                </div>
+             @endif
 
-            <div class="mt-4">
-                <x-jet-label value="{{ __('Lgeneral.Password') }}" />
-                <x-jet-input class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
-            </div>
+             <x-jet-validation-errors class="mb-1" />
 
-            <div class="mt-4">
-                <x-jet-label value="{{ __('perfil.Confirm Password') }}" />
-                <x-jet-input class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
-            </div>
+              <label class="block text-sm">
+                <span class="text-gray-700 dark:text-gray-400">{{ __('perfil.Email') }}</span>
+                <input type="email" name="email" :value="old('email', $request->email)" required autofocus class="block w-full mt-1 text-sm @if($errors->has('email')) border-red-500 dark:border-red-500 @else dark:border-gray-500 @endif dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"/>
+              </label>
 
-            <div class="flex items-center justify-end mt-4">
-                <x-jet-button>
-                    {{ __('Lgeneral.Reset Password') }}
-                </x-jet-button>
+              <label class="block text-sm">
+                <span class="text-gray-700 dark:text-gray-400">{{ __('Lgeneral.Password') }}</span>
+                <input type="password" name="password" required autocomplete="new-password" class="block w-full mt-1 text-sm @if($errors->has('email')) border-red-500 dark:border-red-500 @else dark:border-gray-500 @endif dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"/>
+              </label>
+
+              <label class="block text-sm">
+                <span class="text-gray-700 dark:text-gray-400">{{ __('perfil.Confirm Password') }}</span>
+                <input type="password" name="password_confirmation" required autocomplete="new-password" class="block w-full mt-1 text-sm @if($errors->has('email')) border-red-500 dark:border-red-500 @else dark:border-gray-500 @endif dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"/>
+              </label>
+
+              <!-- You should use a button here, as the anchor is only used for the example  -->
+              <button class="block w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple" >
+              {{ __('Lgeneral.Reset Password') }}
+              </button>
+            </form>
             </div>
-        </form>
-    </x-jet-authentication-card>
-</x-guest-layout>
+            </div>
+        </div>
+@endsection
